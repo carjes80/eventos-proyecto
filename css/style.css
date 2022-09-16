@@ -1,0 +1,45 @@
+body{
+    color: white;
+    margin: 0px;
+    background-color: rgba(16,20,23,255);   
+}
+nav{
+    background-color: black;
+    width: 100%;
+    position: fixed;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: bold;
+
+}
+.menu{
+text-align: center;
+margin:0px;
+padding:0px;
+}
+.menu li{
+    display: inline-block;
+}
+.menu a{
+    padding: 25px;
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+.menu a:hover{
+    color:rgba(245,202,0,255);
+}
+
+p{
+    font-family: 'Raleway', sans-serif;
+    color:white;
+}
+/* Acá va el carrusel con los eventos principales */
+.fondo {
+    text-align: center;
+    background: url(../img/fondo.jpg);
+    background-size: cover;
+    overflow: hidden;
+    background-position: center;
+    height: 300px;
+    padding: 70px;
+}
