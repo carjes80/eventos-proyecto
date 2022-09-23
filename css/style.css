@@ -1,31 +1,16 @@
 body {
     color: white;
     margin: 0px;
-<<<<<<< HEAD
     padding: 0;
     background-color: rgba(16, 20, 23, 255);
 }
 
 nav {
     background-color: transparent;
-=======
-    background-color: rgba(16, 20, 23, 255);
-}
-
-.contenedor {
-    width: 100%;
-    max-width: 1000px;
-
-}
-
-nav {
-    background-color: black;
->>>>>>> b3b4cb6 (pruebas)
     width: 100%;
     position: fixed;
     font-family: 'Merriweather Sans', sans-serif;
     font-weight: bold;
-<<<<<<< HEAD
     z-index: 1;
 	transition: all 0.5s ease-in-out; 
 }
@@ -46,32 +31,13 @@ nav {
 }
 
 .menu a {
-=======
-}
-
-.menu1 li {
-    display: inline-block;
-}
-
-.menu1 {
-    text-align: center;
-    margin: 0px;
-    padding: 0px;
-}
-
-.menu1 a {
->>>>>>> b3b4cb6 (pruebas)
     padding: 25px;
     color: white;
     text-decoration: none;
     display: block;
 }
 
-<<<<<<< HEAD
 .menu a:hover {
-=======
-.menu1 a:hover {
->>>>>>> b3b4cb6 (pruebas)
     color: rgba(245, 202, 0, 255);
 }
 
@@ -79,7 +45,6 @@ p {
     font-family: 'Raleway', sans-serif;
     color: white;
 }
-<<<<<<< HEAD
 
 .mySlides {
     display: none;
@@ -87,17 +52,10 @@ p {
 }
 
 .first {
-=======
-h1::after{color: rgba(245, 202, 0, 255); font-weight: bold;content: "...";}
-
-/* Acá va el carrusel con los eventos principales */
-.fondo {
->>>>>>> b3b4cb6 (pruebas)
     text-align: center;
     background: url(../img/slides/fondo.jpg);
     background-size: cover;
     background-position: center;
-<<<<<<< HEAD
     height: 40vh;
     padding: 100px;
 }
@@ -120,12 +78,18 @@ h1::after{color: rgba(245, 202, 0, 255); font-weight: bold;content: "...";}
     padding: 100px;
 }
 
+.carrusel{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 /* Slideshow container */
 .slideshow-container {
+    max-width:1680px;
     width: 100%;
     position: relative;
+    display:block;
 }
-
 
 /* The dots/bullets/indicators */
 .dot {
@@ -194,37 +158,10 @@ ul {
 .img-eventoproximo {
     max-width: 18rem;
     border-radius: 11px;
-    box-shadow: 0 3px 10px #a17a69;
+    box-shadow: 0 3px 10px rgb(0, 0, 0);
     margin: 0.4rem;
     padding: 0.6rem;
 }
-=======
-    height: 300px;
-    padding: 70px;
+img:hover{
+    box-shadow: 0 3px 10px rgba(245, 202, 0, 255);
 }
-
-@media screen and (max-width:700px) {
-    .menu1 {display: none;}
-    .menu2 li {display: inline-block;}
-    .menu2 {
-        text-align: center;
-        margin: 0px;
-        padding: 0px;
-    }
-    .menu2 a {
-        padding: 25px;
-        color: white;
-        text-decoration: none;
-        display: block;
-    }
-    .menu2 a:hover {
-        color: rgba(245, 202, 0, 255);
-    }
-}
-
-@media screen and (min-width:701px) {
-    .menu2 {
-        display: none;
-    }
-}
->>>>>>> b3b4cb6 (pruebas)
