@@ -1,38 +1,50 @@
-body{
+body {
     color: white;
     margin: 0px;
-    background-color: rgba(16,20,23,255);   
+    background-color: rgba(16, 20, 23, 255);
 }
-nav{
+
+.contenedor {
+    width: 100%;
+    max-width: 1000px;
+
+}
+
+nav {
     background-color: black;
     width: 100%;
     position: fixed;
     font-family: 'Merriweather Sans', sans-serif;
     font-weight: bold;
+}
 
-}
-.menu{
-text-align: center;
-margin:0px;
-padding:0px;
-}
-.menu li{
+.menu1 li {
     display: inline-block;
 }
-.menu a{
+
+.menu1 {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.menu1 a {
     padding: 25px;
     color: white;
     text-decoration: none;
     display: block;
 }
-.menu a:hover{
-    color:rgba(245,202,0,255);
+
+.menu1 a:hover {
+    color: rgba(245, 202, 0, 255);
 }
 
-p{
+p {
     font-family: 'Raleway', sans-serif;
-    color:white;
+    color: white;
 }
+h1::after{color: rgba(245, 202, 0, 255); font-weight: bold;content: "...";}
+
 /* Acá va el carrusel con los eventos principales */
 .fondo {
     text-align: center;
@@ -42,4 +54,29 @@ p{
     background-position: center;
     height: 300px;
     padding: 70px;
+}
+
+@media screen and (max-width:700px) {
+    .menu1 {display: none;}
+    .menu2 li {display: inline-block;}
+    .menu2 {
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+    }
+    .menu2 a {
+        padding: 25px;
+        color: white;
+        text-decoration: none;
+        display: block;
+    }
+    .menu2 a:hover {
+        color: rgba(245, 202, 0, 255);
+    }
+}
+
+@media screen and (min-width:701px) {
+    .menu2 {
+        display: none;
+    }
 }
