@@ -1,45 +1,158 @@
-body{
+body {
     color: white;
     margin: 0px;
-    background-color: rgba(16,20,23,255);   
+    padding: 0;
+    background-color: rgba(16, 20, 23, 255);
 }
-nav{
-    background-color: black;
+
+nav {
+    background-color: transparent;
     width: 100%;
     position: fixed;
     font-family: 'Merriweather Sans', sans-serif;
     font-weight: bold;
+    z-index: 1;
+	transition: all 0.5s ease-in-out; 
+}
 
+.sticky {
+    position: fixed;
+    background-color: #000000;
 }
-.menu{
-text-align: center;
-margin:0px;
-padding:0px;
+
+.menu {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
 }
-.menu li{
+
+.menu li {
     display: inline-block;
 }
-.menu a{
+
+.menu a {
     padding: 25px;
     color: white;
     text-decoration: none;
     display: block;
 }
-.menu a:hover{
-    color:rgba(245,202,0,255);
+
+.menu a:hover {
+    color: rgba(245, 202, 0, 255);
 }
 
-p{
+p {
     font-family: 'Raleway', sans-serif;
-    color:white;
+    color: white;
 }
-/* Acá va el carrusel con los eventos principales */
-.fondo {
+
+.mySlides {
+    display: none;
+
+}
+
+.first {
     text-align: center;
-    background: url(../img/fondo.jpg);
+    background: url(../img/slides/fondo.jpg);
     background-size: cover;
-    overflow: hidden;
     background-position: center;
-    height: 300px;
-    padding: 70px;
+    height: 40vh;
+    padding: 100px;
+}
+
+.second {
+    text-align: center;
+    background: url(../img/slides/cinema.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 40vh;
+    padding: 100px;
+}
+
+.third {
+    text-align: center;
+    background: url(../img/slides/stadium.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 40vh;
+    padding: 100px;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    width: 100%;
+    position: relative;
+}
+
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+    .text {
+        font-size: 11px
+    }
+}
+
+section {
+    display: flex;
+    justify-content: center;
+}
+
+.eventoproximo {
+    max-width: 90rem;
+}
+
+.vh {
+}
+ul {
+    list-style-type: none;
+}
+
+.eventos {
+
+}
+
+.cards {
+    width: 20vw;
+    height: 30vh;
+    border: 1px solid white;
+}
+
+.img-eventoproximo {
+    max-width: 18rem;
+    border-radius: 11px;
+    box-shadow: 0 3px 10px #a17a69;
+    margin: 0.4rem;
+    padding: 0.6rem;
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Raleway&display=swap"
@@ -24,16 +24,107 @@
             <li><a href="#">carrito</a></li>
         </ul>
     </nav>
-<!-- Acá va el carrusel con los eventos principales -->
+    <!-- Acá va el carrusel con los eventos principales -->
     <header>
-        <div class="fondo">
-            <h1>Lorem ipsum dolor sit amet.</h1>
-            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident aperiam adipisci minus! Reprehenderit
-                <!-- magni quae debitis ab sequi. Nobis, recusandae.</h3> -->
+        <!-- <div class="fondo">
+        </div> -->
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+                <div class="first">
+                    <h1>Comprame entradas</h1>
+                </div>
+
+            </div>
+
+            <div class="mySlides fade">
+                <div class="second"></div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="third"></div>
+            </div>
+
+        </div>
+        <br>
+
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
         </div>
     </header>
-hola
-    
+    <section>
+        <div class="eventoproximo">
+            <h1>Eventos Proximos</h1>
+            <ul class="eventos">
+                <!-- <div class="cards">1</div>
+            <div class="cards">2</div>
+            <div class="cards">3</div>
+            <div class="cards">4</div>
+            <div class="cards">5</div>
+            <div class="cards">6</div>
+            <div class="cards">7</div>
+            <div class="cards">8</div> -->
+                <img src="./img/portfolio/banjo-player.jpg" alt="" class="img-eventoproximo">
+                <img src="./img/portfolio/beetle.jpg" alt="" class="img-eventoproximo">
+                <img src="./img/portfolio/coffee.jpg" alt="" class="img-eventoproximo">
+                <img src="./img/portfolio/girl.jpg" alt="" class="img-eventoproximo">
+                <img src="./img/portfolio/hotel.jpg" alt="" class="img-eventoproximo">
+                <img src="./img/portfolio/judah.jpg" alt="" class="img-eventoproximo">
+                <img src="./img/portfolio/lighthouse.jpg" alt="" class="img-eventoproximo">
+                <img src="./img/portfolio/underwater.jpg" alt="" class="img-eventoproximo">
+            </ul>
+        </div>
+    </section>
+
 </body>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+    function currentSlide(n) {
+        //empieza el timer de nuevo
+        clearTimeout(timer);
+        //coloca el indice en el slider actual
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        timer = setTimeout(showSlides, 5000); // Change image every 5 seconds
+    }
+
+    window.onscroll = function () { myFunction() };
+
+    // Get the header
+    let nav = document.querySelector("nav");
+
+    // Get the offset position of the navbar
+    let sticky = nav.offsetTop;
+    console.log(sticky);
+    // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            nav.classList.add("sticky");
+        } else {
+            nav.classList.remove("sticky");
+        }
+
+        console.log(window.pageYOffset);
+    }
+</script>
 
 </html>
