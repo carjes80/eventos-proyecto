@@ -1,0 +1,116 @@
+/*
+PARA MEJORAR FORMULARIO Y ESTILOS
+
+DUDAS: 
+MODIFICAR TAMAÑO DE LOS INPUT DESDE CSS, ¿SE PUEDE?
+EN LA @MEDIA DE 768 NO SE ESTA COMPORTANDO COMO SE ESPERA (SE SEPARAN MUCHO LOS INPUT Y LO HACEN EN OTRA MEDIDA (972PX))
+*/
+
+*{
+    box-sizing: border-box;
+}
+
+
+/*estilo body copiado del style.css*/
+
+body {
+    color: white;
+    background-color: rgba(16, 20, 23, 255);
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+h1{
+    text-align: center;
+    /* background-color: rgb(44, 43, 43); */
+}
+
+.container{
+    display: flex;
+    flex-flow: row nowrap;    
+    flex-grow: 1;
+    flex-basis: 100%;
+    width:90vw;
+}
+/*Texto flotante que se ocultará en pantallas chicas y aparecerá a partir de cierto tamaño*/
+.texto-form{
+    display:none;
+}
+
+
+.container form{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-grow: 1;
+    flex-basis:100%;
+    text-align: center;
+    padding: 3vw;
+
+    /* margin-bottom: 100vh;
+    max-width: 100%;
+    display:flex;
+    flex-flow: row wrap;
+    flex:1 1 auto;
+    justify-content: center;
+    background-color: rgb(46, 50, 53);     */
+}
+
+div > input:focus,textarea:focus{
+    background-color: lightblue;
+}
+
+div > input:hover,textarea:hover{
+    background-color: lightgrey;
+}
+
+.nombre, .apellido, .email, .telefono, .consulta, .botones{
+    
+    flex-grow: 1;
+    flex-basis: 100%;
+    padding: 1%;
+}
+
+/* .consulta, .botones{
+    width: 100%;
+    text-align: center;
+} */
+
+/*PENSADO PARA MOBILE FIRST*/
+
+@media only screen and (min-width: 576px){
+
+    .texto-form{
+        display:flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        /* background-color: rgb(48, 47, 47); */
+        flex-grow: 1;
+        flex-basis: 40%;
+    }
+    .texto-form p{
+        font-size: 1em;
+    }
+
+    .container form{
+        flex-basis: 75%;
+    }
+
+}
+
+@media only screen and (min-width: 768px){
+
+    .container form{
+        display:flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nombre, .apellido, .email, .telefono{    
+        flex: 1 1 auto;
+    }
+
+}
