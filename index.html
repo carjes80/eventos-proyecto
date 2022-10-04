@@ -14,73 +14,142 @@
 </head>
 
 <body>
-    <nav>
-        <ul class="menu">
-            <li><a href="#">Eventos</a></li>
-            <li><a href="#">Streaming</a></li>
-            <li><a href="#">Ayuda</a></li>
-            <li><a href="#">Vendé</a></li>
-            <li><a href="#">Mi cuenta</a></li>
-            <li><a href="#">carrito</a></li>
-        </ul>
-    </nav>
-    <!-- Acá va el carrusel con los eventos principales -->
-    <header>
-        <!-- <div class="fondo">
-        </div> -->
-        <div class="slideshow-container">
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+    <div class="content">
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Eventos</a></li>
+                <li><a href="#">Streaming</a></li>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="#">Vendé</a></li>
+                <li><a href="#">Mi cuenta</a></li>
+                <li><a href="#">carrito</a></li>
+            </ul>
+        </nav>
+        <!-- Acá va el carrusel con los eventos principales -->
+        <header class="carrusel">
 
-            <div class="mySlides fade">
-                <div class="first">
-                    <h1>Comprame entradas</h1>
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                    <!-- <div class="first"> -->
+
+                    <!-- <h1>Comprame entradas</h1> -->
+                    <!-- </div> -->
+                    <img src="./img/slides/hipo.jpg" alt="n" class="img-size">
+
+                </div>
+
+                <div class="mySlides fade">
+                    <!-- <div class="second"></div> -->
+                    <img src="./img/slides/remeneo.jpg" alt="h" class="img-size">
+                </div>
+
+                <div class="mySlides fade">
+                    <!-- <div class="third"></div> -->
+                    <img src="./img/slides/harlem.jpg" alt="a" class="img-size">
                 </div>
 
             </div>
+            <br>
 
-            <div class="mySlides fade">
-                <div class="second"></div>
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
             </div>
-
-            <div class="mySlides fade">
-                <div class="third"></div>
-            </div>
-
-        </div>
-        <br>
-
-        <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(0)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-        </div>
-    </header>
-    <section>
-        <div class="eventoproximo">
+        </header>
+        <section>
             <h1>Eventos Proximos</h1>
-            <ul class="eventos">
-                <!-- <div class="cards">1</div>
-            <div class="cards">2</div>
-            <div class="cards">3</div>
-            <div class="cards">4</div>
-            <div class="cards">5</div>
-            <div class="cards">6</div>
-            <div class="cards">7</div>
-            <div class="cards">8</div> -->
-                <img src="./img/portfolio/banjo-player.jpg" alt="" class="img-eventoproximo">
-                <img src="./img/portfolio/beetle.jpg" alt="" class="img-eventoproximo">
-                <img src="./img/portfolio/coffee.jpg" alt="" class="img-eventoproximo">
-                <img src="./img/portfolio/girl.jpg" alt="" class="img-eventoproximo">
-                <img src="./img/portfolio/hotel.jpg" alt="" class="img-eventoproximo">
-                <img src="./img/portfolio/judah.jpg" alt="" class="img-eventoproximo">
-                <img src="./img/portfolio/lighthouse.jpg" alt="" class="img-eventoproximo">
-                <img src="./img/portfolio/underwater.jpg" alt="" class="img-eventoproximo">
-            </ul>
-        </div>
-    </section>
+            <div class="eventoproximo">
+                <div class="img_container">
+                    <img src="./img/eventos/elovate.jpg" alt="a" class="img-eventoproximo">
+                    <div class="img_text_container img_text_container-blur">
+                        <div class="img_text"><button data-modal-target="#modal">+INFO</button></div>
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="./img/eventos/kalua.jpg" alt="a" class="img-eventoproximo">
+                    <div class="img_text_container">
+                        <div class="img_text"><button data-modal-target="#modal">+INFO</button></div>
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="./img/eventos/fdd.jpg" alt="a" class="img-eventoproximo">
+                    <div class="img_text_container">
+                        <div class="img_text"><button data-modal-target="#modal">+INFO</button></div>
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="./img/eventos/aconcagua.jpg" alt="a" class="img-eventoproximo">
+                    <div class="img_text_container">
+                        <div class="img_text"><button data-modal-target="#modal">+INFO</button></div>
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="./img/eventos/arch.jpg" alt="a" class="img-eventoproximo">
+                    <div class="img_text_container">
+                        <div class="img_text"><button data-modal-target="#modal">+INFO</button></div>
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="./img/eventos/remeneo-evento.jpg" alt="a" class="img-eventoproximo">
+                    <div class="img_text_container">
+                        <div class="img_text"><button data-modal-target="#modal">+INFO</button></div>
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="./img/eventos/harlem-evento.jpg" alt="a" class="img-eventoproximo">
+                    <div class="img_text_container">
+                        <div class="img_text"><button data-modal-target="#modal">+INFO</button></div>
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="./img/eventos/holofonico.jpg" alt="a" class="img-eventoproximo">
+                    <div class="img_text_container">
+                        <div class="img_text"><button data-modal-target="#modal">+INFO</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- MODAL -->
+        <div class="modal" id="modal">
+            <!-- <img src="./img/eventos/elovate.jpg" alt="elovate"> -->
+            <div class="modal-header">
+                <div class="title">Example Modal</div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias ut illo doloremque eum ipsum
+                obcaecati distinctio debitis reiciendis quae quia soluta totam doloribus quos nesciunt necessitatibus,
+                consectetur quisquam accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae rem at ad
+                autem
+                dolor ex aperiam. Amet assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur sint
+                officiis
+                perferendis atque! Voluptatem maxime eius eum dolorem dolor exercitationem quis iusto totam! Repudiandae
+                nobis nesciunt sequi iure! Eligendi, eius libero. Ex, repellat sapiente!
+            </div>
+        </div>
+        <div id="overlay"></div>
+    </div>
 </body>
 
 <script>
+
+    //LOADER
+    const body = document.querySelector("body");
+    const loader = document.querySelector(".loader-container");
+
+    window.addEventListener("load", () => {
+        loader.style.display = "none";
+        body.setAttribute("style", "animation: fadeInAnimation ease 3s; animation-iteration-count: 1; animation-fill-mode: forwards;");
+    });
+
+
+    //CARRUSEL
     let slideIndex = 0;
     showSlides();
     function currentSlide(n) {
@@ -104,17 +173,18 @@
         }
         slides[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " active";
-        timer = setTimeout(showSlides, 5000); // Change image every 5 seconds
+        timer = setTimeout(showSlides, 5000); // Change image every 5 seconds -- Variable automaticamente global
     }
+
+
+    //STICKY NAV
 
     window.onscroll = function () { myFunction() };
 
-    // Get the header
     let nav = document.querySelector("nav");
 
-    // Get the offset position of the navbar
     let sticky = nav.offsetTop;
-    console.log(sticky);
+    /* console.log(sticky); */
     // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function myFunction() {
         if (window.pageYOffset > sticky) {
@@ -123,8 +193,48 @@
             nav.classList.remove("sticky");
         }
 
-        console.log(window.pageYOffset);
+        /* console.log(window.pageYOffset); */
     }
+
+
+    //MODAL
+
+    const openModalButtons = document.querySelectorAll("[data-modal-target]");
+    const closeModalButtons = document.querySelectorAll("[data-close-button]");
+    const overlay = document.getElementById("overlay")
+
+    openModalButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const modal = document.querySelector(button.dataset.modalTarget);
+            openModal(modal);
+        });
+    });
+
+    closeModalButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const modal = button.closest(".modal");
+            closeModal(modal);
+        });
+    });
+
+    function openModal(modal) {
+        if (modal == null) return
+        modal.classList.add("active");
+        overlay.classList.add("active");
+    }
+
+    function closeModal(modal) {
+        if (modal == null) return
+        modal.classList.remove("active");
+        overlay.classList.remove("active");
+    }
+
+    overlay.addEventListener("click", () => {
+        const modals = document.querySelectorAll(".modal.active");
+        modals.forEach(modal => {
+            closeModal(modal);
+        })
+    });
 </script>
 
 </html>
