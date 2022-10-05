@@ -2,13 +2,18 @@
     --color-fuente-pincipal: white;
     --color-fuente-secundaria: rgba(245, 202, 0, 255);
     --color-shadow: rgba(245, 202, 0, 255);
+    --color-fuente-form:rgba(250, 250, 250, 0.358);
     --bg-color-body: rgba(16, 20, 23, 255);
     --pointer-bg-color: #bbb;
     --pointer-active-color: #F5CA00;
-
+    --bg-color-form:rgb(68, 68, 68);
+    --bg-color-form-text:rgba(16, 20, 23, 255);
     --font-family1: 'Raleway', sans-serif;
     --font-family2: 'Merriweather Sans', sans-serif;
     --max-width: 1680px;
+    --normal-font: 400;
+    --bold-font: 700;
+    --bolder-font: 900;
 }
 
 body {
@@ -16,6 +21,7 @@ body {
     margin: 0;
     padding: 0;
     background-color:  var(--bg-color-body);
+    font-family:  var(--font-family1);
 }
 
 @keyframes fadeInAnimation {
@@ -345,96 +351,69 @@ ul {
     100% { transform: rotate(360deg); }
   }
 
-  /* Aqui copié lo del formulario */
-
-  .container{
-    display: flex;
-    flex-flow: row nowrap;    
-    flex-grow: 1;
-    flex-basis: 100%;
-    width:90vw;
-}
-/*Texto flotante que se ocultará en pantallas chicas y aparecerá a partir de cierto tamaño*/
-.texto-form{
-    display:none;
+/* acá está lo del formulario que había creado */
+.contenedor-formulario-contacto {
+    max-width: 40.75rem;
+    color: var(--color-fuente-secundaria);
+    margin: 0 auto;
+    padding: 0.938rem;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px var(--color-shadow);
+    background-color: var(--bg-color-form-text);
+    font-family:  var(--font-family1);
 }
 
-
-.container form{
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    flex-grow: 1;
-    flex-basis:100%;
-    text-align: center;
-    padding: 3vw;
-
-    /* margin-bottom: 100vh;
-    max-width: 100%;
-    display:flex;
-    flex-flow: row wrap;
-    flex:1 1 auto;
-    justify-content: center;
-    background-color: rgb(46, 50, 53);     */
+.contenedor-formulario-contacto label {
+    line-height: 2.7em;
+    font-weight: var(--bold-font);
+    color: var(--color-fuente-pincipal);
+    font-family:  var(--font-family1);
 }
 
-div > input:focus,textarea:focus{
-    background-color: lightblue;
+.contenedor-formulario-contacto textarea {
+    min-height: 6.25rem;
+    font-weight: var(--bold-font);
+    background-color: var(--bg-color-body);
+    color: var(--color-fuente-form);
+    font-family:  var(--font-family1);
 }
 
-div > input:hover,textarea:hover{
-    background-color: lightgrey;
-}
-
-.nombre, .apellido, .email, .telefono, .consulta, .botones{
-    
-    flex-grow: 1;
-    flex-basis: 100%;
-    padding: 1%;
-}
-
-/* .consulta, .botones{
+.contenedor-formulario-contacto .input-field {
     width: 100%;
-    text-align: center;
-} */
-
-/*PENSADO PARA MOBILE FIRST*/
-
-@media only screen and (min-width: 576px){
-
-    .texto-form{
-        display:flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
-        /* background-color: rgb(48, 47, 47); */
-        flex-grow: 1;
-        flex-basis: 40%;
-    }
-    .texto-form p{
-        font-size: 1em;
-    }
-
-    .container form{
-        flex-basis: 75%;
-    }
-
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    border: 2px outset var(--primary-color);
+    font-size: 0.875rem;
+    outline: none;
+    background-color: var(--bg-color-form);
+    color: var(--color-fuente-form);
+    font-family:  var(--font-family1);
 }
 
-@media only screen and (min-width: 768px){
-
-    .container form{
-        display:flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .nombre, .apellido, .email, .telefono{    
-        flex: 1 1 auto;
-    }
-
+.input-field::placeholder {
+    padding: 0.5rem;
+    color: var(--color-fuente-form);
+    font-family:  var(--font-family1);
 }
 
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: var(--bg-color-form);
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: var(--bold-font);
+    transition: var(--transition);
+    color: var(--font-color);
+}
+
+.submit-btn:hover {
+    background-color: var(--bg-color-body);
+    border: 2px solid var(--color-shadow);
+    cursor: pointer;
+    color: var(--color-fuente-secundaria);
+}
