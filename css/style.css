@@ -4,6 +4,7 @@
     --color-shadow: rgba(245, 202, 0, 255);
     --color-fuente-form:rgba(250, 250, 250, 0.358);
     --bg-color-body: rgba(16, 20, 23, 255);
+    --bg-color-nav:#000000;
     --pointer-bg-color: #bbb;
     --pointer-active-color: #F5CA00;
     --bg-color-form:rgb(68, 68, 68);
@@ -45,7 +46,7 @@ nav {
 
 .sticky {
     position: fixed;
-    background-color: #000000;
+    background-color: var(--bg-color-nav);
 }
 
 .menu {
