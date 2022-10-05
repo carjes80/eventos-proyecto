@@ -1,8 +1,21 @@
+:root {
+    --color-fuente-pincipal: white;
+    --color-fuente-secundaria: rgba(245, 202, 0, 255);
+    --color-shadow: rgba(245, 202, 0, 255);
+    --bg-color-body: rgba(16, 20, 23, 255);
+    --pointer-bg-color: #bbb;
+    --pointer-active-color: #F5CA00;
+
+    --font-family1: 'Raleway', sans-serif;
+    --font-family2: 'Merriweather Sans', sans-serif;
+    --max-width: 1680px;
+}
+
 body {
-    color: white;
-    margin: 0px;
+    color: var(--color-fuente-pincipal);
+    margin: 0;
     padding: 0;
-    background-color: rgba(16, 20, 23, 255);
+    background-color:  var(--bg-color-body);
 }
 
 @keyframes fadeInAnimation {
@@ -18,7 +31,7 @@ nav {
     background-color: transparent;
     width: 100%;
     position: fixed;
-    font-family: 'Merriweather Sans', sans-serif;
+    font-family: var(--font-family2);
     font-weight: bold;
     z-index: 1;
 	transition: all 0.5s ease-in-out; 
@@ -41,18 +54,20 @@ nav {
 
 .menu a {
     padding: 25px;
-    color: white;
+    color: var(--color-fuente-pincipal);
     text-decoration: none;
     display: block;
+    transition: all 0.5s ease-in-out;
 }
 
 .menu a:hover {
-    color: rgba(245, 202, 0, 255);
+    color: var(--color-fuente-secundaria);
+    transition: all 0.5s ease-in-out;
 }
 
 p {
-    font-family: 'Raleway', sans-serif;
-    color: white;
+    font-family: var(--font-family1);
+    color: var(--color-fuente-pincipal);
 }
 
 .mySlides {
@@ -101,7 +116,7 @@ p {
 }
 /* Slideshow container */
 .slideshow-container {
-    max-width:1680px;
+    max-width:var(--max-width);
     width: 100%;
     position: relative;
     display:block;
@@ -113,14 +128,14 @@ p {
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: #bbb;
+    background-color: var(--pointer-bg-color);
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
 }
 
 .active {
-    background-color: #F5CA00;
+    background-color: var(--pointer-active-color);
 }
 
 /* Fading animation */
@@ -176,7 +191,7 @@ ul {
     vertical-align: bottom;
 }
 .img_container:hover{
-    box-shadow: 0 3px 10px rgba(245, 202, 0, 255);
+    box-shadow: 0 3px 10px var(--color-shadow);
     filter: none;
     transform: scale(1.1);
     transition: transform 0.5s;
@@ -229,7 +244,7 @@ ul {
     border-radius: 11px;
     font-size: 1.5em;
     cursor: pointer;
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--font-family1);
 }
 
 /* MODAL */
@@ -246,7 +261,7 @@ ul {
     background-color: #101417;
     width: 500px;
     max-width: 80%;
-    color: white;
+    color: var(--color-fuente-pincipal);
   }
   
   .modal.active {
@@ -273,7 +288,7 @@ ul {
     background: none;
     font-size: 1.25rem;
     font-weight: bold;
-    color: white;
+    color: var(--color-fuente-pincipal);
   }
   
   .modal-body {
