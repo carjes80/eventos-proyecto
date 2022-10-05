@@ -171,7 +171,7 @@ ul {
 }
 
 .img-eventoproximo {
-    display: block;
+    display: flex;
     /* filter: grayscale(100%); */
     width: 100%;
     box-shadow: 0 3px 10px rgb(0, 0, 0);
@@ -399,6 +399,11 @@ ul {
     border: 2px solid var(--color-shadow);
     cursor: pointer;
     color: var(--color-fuente-secundaria);
+}
+.footer{
+    display:flex;
+    width: 100%;
+    justify-content: center;
 }
 
 @keyframes fadeInAnimation {
