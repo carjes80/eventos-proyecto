@@ -7,7 +7,6 @@ window.addEventListener("load", () => {
     body.setAttribute("style", "animation: fadeInAnimation ease 3s; animation-iteration-count: 1; animation-fill-mode: forwards;");
 });
 
-
 //CARRUSEL
 let slideIndex = 0;
 showSlides();
@@ -54,13 +53,28 @@ function myFunction() {
 
     /* console.log(window.pageYOffset); */
 }
+user_login = () =>{
+    let miuser = document.getElementsByClassName("menu2")
+
+    if (micuenta) {
+        miuser[1].style.display = "none";
+        miuser[0].style.display = "block";
+    } else {
+        miuser[0].style.display = "none";
+        miuser[1].style.display = "block";
+    }
+}
 var micuenta = true;
+user_login()
+
+
+
+
 //MICUENTA
 const getValueInput = () => {
 
     // console.log(typeof micuenta)
     let inputValue = document.getElementById("email_log").value;
-    console.log(inputValue);
     if (inputValue == "") {
         micuenta = true;
         const modal = document.querySelector("#ingresedatos");
@@ -69,9 +83,20 @@ const getValueInput = () => {
         micuenta = false;
         const modal = document.querySelector("#ingresado_ok");
         openModal(modal);
+
     }
-    // console.log(micuenta)
+
+
+    user_login()
+
 }
+
+const salirLogin = () => {
+    micuenta = true;
+    inputValue = "";
+    user_login();
+}
+
 
 //MODAL
 
@@ -81,10 +106,8 @@ const overlay = document.getElementById("overlay")
 
 
 openModalButtons.forEach(button => {
-    
-    button.addEventListener("click", () => {
-        console.log(typeof micuenta)
 
+    button.addEventListener("click", () => {
         if (button.dataset.modalTarget == "#comprado") {
             if (micuenta == true) {
                 const modal = document.querySelector("#loguearse");

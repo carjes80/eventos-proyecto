@@ -48,7 +48,6 @@ nav {
     padding: 0px;
 }
 
-.fa-solid .fa-user {}
 
 .menu2 {
     display: block;
@@ -94,7 +93,7 @@ nav {
     transition: all 0.5s ease-in-out;
 }
 
-.fa-user {
+.fa-solid {
     font-size: 24px;
 }
 

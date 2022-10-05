@@ -33,6 +33,11 @@
             </ul>
             <div class="menu2">
                 <button data-modal-target="#micuenta"><a><i class="fa-solid fa-user"></i></a></button>
+
+            </div>
+            <div class="menu2">
+                <button data-modal-target="#salir"><a><i class="fa-solid fa-right-from-bracket"></i></a></button>
+
             </div>
 
 
@@ -264,9 +269,27 @@
                                     <input type="password" id="password" name="password" placeholder="password"
                                         class="input-field" required />
                                 </div>
-                                <button class="submit-btn" type="button" data-modal-target="#ingresado" onclick="getValueInput()"> 
-                                    Ingresar 
-                                </button> 
+                                <button class="submit-btn" type="button" data-modal-target="#ingresado"
+                                    onclick="getValueInput()">
+                                    Ingresar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal" id="salir">
+                    <div class="modal-header">
+                        <div class="title">Salir</div>
+                        <button data-close-button class="close-button">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="contenedor-formulario-contacto">
+                            <div class="formulario-contacto">
+                                <p>Confirmar la salida</p>
+                                <button class="submit-btn" type="button" data-modal-target="#salido"
+                                    onclick="salirLogin()">
+                                    Salir
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -275,6 +298,12 @@
     <div class="modal" id="ingresado_ok">
         <div class="modal-header">
             <div class="title">Registro Exitoso</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+    </div>
+    <div class="modal" id="salido">
+        <div class="modal-header">
+            <div class="title">Hasta luego</div>
             <button data-close-button class="close-button">&times;</button>
         </div>
     </div>
