@@ -14,72 +14,289 @@
 </head>
 
 <body>
-    <nav>
-        <ul class="menu">
-            <li><a href="#">Eventos</a></li>
-            <li><a href="#">Streaming</a></li>
-            <li><a href="#">Ayuda</a></li>
-            <li><a href="#">Vendé</a></li>
-            <li><a href="#">Mi cuenta</a></li>
-            <li><a href="#">carrito</a></li>
-        </ul>
-    </nav>
-    <!-- Acá va el carrusel con los eventos principales -->
-    <header class="carrusel">
-        
-        <div class="slideshow-container">
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+    <div class="content">
+        <nav>
+            <ul class="menu">
+                <li><a href="#eventos">Eventos</a></li>
+                <li><a href="#">Streaming</a></li>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="#contactanos">Vendé</a></li>
+                <li><a href="#">Mi cuenta</a></li>
+                <li><a href="#">carrito</a></li>
+            </ul>
+        </nav>
+        <!-- Acá va el carrusel con los eventos principales -->
+        <header class="carrusel">
 
-            <div class="mySlides fade">
-                <div class="first">
-                    <h1>Comprame entradas</h1>
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                    <!-- <div class="first"> -->
+
+                    <!-- <h1>Comprame entradas</h1> -->
+                    <!-- </div> -->
+                    <img src="./img/slides/hipo.jpg" alt="n" class="img-size">
+
+                </div>
+
+                <div class="mySlides fade">
+                    <!-- <div class="second"></div> -->
+                    <img src="./img/slides/remeneo.jpg" alt="h" class="img-size">
+                </div>
+
+                <div class="mySlides fade">
+                    <!-- <div class="third"></div> -->
+                    <img src="./img/slides/harlem.jpg" alt="a" class="img-size">
                 </div>
 
             </div>
+            <br>
 
-            <div class="mySlides fade">
-                <div class="second"></div>
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
             </div>
-
-            <div class="mySlides fade">
-                <div class="third"></div>
-            </div>
-
-        </div>
-        <br>
-
-        <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(0)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-        </div>
-    </header>
-    <section>
-        <div class="eventoproximo">
+        </header>
+        <section id="eventos">
             <h1>Eventos Proximos</h1>
-            <ul class="eventos">
-                <!-- <div class="cards">1</div>
-            <div class="cards">2</div>
-            <div class="cards">3</div>
-            <div class="cards">4</div>
-            <div class="cards">5</div>
-            <div class="cards">6</div>
-            <div class="cards">7</div>
-            <div class="cards">8</div> -->
-                <img src="./img/portfolio/banjo-player.jpg" alt="" class="img-eventoproximo">
-                <img src="./img/portfolio/beetle.jpg" alt="" class="img-eventoproximo">
-                <img src="./img/portfolio/coffee.jpg" alt="" class="img-eventoproximo">
-                <img src="./img/portfolio/girl.jpg" alt="" class="img-eventoproximo">
-                <img src="./img/portfolio/hotel.jpg" alt="" class="img-eventoproximo">
-                <img src="./img/portfolio/judah.jpg" alt="" class="img-eventoproximo">
-                <img src="./img/portfolio/lighthouse.jpg" alt="" class="img-eventoproximo">
-                <img src="./img/portfolio/underwater.jpg" alt="" class="img-eventoproximo">
-            </ul>
-        </div>
-    </section>
+            <div class="eventoproximo">
+                <div class="img_container">
+                    <img src="./img/eventos/elovate.jpg" alt="a" class="img-eventoproximo">
+                    <div class="img_text_container img_text_container-blur">
+                        <div class="img_text"><button data-modal-target="#elovate">+INFO</button></div>
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="./img/eventos/kalua.jpg" alt="a" class="img-eventoproximo">
+                    <div class="img_text_container">
+                        <div class="img_text"><button data-modal-target="#kalua">+INFO</button></div>
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="./img/eventos/fdd.jpg" alt="a" class="img-eventoproximo">
+                    <div class="img_text_container">
+                        <div class="img_text"><button data-modal-target="#fod">+INFO</button></div>
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="./img/eventos/aconcagua.jpg" alt="a" class="img-eventoproximo">
+                    <div class="img_text_container">
+                        <div class="img_text"><button data-modal-target="#aconcagua">+INFO</button></div>
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="./img/eventos/arch.jpg" alt="a" class="img-eventoproximo">
+                    <div class="img_text_container">
+                        <div class="img_text"><button data-modal-target="#arch">+INFO</button></div>
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="./img/eventos/remeneo-evento.jpg" alt="a" class="img-eventoproximo">
+                    <div class="img_text_container">
+                        <div class="img_text"><button data-modal-target="#remened">+INFO</button></div>
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="./img/eventos/harlem-evento.jpg" alt="a" class="img-eventoproximo">
+                    <div class="img_text_container">
+                        <div class="img_text"><button data-modal-target="#harlem">+INFO</button></div>
+                    </div>
+                </div>
+                <div class="img_container">
+                    <img src="./img/eventos/holofonico.jpg" alt="a" class="img-eventoproximo">
+                    <div class="img_text_container">
+                        <div class="img_text"><button data-modal-target="#holofonicos">+INFO</button></div>
+                    </div>
+                </div>
+            </div>
+            <!-- MODAL -->
+            <article class="modales">
+                <div class="modal" id="elovate">
+                    <div class="modal-header">
+                        <div class="title">12/11 Michael Bibi Presents ELOVATE (+18)</div>
+                        <button data-close-button class="close-button">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p> Sábado 12 de Noviembre 2022 - 23:55 hrs.
+                            <br><br>
+                            <strong>Madero Boardwalk</strong>
+                            <br>
+                            Cecilia Grierson 400 - Puerto Madero
+                        </p>
+                        <div class="img_text"><button data-modal-target="#comprado"><strong>Comprar</strong></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal" id="kalua">
+                    <div class="modal-header">
+                        <div class="title">Kalúa (+18)</div>
+                        <button data-close-button class="close-button">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p> Sábado 05 de Noviembre 2022 - 00:00 hrs.
+                            <br><br>
+                            <strong>Club La Octava</strong>
+                            <br>
+                            Niceto Vega 5702
+                        </p>
+                        <div class="img_text"><button data-modal-target="#comprado"><strong>Comprar</strong></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal" id="fod">
+                    <div class="modal-header">
+                        <div class="title">FOD</div>
+                        <button data-close-button class="close-button">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p> Sábado 20 de Noviembre 2022 - 00:00 hrs.
+                            <br><br>
+                            <strong>Groove</strong>
+                            <br>
+                            Santa Fe 5000
+                        </p>
+                        <div class="img_text"><button data-modal-target="#comprado"><strong>Comprar</strong></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal" id="aconcagua">
+                    <div class="modal-header">
+                        <div class="title">FESTIVAL ACONCAGUA</div>
+                        <button data-close-button class="close-button">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p> Sábado 01 de Octubre 2022 - 00:00 hrs.
+                            <br><br>
+                            <strong>Hipódromo de Palermo</strong>
+                            <br>
+                            Av. Libertador 4500
+                        </p>
+                        <div class="img_text"><button data-modal-target="#comprado"><strong>Comprar</strong></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal" id="arch">
+                    <div class="modal-header">
+                        <div class="title">ARCH ENEMY</div>
+                        <button data-close-button class="close-button">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p> Sábado 21 de Noviembre 2022 - 00:00 hrs.
+                            <br><br>
+                            <strong>Teatro Flores</strong>
+                            <br>
+                            Corrientes 4500
+                        </p>
+                        <div class="img_text"><button data-modal-target="#comprado"><strong>Comprar</strong></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal" id="remened">
+                    <div class="modal-header">
+                        <div class="title">REMENED XL</div>
+                        <button data-close-button class="close-button">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p> Sábado 01 de Octubre 2022 - 00:00 hrs.
+                            <br><br>
+                            <strong>Teatro Flores</strong>
+                            <br>
+                            Corrientes 4500
+                        </p>
+                        <div class="img_text"><button data-modal-target="#comprado"><strong>Comprar</strong></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal" id="harlem">
+                    <div class="modal-header">
+                        <div class="title">HARLEM</div>
+                        <button data-close-button class="close-button">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p> 29 y 30 de Octubre de 2022 - 18:00 hrs.
+                            <br><br>
+                            <strong>Estación Belgrano</strong>
+                            <br>
+                            Ciudad de Santa Fé
+                        </p>
+                        <div class="img_text"><button data-modal-target="#comprado"><strong>Comprar</strong></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal" id="holofonicos">
+                    <div class="modal-header">
+                        <div class="title">Parlantes Holofónicos</div>
+                        <button data-close-button class="close-button">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p> Todos los Jueves de Noviembre a la media noche
+                            <br><br>
+                            <strong>Hipódromo de Palermo</strong>
+                            <br>
+                            Av. Libertador 4500
+                        </p>
+                        <div class="img_text"><button data-modal-target="#comprado"><strong>Comprar</strong></button>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="modal" id="comprado">
+                    <div class="modal-header">
+                        <div class="title">COMPRADO CON ÉXITO</div>
+                        <button data-close-button class="close-button">&times;</button>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="contactanos">
+            <h2>Contáctanos</h2>
+        <div class="contenedor-formulario-contacto">
+            <div class="formulario-contacto">
+                <form action="https://formspree.io/f/xlevbbdg" method="POST">
+                    <div class="control-formulario">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="sender-name" placeholder="Escribe tu nombre"
+                            class="input-field" required />
+                    </div>
+                    <div class="control-formulario">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="sender-email" placeholder="Ingreso tu correo electrónico"
+                            class="input-field" required />
+                    </div>
+                    <div class="control-formulario">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" cols="60" rows="10" placeholder="Escribe tu mensaje" name="mensaje"
+                            class="input-field" required></textarea>
+                    </div>
+                    <input type="submit" value="Enviar" id="submit-btn" class="submit-btn" />
+                </form>
+            </div>
+        </div>
+        </section>
+        <br><br><br><br><br>
+
+        <div id="overlay"></div>
+    </div>
 </body>
 
 <script>
+
+    //LOADER
+    const body = document.querySelector("body");
+    const loader = document.querySelector(".loader-container");
+
+    window.addEventListener("load", () => {
+        loader.style.display = "none";
+        body.setAttribute("style", "animation: fadeInAnimation ease 3s; animation-iteration-count: 1; animation-fill-mode: forwards;");
+    });
+
+
+    //CARRUSEL
     let slideIndex = 0;
     showSlides();
     function currentSlide(n) {
@@ -103,17 +320,18 @@
         }
         slides[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " active";
-        timer = setTimeout(showSlides, 5000); // Change image every 5 seconds
+        timer = setTimeout(showSlides, 5000); // Change image every 5 seconds -- Variable automaticamente global
     }
+
+
+    //STICKY NAV
 
     window.onscroll = function () { myFunction() };
 
-    // Get the header
     let nav = document.querySelector("nav");
 
-    // Get the offset position of the navbar
     let sticky = nav.offsetTop;
-    console.log(sticky);
+    /* console.log(sticky); */
     // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function myFunction() {
         if (window.pageYOffset > sticky) {
@@ -122,8 +340,48 @@
             nav.classList.remove("sticky");
         }
 
-        console.log(window.pageYOffset);
+        /* console.log(window.pageYOffset); */
     }
+
+
+    //MODAL
+
+    const openModalButtons = document.querySelectorAll("[data-modal-target]");
+    const closeModalButtons = document.querySelectorAll("[data-close-button]");
+    const overlay = document.getElementById("overlay")
+
+    openModalButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const modal = document.querySelector(button.dataset.modalTarget);
+            openModal(modal);
+        });
+    });
+
+    closeModalButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const modal = button.closest(".modal");
+            closeModal(modal);
+        });
+    });
+
+    function openModal(modal) {
+        if (modal == null) return
+        modal.classList.add("active");
+        overlay.classList.add("active");
+    }
+
+    function closeModal(modal) {
+        if (modal == null) return
+        modal.classList.remove("active");
+        overlay.classList.remove("active");
+    }
+
+    overlay.addEventListener("click", () => {
+        const modals = document.querySelectorAll(".modal.active");
+        modals.forEach(modal => {
+            closeModal(modal);
+        })
+    });
 </script>
 
 </html>

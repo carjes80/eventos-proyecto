@@ -1,15 +1,43 @@
+:root {
+    --color-fuente-pincipal: white;
+    --color-fuente-secundaria: rgba(245, 202, 0, 255);
+    --color-shadow: rgba(245, 202, 0, 255);
+    --color-fuente-form:rgba(250, 250, 250, 0.358);
+    --bg-color-body: rgba(16, 20, 23, 255);
+    --pointer-bg-color: #bbb;
+    --pointer-active-color: #F5CA00;
+    --bg-color-form:rgb(68, 68, 68);
+    --bg-color-form-text:rgba(16, 20, 23, 255);
+    --font-family1: 'Raleway', sans-serif;
+    --font-family2: 'Merriweather Sans', sans-serif;
+    --max-width: 1680px;
+    --normal-font: 400;
+    --bold-font: 700;
+    --bolder-font: 900;
+}
+
 body {
-    color: white;
-    margin: 0px;
+    color: var(--color-fuente-pincipal);
+    margin: 0;
     padding: 0;
-    background-color: rgba(16, 20, 23, 255);
+    background-color:  var(--bg-color-body);
+    font-family:  var(--font-family1);
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
 }
 
 nav {
     background-color: transparent;
     width: 100%;
     position: fixed;
-    font-family: 'Merriweather Sans', sans-serif;
+    font-family: var(--font-family2);
     font-weight: bold;
     z-index: 1;
 	transition: all 0.5s ease-in-out; 
@@ -32,40 +60,49 @@ nav {
 
 .menu a {
     padding: 25px;
-    color: white;
+    color: var(--color-fuente-pincipal);
     text-decoration: none;
     display: block;
+    transition: all 0.5s ease-in-out;
 }
 
 .menu a:hover {
-    color: rgba(245, 202, 0, 255);
+    color: var(--color-fuente-secundaria);
+    transition: all 0.5s ease-in-out;
 }
 
 p {
-    font-family: 'Raleway', sans-serif;
-    color: white;
+    font-family: var(--font-family1);
+    color: var(--color-fuente-pincipal);
 }
 
 .mySlides {
     display: none;
 
 }
-
-.first {
-    text-align: center;
-    background: url(../img/slides/fondo.jpg);
-    background-size: cover;
-    background-position: center;
-    height: 40vh;
-    padding: 100px;
+/*poner imagenes*/
+.img-size {
+    /* display: flex; */
+    /* text-align: center; */
+    /* background: url(../img/slides/fondo.jpg); */
+    /* background: url(../img/slides/ushuaia.jpg) no-repeat; */
+    /* background: url(../../../../Downloads/ushuaia\ \(2\).jpg) no-repeat; */
+    /* background: url(../img/slides/cr23.jpg) no-repeat; */
+    /* background-size: cover; */
+    /* background-position: center; */
+    /* height: 30vh; */
+    /* padding: 100px; */
+    width: 100%;
+    height: 50vh;
 }
-
+/* 
 .second {
     text-align: center;
-    background: url(../img/slides/cinema.jpg);
+     background: url(../img/slides/cinema.jpg); 
+    background: url(../img/slides/hipo.jpg) no-repeat;
     background-size: cover;
     background-position: center;
-    height: 40vh;
+    height: 30vh;
     padding: 100px;
 }
 
@@ -74,9 +111,9 @@ p {
     background: url(../img/slides/stadium.jpg);
     background-size: cover;
     background-position: center;
-    height: 40vh;
+    height: 30vh;
     padding: 100px;
-}
+} */
 
 .carrusel{
     display: flex;
@@ -85,7 +122,7 @@ p {
 }
 /* Slideshow container */
 .slideshow-container {
-    max-width:1680px;
+    max-width:var(--max-width);
     width: 100%;
     position: relative;
     display:block;
@@ -97,14 +134,14 @@ p {
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: #bbb;
+    background-color: var(--pointer-bg-color);
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
 }
 
 .active {
-    background-color: #717171;
+    background-color: var(--pointer-active-color);
 }
 
 /* Fading animation */
@@ -132,36 +169,251 @@ p {
 
 section {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .eventoproximo {
-    max-width: 90rem;
+    margin: 0 10vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.vh {
-}
+
 ul {
     list-style-type: none;
 }
 
-.eventos {
-
-}
-
-.cards {
-    width: 20vw;
-    height: 30vh;
-    border: 1px solid white;
-}
-
 .img-eventoproximo {
-    max-width: 18rem;
-    border-radius: 11px;
+    display: block;
+    /* filter: grayscale(100%); */
+    width: 100%;
     box-shadow: 0 3px 10px rgb(0, 0, 0);
-    margin: 0.4rem;
-    padding: 0.6rem;
+    border-radius: 11px;
+    transition: transform .2s;
+    cursor: pointer;
+    vertical-align: bottom;
 }
-img:hover{
-    box-shadow: 0 3px 10px rgba(245, 202, 0, 255);
+.img_container:hover{
+    box-shadow: 0 3px 10px var(--color-shadow);
+    filter: none;
+    transform: scale(1.1);
+    transition: transform 0.5s;
+}
+
+.img_container {
+    position: relative;
+    width: 18rem;
+    margin: 0.4rem;
+    padding: 0.4rem;
+    border-radius: 11px;
+}
+
+.img_text_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0 ,0.6);
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    opacity: 0;
+    transition: opacity 0.25s;
+    border-radius: 11px;
+    backdrop-filter: blur(1.5px);
+}
+
+
+.img_text_container:hover {
+    opacity: 1;
+}
+
+.img_text_container > * {
+    transform: translateY(40px);
+    transition: transform 0.40s;
+}
+
+.img_text_container:hover > * {
+    transform: translateY(-20px);
+}
+
+.img_text button {
+    background-color: #F5CA00;
+    color: black;
+    border-radius: 11px;
+    font-size: 1.5em;
+    cursor: pointer;
+    font-family: var(--font-family1);
+}
+
+/* MODAL */
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid #F5CA00;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: #101417;
+    width: 500px;
+    max-width: 80%;
+    color: var(--color-fuente-pincipal);
+  }
+  
+  .modal.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #F5CA00;
+  }
+  
+  .modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--color-fuente-pincipal);
+  }
+  
+  .modal-body {
+    padding: 10px 15px;
+  }
+  
+  #overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+  }
+  
+  #overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .modal img {
+    max-width: 400px;
+    height: auto;
+  }
+
+   .loader-container {
+    position: fixed;
+    background-color: #101417;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  } 
+
+  .loader {
+    border: 16px solid #101417;
+    /* border: 16px solid #1e2327 */
+    border-radius: 50%;
+    border-top: 16px solid #F5CA00;
+    border-bottom: 16px solid #F5CA00;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+  
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+/* acá está lo del formulario que había creado */
+.contenedor-formulario-contacto {
+    max-width: 40.75rem;
+    color: var(--color-fuente-secundaria);
+    margin: 0 auto;
+    padding: 0.938rem;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px var(--color-shadow);
+    background-color: var(--bg-color-form-text);
+    font-family:  var(--font-family1);
+}
+
+.contenedor-formulario-contacto label {
+    line-height: 2.7em;
+    font-weight: var(--bold-font);
+    color: var(--color-fuente-pincipal);
+    font-family:  var(--font-family1);
+}
+
+.contenedor-formulario-contacto textarea {
+    min-height: 6.25rem;
+    font-weight: var(--bold-font);
+    background-color: var(--bg-color-body);
+    color: var(--color-fuente-form);
+    font-family:  var(--font-family1);
+}
+
+.contenedor-formulario-contacto .input-field {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    border: 2px outset var(--primary-color);
+    font-size: 0.875rem;
+    outline: none;
+    background-color: var(--bg-color-form);
+    color: var(--color-fuente-form);
+    font-family:  var(--font-family1);
+}
+
+.input-field::placeholder {
+    padding: 0.5rem;
+    color: var(--color-fuente-form);
+    font-family:  var(--font-family1);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: var(--bg-color-form);
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: var(--bold-font);
+    transition: var(--transition);
+    color: var(--font-color);
+}
+
+.submit-btn:hover {
+    background-color: var(--bg-color-body);
+    border: 2px solid var(--color-shadow);
+    cursor: pointer;
+    color: var(--color-fuente-secundaria);
 }
