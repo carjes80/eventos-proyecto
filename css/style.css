@@ -15,7 +15,7 @@
     --normal-font: 400;
     --bold-font: 700;
     --bolder-font: 900;
-    --margin-nav: 4rem;
+    --margin-nav: 0rem;
 }
 
 body {
@@ -35,6 +35,8 @@ nav {
     font-weight: bold;
     z-index: 1;
     transition: all 0.5s ease-in-out;
+
+
 }
 
 .sticky {
@@ -66,7 +68,7 @@ nav {
 .navegacion {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .logo {
