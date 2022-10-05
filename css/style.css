@@ -2,36 +2,30 @@
     --color-fuente-pincipal: white;
     --color-fuente-secundaria: rgba(245, 202, 0, 255);
     --color-shadow: rgba(245, 202, 0, 255);
-    --color-fuente-form:rgba(250, 250, 250, 0.358);
+    --color-fuente-form: rgba(250, 250, 250, 0.358);
     --bg-color-body: rgba(16, 20, 23, 255);
+    --bg-color-nav: #000000;
     --pointer-bg-color: #bbb;
     --pointer-active-color: #F5CA00;
-    --bg-color-form:rgb(68, 68, 68);
-    --bg-color-form-text:rgba(16, 20, 23, 255);
+    --bg-color-form: rgb(68, 68, 68);
+    --bg-color-form-text: rgba(16, 20, 23, 255);
     --font-family1: 'Raleway', sans-serif;
     --font-family2: 'Merriweather Sans', sans-serif;
     --max-width: 1680px;
     --normal-font: 400;
     --bold-font: 700;
     --bolder-font: 900;
+    --margin-nav: 4rem;
 }
 
 body {
     color: var(--color-fuente-pincipal);
     margin: 0;
     padding: 0;
-    background-color:  var(--bg-color-body);
-    font-family:  var(--font-family1);
+    background-color: var(--bg-color-body);
+    font-family: var(--font-family1);
 }
 
-@keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-     }
-}
 
 nav {
     background-color: transparent;
@@ -40,12 +34,12 @@ nav {
     font-family: var(--font-family2);
     font-weight: bold;
     z-index: 1;
-	transition: all 0.5s ease-in-out; 
+    transition: all 0.5s ease-in-out;
 }
 
 .sticky {
     position: fixed;
-    background-color: #000000;
+    background-color: var(--bg-color-nav);
 }
 
 .menu {
@@ -54,11 +48,38 @@ nav {
     padding: 0px;
 }
 
+
+.menu2 {
+    display: block;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    margin-right: var(--margin-nav);
+}
+
+.menu2 button {
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    border: none;
+}
+
+.navegacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    margin-left: var(--margin-nav);
+}
+
+
 .menu li {
     display: inline-block;
 }
 
-.menu a {
+.menu a,
+.menu2 a {
     padding: 25px;
     color: var(--color-fuente-pincipal);
     text-decoration: none;
@@ -66,9 +87,14 @@ nav {
     transition: all 0.5s ease-in-out;
 }
 
-.menu a:hover {
+.menu a:hover,
+.menu2 a:hover {
     color: var(--color-fuente-secundaria);
     transition: all 0.5s ease-in-out;
+}
+
+.fa-solid {
+    font-size: 24px;
 }
 
 p {
@@ -78,54 +104,25 @@ p {
 
 .mySlides {
     display: none;
-
 }
+
 /*poner imagenes*/
 .img-size {
-    /* display: flex; */
-    /* text-align: center; */
-    /* background: url(../img/slides/fondo.jpg); */
-    /* background: url(../img/slides/ushuaia.jpg) no-repeat; */
-    /* background: url(../../../../Downloads/ushuaia\ \(2\).jpg) no-repeat; */
-    /* background: url(../img/slides/cr23.jpg) no-repeat; */
-    /* background-size: cover; */
-    /* background-position: center; */
-    /* height: 30vh; */
-    /* padding: 100px; */
     width: 100%;
-    height: 50vh;
-}
-/* 
-.second {
-    text-align: center;
-     background: url(../img/slides/cinema.jpg); 
-    background: url(../img/slides/hipo.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 30vh;
-    padding: 100px;
 }
 
-.third {
-    text-align: center;
-    background: url(../img/slides/stadium.jpg);
-    background-size: cover;
-    background-position: center;
-    height: 30vh;
-    padding: 100px;
-} */
-
-.carrusel{
+.carrusel {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
+
 /* Slideshow container */
 .slideshow-container {
-    max-width:var(--max-width);
+    max-width: var(--max-width);
     width: 100%;
     position: relative;
-    display:block;
+    display: block;
 }
 
 /* The dots/bullets/indicators */
@@ -150,22 +147,7 @@ p {
     animation-duration: 1.5s;
 }
 
-@keyframes fade {
-    from {
-        opacity: .4
-    }
 
-    to {
-        opacity: 1
-    }
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-    .text {
-        font-size: 11px
-    }
-}
 
 section {
     display: flex;
@@ -196,7 +178,8 @@ ul {
     cursor: pointer;
     vertical-align: bottom;
 }
-.img_container:hover{
+
+.img_container:hover {
     box-shadow: 0 3px 10px var(--color-shadow);
     filter: none;
     transform: scale(1.1);
@@ -219,7 +202,7 @@ ul {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0 ,0.6);
+    background: rgba(0, 0, 0, 0.6);
     font-family: 'Quicksand', sans-serif;
     display: flex;
     justify-content: center;
@@ -235,17 +218,17 @@ ul {
     opacity: 1;
 }
 
-.img_text_container > * {
+.img_text_container>* {
     transform: translateY(40px);
     transition: transform 0.40s;
 }
 
-.img_text_container:hover > * {
+.img_text_container:hover>* {
     transform: translateY(-20px);
 }
 
 .img_text button {
-    background-color: #F5CA00;
+    background-color: var(--color-fuente-secundaria);
     color: black;
     border-radius: 11px;
     font-size: 1.5em;
@@ -268,26 +251,26 @@ ul {
     width: 500px;
     max-width: 80%;
     color: var(--color-fuente-pincipal);
-  }
-  
-  .modal.active {
+}
+
+.modal.active {
     transform: translate(-50%, -50%) scale(1);
-  }
-  
-  .modal-header {
+}
+
+.modal-header {
     padding: 10px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #F5CA00;
-  }
-  
-  .modal-header .title {
+}
+
+.modal-header .title {
     font-size: 1.25rem;
     font-weight: bold;
-  }
-  
-  .modal-header .close-button {
+}
+
+.modal-header .close-button {
     cursor: pointer;
     border: none;
     outline: none;
@@ -295,13 +278,17 @@ ul {
     font-size: 1.25rem;
     font-weight: bold;
     color: var(--color-fuente-pincipal);
-  }
-  
-  .modal-body {
+}
+.close-button{
+    display:block;
+    justify-content: right;
+}
+
+.modal-body {
     padding: 10px 15px;
-  }
-  
-  #overlay {
+}
+
+#overlay {
     position: fixed;
     opacity: 0;
     transition: 200ms ease-in-out;
@@ -311,19 +298,19 @@ ul {
     bottom: 0;
     background-color: rgba(0, 0, 0, .5);
     pointer-events: none;
-  }
-  
-  #overlay.active {
+}
+
+#overlay.active {
     opacity: 1;
     pointer-events: all;
-  }
+}
 
-  .modal img {
+.modal img {
     max-width: 400px;
     height: auto;
-  }
+}
 
-   .loader-container {
+.loader-container {
     position: fixed;
     background-color: #101417;
     width: 100%;
@@ -332,9 +319,9 @@ ul {
     justify-content: center;
     align-items: center;
     z-index: 2;
-  } 
+}
 
-  .loader {
+.loader {
     border: 16px solid #101417;
     /* border: 16px solid #1e2327 */
     border-radius: 50%;
@@ -343,13 +330,7 @@ ul {
     width: 120px;
     height: 120px;
     animation: spin 2s linear infinite;
-  }
-  
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+}
 
 /* acá está lo del formulario que había creado */
 .contenedor-formulario-contacto {
@@ -360,14 +341,14 @@ ul {
     border-radius: 5px;
     box-shadow: 0 3px 10px var(--color-shadow);
     background-color: var(--bg-color-form-text);
-    font-family:  var(--font-family1);
+    font-family: var(--font-family1);
 }
 
 .contenedor-formulario-contacto label {
     line-height: 2.7em;
     font-weight: var(--bold-font);
     color: var(--color-fuente-pincipal);
-    font-family:  var(--font-family1);
+    font-family: var(--font-family1);
 }
 
 .contenedor-formulario-contacto textarea {
@@ -375,7 +356,7 @@ ul {
     font-weight: var(--bold-font);
     background-color: var(--bg-color-body);
     color: var(--color-fuente-form);
-    font-family:  var(--font-family1);
+    font-family: var(--font-family1);
 }
 
 .contenedor-formulario-contacto .input-field {
@@ -389,13 +370,13 @@ ul {
     outline: none;
     background-color: var(--bg-color-form);
     color: var(--color-fuente-form);
-    font-family:  var(--font-family1);
+    font-family: var(--font-family1);
 }
 
 .input-field::placeholder {
     padding: 0.5rem;
     color: var(--color-fuente-form);
-    font-family:  var(--font-family1);
+    font-family: var(--font-family1);
 }
 
 .submit-btn {
@@ -416,4 +397,44 @@ ul {
     border: 2px solid var(--color-shadow);
     cursor: pointer;
     color: var(--color-fuente-secundaria);
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes spin {
+
+    /*no se está usando*/
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* On smaller screens, decrease text size 
+revisar para qué se usa y modificar cuando ajustemos la página completa*/
+@media only screen and (max-width: 300px) {
+    .text {
+        font-size: 11px
+    }
 }

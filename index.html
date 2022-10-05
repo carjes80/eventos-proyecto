@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/f9f4d18e61.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Raleway&display=swap"
@@ -14,19 +15,32 @@
 </head>
 
 <body>
+
     <div class="loader-container">
         <div class="loader"></div>
     </div>
     <div class="content">
-        <nav>
+        <nav class="navegacion">
+            <div class="logo">
+                <a href="/index.html" class="enlace-de-proyecto" id="arriba">
+                    <img src="/img/logo/solo.png" width="50rem" alt="">
+                </a>
+            </div>
             <ul class="menu">
                 <li><a href="#eventos">Eventos</a></li>
                 <li><a href="#">Streaming</a></li>
-                <li><a href="#">Ayuda</a></li>
                 <li><a href="#contactanos">Vendé</a></li>
-                <li><a href="#">Mi cuenta</a></li>
-                <li><a href="#">carrito</a></li>
             </ul>
+            <div class="menu2">
+                <button data-modal-target="#micuenta"><a><i class="fa-solid fa-user"></i></a></button>
+
+            </div>
+            <div class="menu2">
+                <button data-modal-target="#salir"><a><i class="fa-solid fa-right-from-bracket"></i></a></button>
+
+            </div>
+
+
         </nav>
         <!-- Acá va el carrusel con los eventos principales -->
         <header class="carrusel">
@@ -34,21 +48,15 @@
             <div class="slideshow-container">
 
                 <div class="mySlides fade">
-                    <!-- <div class="first"> -->
-
-                    <!-- <h1>Comprame entradas</h1> -->
-                    <!-- </div> -->
                     <img src="./img/slides/hipo.jpg" alt="n" class="img-size">
 
                 </div>
 
                 <div class="mySlides fade">
-                    <!-- <div class="second"></div> -->
                     <img src="./img/slides/remeneo.jpg" alt="h" class="img-size">
                 </div>
 
                 <div class="mySlides fade">
-                    <!-- <div class="third"></div> -->
                     <img src="./img/slides/harlem.jpg" alt="a" class="img-size">
                 </div>
 
@@ -243,21 +251,88 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="modal" id="comprado">
+                <div class="modal" id="micuenta">
                     <div class="modal-header">
-                        <div class="title">COMPRADO CON ÉXITO</div>
+                        <div class="title">Ingresar a Mi Cuenta</div>
                         <button data-close-button class="close-button">&times;</button>
                     </div>
+                    <div class="modal-body">
+                        <div class="contenedor-formulario-contacto">
+                            <div class="formulario-contacto">
+                                <div class="control-formulario">
+                                    <label for="email">Correo Electrónico</label>
+                                    <input type="email" id="email_log" name="sender-email"
+                                        placeholder="Ingreso tu correo electrónico" class="input-field" required />
+                                </div>
+                                <div class="control-formulario">
+                                    <label for="password">password</label>
+                                    <input type="password" id="password" name="password" placeholder="password"
+                                        class="input-field" required />
+                                </div>
+                                <button class="submit-btn" type="button" data-modal-target="#ingresado"
+                                    onclick="getValueInput()">
+                                    Ingresar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </article>
-        </section>
+                <div class="modal" id="salir">
+                    <div class="modal-header">
+                        <div class="title">Salir</div>
+                        <button data-close-button class="close-button">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="contenedor-formulario-contacto">
+                            <div class="formulario-contacto">
+                                <p>Confirmar la salida</p>
+                                <button class="submit-btn" type="button" data-modal-target="#salido"
+                                    onclick="salirLogin()">
+                                    Salir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <div class="modal" id="ingresado_ok">
+        <div class="modal-header">
+            <div class="title">Registro Exitoso</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+    </div>
+    <div class="modal" id="salido">
+        <div class="modal-header">
+            <div class="title">Hasta luego</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+    </div>
+    <div class="modal" id="exitoso">
+        <div class="modal-header">
+            <div class="title">COMPRADO CON ÉXITO</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+    </div>
+    <div class="modal" id="ingresedatos">
+        <div class="modal-header">
+            <div class="title">Por favor ingrese los datos</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+    </div>
+    <div class="modal" id="loguearse">
+        <div class="modal-header">
+            <div class="title">Por favor, entre a "Mi Cuenta" ->> <i class="fa-solid fa-user"></i></div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+    </div>
+    </article>
+    </section>
 
-        <section id="contactanos">
-            <h2>Contáctanos</h2>
+    <section id="contactanos">
+        <h2>Contáctanos</h2>
         <div class="contenedor-formulario-contacto">
             <div class="formulario-contacto">
-                <form action="https://formspree.io/f/xlevbbdg" method="POST">
+                <form action="https://formspree.io/f/mqkjbnpv" method="POST">
                     <div class="control-formulario">
                         <label for="name">Nombre</label>
                         <input type="text" id="name" name="sender-name" placeholder="Escribe tu nombre"
@@ -277,111 +352,12 @@
                 </form>
             </div>
         </div>
-        </section>
-        <br><br><br><br><br>
+    </section>
+    <br><br><br><br><br>
 
-        <div id="overlay"></div>
+    <div id="overlay"></div>
     </div>
+    <script src="/js/script.js"></script>
 </body>
-
-<script>
-
-    //LOADER
-    const body = document.querySelector("body");
-    const loader = document.querySelector(".loader-container");
-
-    window.addEventListener("load", () => {
-        loader.style.display = "none";
-        body.setAttribute("style", "animation: fadeInAnimation ease 3s; animation-iteration-count: 1; animation-fill-mode: forwards;");
-    });
-
-
-    //CARRUSEL
-    let slideIndex = 0;
-    showSlides();
-    function currentSlide(n) {
-        //empieza el timer de nuevo
-        clearTimeout(timer);
-        //coloca el indice en el slider actual
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides() {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) { slideIndex = 1 }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-        timer = setTimeout(showSlides, 5000); // Change image every 5 seconds -- Variable automaticamente global
-    }
-
-
-    //STICKY NAV
-
-    window.onscroll = function () { myFunction() };
-
-    let nav = document.querySelector("nav");
-
-    let sticky = nav.offsetTop;
-    /* console.log(sticky); */
-    // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-    function myFunction() {
-        if (window.pageYOffset > sticky) {
-            nav.classList.add("sticky");
-        } else {
-            nav.classList.remove("sticky");
-        }
-
-        /* console.log(window.pageYOffset); */
-    }
-
-
-    //MODAL
-
-    const openModalButtons = document.querySelectorAll("[data-modal-target]");
-    const closeModalButtons = document.querySelectorAll("[data-close-button]");
-    const overlay = document.getElementById("overlay")
-
-    openModalButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const modal = document.querySelector(button.dataset.modalTarget);
-            openModal(modal);
-        });
-    });
-
-    closeModalButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const modal = button.closest(".modal");
-            closeModal(modal);
-        });
-    });
-
-    function openModal(modal) {
-        if (modal == null) return
-        modal.classList.add("active");
-        overlay.classList.add("active");
-    }
-
-    function closeModal(modal) {
-        if (modal == null) return
-        modal.classList.remove("active");
-        overlay.classList.remove("active");
-    }
-
-    overlay.addEventListener("click", () => {
-        const modals = document.querySelectorAll(".modal.active");
-        modals.forEach(modal => {
-            closeModal(modal);
-        })
-    });
-</script>
 
 </html>
