@@ -16,6 +16,7 @@
     --bold-font: 700;
     --bolder-font: 900;
     --margin-nav: 0rem;
+    --size-menu-nav: 20px;
 }
 
 body {
@@ -74,6 +75,12 @@ nav {
 .logo {
     margin-left: var(--margin-nav);
 }
+.logo:hover {
+    transform: scale(1.5);
+    transition: all 0.5s ease-in-out;
+
+    
+}
 
 
 .menu li {
@@ -85,6 +92,7 @@ nav {
     padding: 25px;
     color: var(--color-fuente-pincipal);
     text-decoration: none;
+    font-size: var(--size-menu-nav);
     display: block;
     transition: all 0.5s ease-in-out;
 }
@@ -93,10 +101,11 @@ nav {
 .menu2 a:hover {
     color: var(--color-fuente-secundaria);
     transition: all 0.5s ease-in-out;
+    transform: scale(1.1);
 }
 
 .fa-solid {
-    font-size: 24px;
+    font-size: var(--size-menu-nav);
 }
 
 p {
@@ -112,7 +121,6 @@ p {
 .img-size {
     width: 100%;
 }
-
 .carrusel {
     display: flex;
     align-items: center;
