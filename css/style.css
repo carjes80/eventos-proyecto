@@ -20,6 +20,7 @@
 
 }
 
+
 body {
     color: var(--color-fuente-pincipal);
     margin: 0;
@@ -39,6 +40,21 @@ nav {
     transition: all 0.5s ease-in-out;
 
 
+}
+
+.toggle {
+    display: none;
+    font-size: 2em;
+    padding: 1em;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+}
+
+.fa-bars:before, .fa-navicon:before {
+    font-size: 1.5em;
 }
 
 .sticky {
@@ -82,6 +98,16 @@ nav {
 
     
 }
+
+.logo-container-mobile {
+    display: none;
+    position: fixed;
+    right: 0;
+    padding: 1em;
+    z-index: 20;
+}
+
+
 
 
 .menu li {
@@ -501,6 +527,54 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
     }
     .img-size1{display:none}
     .img-size2{display:block}
+
+     .toggle {
+        display: inline-block;
+        z-index: 20;
+    }
+    
+    
+    .navegacion {
+        background-color: var(--bg-color-nav);
+        left: 100%;
+        transition: left 0.5s;
+        box-shadow: 0 4px 3px -3px var(--color-shadow);
+        flex-direction: column;
+    }
+
+    .navegacion-mobile {
+        left: 0;
+    }
+
+    .menu {
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #000000;
+        height: 31vh;
+        
+    }
+
+    .menu li {
+        display: flex;
+    } 
+
+    .logo-container {
+        display: none;
+    }
+
+    .menu2 {
+        display: flex; 
+    }
+
+    .logo-container-mobile {
+        display: flex;
+
+    }
 }
 @media only screen and (max-width: 300px) {
     :root {
@@ -519,4 +593,50 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
     .img-size1{display:none}
     .img-size2{display:none}
     .dot {display:none}
+
+    .toggle {
+        display: inline-block;
+        z-index: 20;
+    }
+    
+    
+    .navegacion {
+        background-color: var(--bg-color-nav);
+        left: 100%;
+        transition: left 0.5s;
+        box-shadow: 0 4px 3px -3px var(--color-shadow);
+    }
+
+    .navegacion-mobile {
+        left: 0;
+    }
+
+    .menu {
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #000000;
+        height: 31vh;
+        
+    }
+
+    .menu li {
+        display: flex;
+    } 
+
+    .logo-container {
+        display: none;
+    }
+
+    .menu2 {
+        display: flex; 
+    }
+
+    .logo-container-mobile {
+        display: flex;
+    }
 }
