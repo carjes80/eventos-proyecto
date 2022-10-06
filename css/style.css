@@ -352,7 +352,7 @@ ul {
 .contenedor-formulario-contacto {
     max-width: 40.75rem;
     color: var(--color-fuente-secundaria);
-    margin: 0 auto;
+    margin: 0 1rem;
     padding: 0.938rem;
     border-radius: 5px;
     box-shadow: 0 3px 10px var(--color-shadow);
@@ -518,7 +518,5 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
     }
     .img-size1{display:none}
     .img-size2{display:none}
-    .navegación{
-        justify-content:flex-end;
-    }
+    .dot {display:none}
 }
