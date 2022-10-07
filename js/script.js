@@ -179,7 +179,7 @@ var evento5 = new eventoProximo(4, "./img/eventos/arch.jpg", "a", "img-eventopro
 var evento6 = new eventoProximo(5, "./img/eventos/remeneo-evento.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#remened", "REMENED XL", "Sábado 01 de Octubre 2022 - 00:00 hrs.", "Teatro Flores", "Corrientes 4500")
 var evento7 = new eventoProximo(6, "./img/eventos/harlem-evento.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#harlem", "HARLEM", "29 y 30 de Octubre de 2022 - 18:00 hrs.", "Estación Belgrano", "Ciudad de Santa Fé")
 var evento8 = new eventoProximo(7, "./img/eventos/holofonico.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#holofonicos", "Parlantes Holofónicos", "Todos los Jueves de Noviembre a la media noche", "Hipódromo de Palermo", "Av. Libertador 4500")
-var eventos = [evento1, evento2, evento3, evento4, evento5, evento6, evento7, evento8,  evento6, evento7, evento3, evento2,evento1, evento5, evento2,evento2, evento3, evento4, evento1, evento2, evento8, evento1, evento6, evento7, evento3, evento4, evento4, evento6, evento7, evento8, evento1, evento2, evento3, evento4, evento5, evento6, evento7, evento8]
+var eventos = [evento1, evento2, evento3, evento4, evento5, evento6, evento7, evento8, evento6, evento7, evento3, evento2, evento1, evento5, evento2, evento2, evento3, evento4, evento1, evento2, evento8, evento1, evento6, evento7, evento3, evento4, evento4, evento6, evento7, evento8, evento1, evento2, evento3, evento4, evento5, evento6, evento7, evento8]
 var qty_eventos = eventos.length;
 var nro_eventos;
 verEventos()
@@ -207,8 +207,6 @@ function verEventos() {
         nro_eventos = qty_eventos
         console.log(nro_eventos, "nro y ", qty_eventos, "qty")
     }
-    return (nro_eventos)
-
 
 }
 
