@@ -276,9 +276,18 @@ ul {
     background-color: var(--color-fuente-secundaria);
     color: black;
     border-radius: 11px;
+    font-weight: bold;
     font-size: var(--size-menu-nav);
     cursor: pointer;
     font-family: var(--font-family1);
+    padding: 5px;
+    text-decoration: none;
+}
+.img_text a{
+    text-decoration: none;
+    color: black;
+    border-radius: 11px;
+    font-weight: bold;
 }
 
 /* MODAL */
@@ -642,4 +651,5 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
     .logo-container-mobile {
         display: flex;
     }
+
 }
