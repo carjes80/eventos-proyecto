@@ -20,6 +20,9 @@
 
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     color: var(--color-fuente-pincipal);
