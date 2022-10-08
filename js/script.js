@@ -93,7 +93,7 @@ function crearCuadrosModales(id_evento) {
                             class="input-field" required />
                     </div>
                     <br>
-                    <button class="submit-btn" type="button" data-modal-target
+                    <button class="submit-btn" type="button" data-modal-target="#"
                         onclick="getValueInput()">
                         Ingresar
                     </button>
@@ -197,7 +197,7 @@ function verMasEventos() {
     clearEventos()
     mostrarEventos()
     callModal()
-    document.querySelector("article").innerHTML =
+    document.querySelector(".vermas").innerHTML =
         `<h4 class="img_text"><button onClick="verEventos()">VER MENOS</button></h4>`
     // console.log(nro_eventos, "nro y ", qty_eventos, "qty")
     // 
@@ -208,7 +208,7 @@ function verEventos() {
         clearEventos()
         nro_eventos = 8;
         mostrarEventos()
-        document.querySelector("article").innerHTML =
+        document.querySelector(".vermas").innerHTML =
             `<h4 class="img_text"><button onClick="verMasEventos()">VER MAS</button></h4>`
     } else {
         clearEventos()
@@ -307,12 +307,20 @@ const getValueInput = () => {
     let inputValue = document.getElementById("email_log").value;
     if (inputValue == "") {
         micuenta = true;
-        const modal = document.querySelector("#ingresedatos");
+        crearCuadrosModales("#ingresedatos"); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
+        
+        var modal = document.querySelector("#ingresedatos");
+        console.log(modal)
         openModal(modal);
+        
     } else {
         micuenta = false;
-        const modal2 = document.querySelector("#ingresado_ok");
+        
+        crearCuadrosModales("#ingresado_ok"); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
+
+        var modal2 = document.querySelector("#ingresado_ok");
         openModal(modal2);
+        console.log(modal2)
 
     }
     // console.log(micuenta)
