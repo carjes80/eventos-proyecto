@@ -42,22 +42,23 @@ function crearCuadrosModales(id_evento) {
     //Este findIndex busca el indice del arreglo de objetos
     let indice = array_msje.findIndex((array_msje) => array_msje.name == id_evento);
     let id = id_evento.slice(1)
-    console.log("El evento es: ", id, "Numero id:", indice)
-    if (indice < eventos.length || id == "micuenta" || id == "salir") {
-        const modal_eventos = document.querySelector(".modales");
-        let mod_div = document.createElement("div")
-        mod_div.className = "modal";
-        mod_div.id = id;
-        console.log(modal_eventos)
-        modal_eventos.appendChild(mod_div)
-        asd = document.getElementsByClassName("modal")
-
-        //Acá aprovecho el indice para saber si es un evento
-        if (indice >= 0 && indice < eventos.length && id != "micuenta" && id != "salir") {//Es un evento, enviamos el mensaje de evento cuando se hace click en +INFO
+    let asd = document.getElementsByClassName("modal")
+    if (asd.length < 50) {
+        if (indice < eventos.length || id == "micuenta" || id == "salir") {
+            const modal_eventos = document.querySelector(".modales");
+            let mod_div = document.createElement("div")
+            mod_div.className = "modal";
+            mod_div.id = id;
+            modal_eventos.appendChild(mod_div)
 
 
-            asd[0].innerHTML =
-                `
+
+            //Acá aprovecho el indice para saber si es un evento
+            if (indice >= 0 && indice < eventos.length && id != "micuenta" && id != "salir") {//Es un evento, enviamos el mensaje de evento cuando se hace click en +INFO
+
+
+                asd[0].innerHTML =
+                    `
     <div class="modal-header">
                         <div class="title"></div>
                         <button data-close-button class="close-button">&times;</button>
@@ -66,15 +67,15 @@ function crearCuadrosModales(id_evento) {
                         <p> 
                            
                         </p>
-                        <div class="img_text"><button data-modal-target="#comprado"><strong>COMPRAR</strong></button>
+                        <div class="img_text"><button data-modal-target="#comprado" onClick="callModal()"><strong>COMPRAR</strong></button>
                         </div>
                     </div>
     `
-            document.querySelector(".title").innerHTML = array_msje[indice].titulo
-            document.querySelector("p").innerHTML = array_msje[indice].cuando + "<br><br><strong>" + array_msje[indice].donde + "</strong><br><br>" + array_msje[indice].direccion
-        } else if (indice < 0 && id == "micuenta" && id != "salir") {
-            asd[0].innerHTML =
-                `
+                document.querySelector(".title").innerHTML = array_msje[indice].titulo
+                document.querySelector("p").innerHTML = array_msje[indice].cuando + "<br><br><strong>" + array_msje[indice].donde + "</strong><br><br>" + array_msje[indice].direccion
+            } else if (indice < 0 && id == "micuenta" && id != "salir") {
+                asd[0].innerHTML =
+                    `
             <div class="modal-header">
             <div class="title">Ingresar a Mi Cuenta</div>
             <button data-close-button class="close-button">&times;</button>
@@ -100,8 +101,8 @@ function crearCuadrosModales(id_evento) {
                 </div>
             </div>
         </div>`
-        } else if (indice < 0 && id != "micuenta" && id == "salir") {
-            asd[0].innerHTML = `
+            } else if (indice < 0 && id != "micuenta" && id == "salir") {
+                asd[0].innerHTML = `
                     <div class="modal-header">
                         <div class="title">Salir</div>
                         <button data-close-button class="close-button">&times;</button>
@@ -118,20 +119,18 @@ function crearCuadrosModales(id_evento) {
                         </div>
                     </div>
                 `
-        }
-    } else if (id != -1) {
-        console.log(asd)
-        asd[0].innerHTML = `
+            }
+        } else if (id != -1) {
+            asd[0].innerHTML = `
         <div class="modal-header">
                         <div class="title"></div>
                         <button data-close-button class="close-button">&times;</button>
                     </div>`
-        console.log(eventos)
-        document.querySelector(".title").innerHTML = array_msje[indice].titulo
-        // document.querySelector("p").innerHTML = array_msje[indice].cuando + "<br><br><strong>" + array_msje[indice].donde + "</strong><br><br>" + array_msje[indice].direccion
+            document.querySelector(".title").innerHTML = array_msje[indice].titulo
+            // document.querySelector("p").innerHTML = array_msje[indice].cuando + "<br><br><strong>" + array_msje[indice].donde + "</strong><br><br>" + array_msje[indice].direccion
+        }
     }
     callModal()
-
 }
 
 
@@ -189,14 +188,13 @@ var array_msje = eventos.concat(todos_los_mensajes);
 var qty_eventos = eventos.length;
 var nro_eventos = qty_eventos;
 verEventos()
-console.log(array_msje)
 // console.log(nro_eventos, "nro y ", qty_eventos, "qty")
 function verMasEventos() {
 
     nro_eventos = qty_eventos
     clearEventos()
     mostrarEventos()
-    callModal()
+    // callModal()
     document.querySelector(".vermas").innerHTML =
         `<h4 class="img_text"><button onClick="verEventos()">VER MENOS</button></h4>`
     // console.log(nro_eventos, "nro y ", qty_eventos, "qty")
@@ -223,7 +221,7 @@ function clearEventos() {
     while (clear_eventos.firstChild) {
         clear_eventos.removeChild(clear_eventos.firstChild);
     }
-    callModal()
+    // callModal()
 }
 
 
@@ -308,19 +306,17 @@ const getValueInput = () => {
     if (inputValue == "") {
         micuenta = true;
         crearCuadrosModales("#ingresedatos"); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
-        
+
         var modal = document.querySelector("#ingresedatos");
-        console.log(modal)
         openModal(modal);
-        
+
     } else {
         micuenta = false;
-        
+
         crearCuadrosModales("#ingresado_ok"); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
 
         var modal2 = document.querySelector("#ingresado_ok");
         openModal(modal2);
-        console.log(modal2)
 
     }
     // console.log(micuenta)
@@ -336,42 +332,51 @@ const salirLogin = () => {
     user_login();
 }
 
+var clicks = 0
 
 //----------------------------------------MODAL------------------------------------------------------------------
 function callModal() {
+
+
     const openModalButtons = document.querySelectorAll("[data-modal-target]");
     const closeModalButtons = document.querySelectorAll("[data-close-button]");
     const overlay = document.getElementById("overlay")
 
-
     openModalButtons.forEach(button => {
 
         button.addEventListener("click", () => {
-            console.log("Click cualquieraaaaa")
             if (button.dataset.modalTarget == "#comprado") {
-                console.log("Comprando y micuenta es:", micuenta)
 
 
                 if (micuenta) {
+                    // borrarCuadrosModales()
                     crearCuadrosModales("#loguearse"); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
-                    const modal = document.querySelector("#loguearse");
-                    console.log("micuenta true")
+                    let modal = document.querySelector("#loguearse");
+                    console.log("El modal en comprado:", modal)
                     openModal(modal);
+                    console.log("El modal en omprado:", modal)
+
+
 
                 } else {
+                    // borrarCuadrosModales()
                     crearCuadrosModales("#exitoso"); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
-                    const modal = document.querySelector("#exitoso");
+                    let modal = document.querySelector("#exitoso");
                     openModal(modal);
-                    console.log("micuenta false")
+                    console.log("El modal en omprado:", modal)
 
                 }
 
-            } else if (button.dataset.modalTarget != "#") {
+            } else if (button.dataset.modalTarget != "#" && button.dataset.modalTarget != "#comprado") {
+                borrarCuadrosModales()
                 crearCuadrosModales(button.dataset.modalTarget); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
-                const modal = document.querySelector(button.dataset.modalTarget);
+                let modal = document.querySelector(button.dataset.modalTarget);
+                console.log(button.dataset.modalTarget)
                 openModal(modal);
-                console.log("Click en no comprado")
+                clicks = clicks + 1;
+                console.log(clicks)
             }
+            
         });
     });
 
@@ -382,6 +387,7 @@ function callModal() {
 
         });
     });
+
 }
 
 function openModal(modal) {
