@@ -282,6 +282,19 @@ ul {
     font-family: var(--font-family1);
     padding: 5px;
     text-decoration: none;
+    transition: all 0.5s ease-in-out;
+}
+.img_text button:hover {
+    background-color: black;
+    color: var(--color-fuente-secundaria);
+    border-radius: 11px;
+    font-weight: bold;
+    font-size: var(--size-menu-nav);
+    cursor: pointer;
+    font-family: var(--font-family1);
+    padding: 5px;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
 }
 .img_text a{
     text-decoration: none;

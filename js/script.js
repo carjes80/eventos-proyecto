@@ -38,21 +38,22 @@ function showSlides() {
 
 //Las funciones crear y borrar cuadros, se encargan de crear un DIV para mostrar los modales de las ventanas emergentes. Al cerrar se borra.
 function crearCuadrosModales(id_evento) {
-    borrarCuadrosModales() //Se borra el cuadro si existe alguno.
+    // borrarCuadrosModales() //Se borra el cuadro si existe alguno.
     //Este findIndex busca el indice del arreglo de objetos
-    let indice = eventos.findIndex((eventoProximo) => eventoProximo.name == id_evento);
+    let indice = array_msje.findIndex((array_msje) => array_msje.name == id_evento);
     let id = id_evento.slice(1)
     console.log("El evento es: ", id, "Numero id:", indice)
-    if (indice >= 0 || id == "micuenta" || id == "salir") {
+    if (indice < eventos.length || id == "micuenta" || id == "salir") {
         const modal_eventos = document.querySelector(".modales");
         let mod_div = document.createElement("div")
         mod_div.className = "modal";
         mod_div.id = id;
+        console.log(modal_eventos)
         modal_eventos.appendChild(mod_div)
         asd = document.getElementsByClassName("modal")
 
         //Acá aprovecho el indice para saber si es un evento
-        if (indice >= 0) {//Es un evento, enviamos el mensaje de evento
+        if (indice >= 0 && indice < eventos.length && id != "micuenta" && id != "salir") {//Es un evento, enviamos el mensaje de evento cuando se hace click en +INFO
 
 
             asd[0].innerHTML =
@@ -65,14 +66,13 @@ function crearCuadrosModales(id_evento) {
                         <p> 
                            
                         </p>
-                        <div class="img_text"><button data-modal-target="#comprado" onclick="openModal()"><strong>COMPRAR</strong></button>
+                        <div class="img_text"><button data-modal-target="#comprado"><strong>COMPRAR</strong></button>
                         </div>
                     </div>
     `
-            document.querySelector(".title").innerHTML = eventos[indice].titulo
-            document.querySelector("p").innerHTML = eventos[indice].cuando + "<br><br><strong>" + eventos[indice].donde + "</strong><br><br>" + eventos[0].direccion
-            console.log(document.getElementById("superbotonINNER"))
-        } else if (id == "micuenta") {
+            document.querySelector(".title").innerHTML = array_msje[indice].titulo
+            document.querySelector("p").innerHTML = array_msje[indice].cuando + "<br><br><strong>" + array_msje[indice].donde + "</strong><br><br>" + array_msje[indice].direccion
+        } else if (indice < 0 && id == "micuenta" && id != "salir") {
             asd[0].innerHTML =
                 `
             <div class="modal-header">
@@ -93,14 +93,14 @@ function crearCuadrosModales(id_evento) {
                             class="input-field" required />
                     </div>
                     <br>
-                    <button class="submit-btn" type="button" data-modal-target="#ingresado"
+                    <button class="submit-btn" type="button" data-modal-target
                         onclick="getValueInput()">
                         Ingresar
                     </button>
                 </div>
             </div>
         </div>`
-        } else if (id == "salir") {
+        } else if (indice < 0 && id != "micuenta" && id == "salir") {
             asd[0].innerHTML = `
                     <div class="modal-header">
                         <div class="title">Salir</div>
@@ -119,27 +119,30 @@ function crearCuadrosModales(id_evento) {
                     </div>
                 `
         }
-    } else {
+    } else if (id != -1) {
+        console.log(asd)
         asd[0].innerHTML = `
         <div class="modal-header">
                         <div class="title"></div>
                         <button data-close-button class="close-button">&times;</button>
                     </div>`
-        document.querySelector(".title").innerHTML = eventos[indice].titulo
-        document.querySelector("p").innerHTML = eventos[indice].cuando + "<br><br><strong>" + eventos[indice].donde + "</strong><br><br>" + eventos[0].direccion
+        console.log(eventos)
+        document.querySelector(".title").innerHTML = array_msje[indice].titulo
+        // document.querySelector("p").innerHTML = array_msje[indice].cuando + "<br><br><strong>" + array_msje[indice].donde + "</strong><br><br>" + array_msje[indice].direccion
     }
+    callModal()
 
 }
 
 
 function borrarCuadrosModales() {
-    const modal_eventos = document.querySelector(".modal");
-    if (modal_eventos != null) { modal_eventos.remove("div") }
-
+    var modal_eventos = document.querySelector(".modales");
+    while (modal_eventos.firstChild) { modal_eventos.removeChild(modal_eventos.firstChild) }
 }
+
 //MENSAJES
 class mensajesEmergentes {
-    constructor(id, name, titulo, cuando, donde) {
+    constructor(id, name, titulo) {
         this.id = id;
         this.name = name;
         this.titulo = titulo
@@ -179,35 +182,40 @@ var evento5 = new eventoProximo(4, "./img/eventos/arch.jpg", "a", "img-eventopro
 var evento6 = new eventoProximo(5, "./img/eventos/remeneo-evento.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#remened", "REMENED XL", "Sábado 01 de Octubre 2022 - 00:00 hrs.", "Teatro Flores", "Corrientes 4500")
 var evento7 = new eventoProximo(6, "./img/eventos/harlem-evento.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#harlem", "HARLEM", "29 y 30 de Octubre de 2022 - 18:00 hrs.", "Estación Belgrano", "Ciudad de Santa Fé")
 var evento8 = new eventoProximo(7, "./img/eventos/holofonico.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#holofonicos", "Parlantes Holofónicos", "Todos los Jueves de Noviembre a la media noche", "Hipódromo de Palermo", "Av. Libertador 4500")
-var eventos = [evento1, evento2, evento3, evento4, evento5, evento6, evento7, evento8, evento6, evento7, evento3, evento2, evento1, evento5, evento2, evento2, evento3, evento4, evento1, evento2, evento8, evento1, evento6, evento7, evento3, evento4, evento4, evento6, evento7, evento8, evento1, evento2, evento3, evento4, evento5, evento6, evento7, evento8]
+
+//Arreglo de eventos
+var eventos = [evento1, evento2, evento3, evento4, evento5, evento6, evento7, evento8, evento3, evento4, evento5, evento6, evento3, evento4, evento4, evento5, evento6, evento7]
+var array_msje = eventos.concat(todos_los_mensajes);
 var qty_eventos = eventos.length;
-var nro_eventos;
+var nro_eventos = qty_eventos;
 verEventos()
-console.log(nro_eventos, "nro y ", qty_eventos, "qty")
+console.log(array_msje)
+// console.log(nro_eventos, "nro y ", qty_eventos, "qty")
 function verMasEventos() {
 
     nro_eventos = qty_eventos
     clearEventos()
     mostrarEventos()
+    callModal()
     document.querySelector("article").innerHTML =
         `<h4 class="img_text"><button onClick="verEventos()">VER MENOS</button></h4>`
-    console.log(nro_eventos, "nro y ", qty_eventos, "qty")
-
+    // console.log(nro_eventos, "nro y ", qty_eventos, "qty")
+    // 
 }
 
 function verEventos() {
     if (qty_eventos > 8) {
-        nro_eventos = 8
         clearEventos()
+        nro_eventos = 8;
         mostrarEventos()
         document.querySelector("article").innerHTML =
             `<h4 class="img_text"><button onClick="verMasEventos()">VER MAS</button></h4>`
-        console.log(nro_eventos, "nro y ", qty_eventos, "qty")
     } else {
+        clearEventos()
+        mostrarEventos()
+        // console.log("ENTRÓ", nro_eventos)
         nro_eventos = qty_eventos
-        console.log(nro_eventos, "nro y ", qty_eventos, "qty")
     }
-
 }
 
 function clearEventos() {
@@ -215,11 +223,11 @@ function clearEventos() {
     while (clear_eventos.firstChild) {
         clear_eventos.removeChild(clear_eventos.firstChild);
     }
+    callModal()
 }
 
-function mostrarEventos() {
 
-    console.log(nro_eventos)
+function mostrarEventos() {
     const div_max_eventos = document.querySelector(".eventoproximo");
     if (div_max_eventos != null) {
         // console.log(div_max_eventos)
@@ -251,39 +259,9 @@ function mostrarEventos() {
 
         }
     }
-
+    callModal()
 }
 
-
-// // console.log(div_max_eventos)
-// for (let i = 0; i < qty_eventos; i++) {
-//     let div0 = document.createElement("div")
-//     div0.className = "img_container";
-//     div_max_eventos.appendChild(div0)
-// }
-// const div_evento = document.getElementsByClassName("img_container");
-// // console.log(div_evento, "es un:", typeof div_evento)
-
-// for (let i = 0; i < qty_eventos; i++) {
-//     let imagen = document.createElement("img")
-//     imagen.src = eventos[i].carpeta;
-//     imagen.className = eventos[i].imgclass;
-//     div_evento[i].appendChild(imagen)
-//     let div1 = document.createElement("div")
-//     div1.className = eventos[i].divclass;
-//     div_evento[i].appendChild(div1)
-// }
-// const div_btn = document.getElementsByClassName("img_text_container");
-// // console.log(div_btn, "es un:", typeof div_evento)
-// for (let i = 0; i < div_btn.length; i++) {
-//     let div2 = document.createElement("div")
-//     div2.className = eventos[i].btnclass;
-//     div_btn[i].appendChild(div2)
-//     btn = document.getElementsByClassName("img_text")
-//     btn[i].innerHTML = '<button data-modal-target="' + eventos[i].name + '">+INFO</button>';
-
-// }
-// // console.log(typeof eventos[0].id,eventos[0].id)
 
 
 //STICKY NAV
@@ -337,7 +315,7 @@ const getValueInput = () => {
         openModal(modal2);
 
     }
-    console.log(micuenta)
+    // console.log(micuenta)
 
 
     user_login()
@@ -351,45 +329,52 @@ const salirLogin = () => {
 }
 
 
-//MODAL
+//----------------------------------------MODAL------------------------------------------------------------------
+function callModal() {
+    const openModalButtons = document.querySelectorAll("[data-modal-target]");
+    const closeModalButtons = document.querySelectorAll("[data-close-button]");
+    const overlay = document.getElementById("overlay")
 
-const openModalButtons = document.querySelectorAll("[data-modal-target]");
-const closeModalButtons = document.querySelectorAll("[data-close-button]");
-const overlay = document.getElementById("overlay")
+
+    openModalButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+            console.log("Click cualquieraaaaa")
+            if (button.dataset.modalTarget == "#comprado") {
+                console.log("Comprando y micuenta es:", micuenta)
 
 
-openModalButtons.forEach(button => {
+                if (micuenta) {
+                    crearCuadrosModales("#loguearse"); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
+                    const modal = document.querySelector("#loguearse");
+                    console.log("micuenta true")
+                    openModal(modal);
 
-    button.addEventListener("click", () => {
-        console.log("Click cualquiera")
-        if (button.dataset.modalTarget == "#comprado") {
-            console.log("Comprando")
+                } else {
+                    crearCuadrosModales("#exitoso"); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
+                    const modal = document.querySelector("#exitoso");
+                    openModal(modal);
+                    console.log("micuenta false")
 
-            if (micuenta == true) {
+                }
+
+            } else if (button.dataset.modalTarget != "#") {
                 crearCuadrosModales(button.dataset.modalTarget); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
-                const modal = document.querySelector("#loguearse");
+                const modal = document.querySelector(button.dataset.modalTarget);
                 openModal(modal);
-            } else {
-                crearCuadrosModales(button.dataset.modalTarget); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
-                const modal = document.querySelector("#exitoso");
-                openModal(modal);
+                console.log("Click en no comprado")
             }
-
-        } else {
-            crearCuadrosModales(button.dataset.modalTarget); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
-            const modal = document.querySelector(button.dataset.modalTarget);
-            openModal(modal);
-        }
+        });
     });
-});
 
-closeModalButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        const modal = button.closest(".modal");
-        closeModal(modal);
+    closeModalButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const modal = button.closest(".modal");
+            closeModal(modal);
 
+        });
     });
-});
+}
 
 function openModal(modal) {
     if (modal == null) return
