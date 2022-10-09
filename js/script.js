@@ -1,3 +1,213 @@
+//creando clase de eventos
+class eventoProximo {
+    constructor(id, carpeta, alter, imgclass, divclass, btnclass, name, titulo, cuando, donde, direccion) {
+        this.id = id
+        this.carpeta = carpeta
+        this.alter = alter
+        this.imgclass = imgclass
+        this.divclass = divclass
+        this.btnclass = btnclass
+        this.name = name
+        this.titulo = titulo
+        this.cuando = cuando
+        this.donde = donde
+        this.direccion = direccion
+    }
+
+}
+var evento1 = new eventoProximo(0, "./img/eventos/elovate.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#elovate", "12/11 Michael Bibi Presents ELOVATE (+18)", "Sábado 12 de Noviembre 2022 - 23:55 hrs.", "<strong>Madero Boardwalk</strong>", "Cecilia Grierson 400 - Puerto Madero")
+var evento2 = new eventoProximo(1, "./img/eventos/kalua.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#kalua", "Kalúa (+18)", "Sábado 05 de Noviembre 2022 - 00:00 hrs.", "Club La Octava", "Niceto Vega 5702")
+var evento3 = new eventoProximo(2, "./img/eventos/fdd.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#fod", "FOD", "Sábado 20 de Noviembre 2022 - 00:00 hrs.", "Groove", "Santa Fe 5000")
+var evento4 = new eventoProximo(3, "./img/eventos/aconcagua.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#aconcagua", "FESTIVAL ACONCAGUA", "Sábado 01 de Octubre 2022 - 00:00 hrs.", "Hipódromo de Palermo", "Av. Libertador 4500")
+var evento5 = new eventoProximo(4, "./img/eventos/arch.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#arch", "ARCH ENEMY", "Sábado 21 de Noviembre 2022 - 00:00 hrs.", "Teatro Flores", " Corrientes 4500")
+var evento6 = new eventoProximo(5, "./img/eventos/remeneo-evento.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#remened", "REMENED XL", "Sábado 01 de Octubre 2022 - 00:00 hrs.", "Teatro Flores", "Corrientes 4500")
+var evento7 = new eventoProximo(6, "./img/eventos/harlem-evento.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#harlem", "HARLEM", "29 y 30 de Octubre de 2022 - 18:00 hrs.", "Estación Belgrano", "Ciudad de Santa Fé")
+var evento8 = new eventoProximo(7, "./img/eventos/holofonico.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#holofonicos", "Parlantes Holofónicos", "Todos los Jueves de Noviembre a la media noche", "Hipódromo de Palermo", "Av. Libertador 4500")
+
+
+//arreglo de eventos
+var eventos = [evento1, evento2, evento3, evento4, evento5, evento6, evento7, evento8, evento2, evento3, evento1, evento4]
+//mostrando eventos
+function mostrarEventos() {
+    const div_max_eventos = document.querySelector(".eventoproximo");
+    if (eventos.length <= 8) {
+        // console.log(div_max_eventos)
+        for (let i = 0; i < eventos.length; i++) {
+            let div0 = document.createElement("div")
+            div0.className = "img_container";
+            div_max_eventos.appendChild(div0)
+        }
+        const div_evento = document.getElementsByClassName("img_container");
+        // console.log(div_evento, "es un:", typeof div_evento)
+
+        for (let i = 0; i < eventos.length; i++) {
+            let imagen = document.createElement("img")
+            imagen.src = eventos[i].carpeta;
+            imagen.className = eventos[i].imgclass;
+            div_evento[i].appendChild(imagen)
+            let div1 = document.createElement("div")
+            div1.className = eventos[i].divclass;
+            div_evento[i].appendChild(div1)
+        }
+        const div_btn = document.getElementsByClassName("img_text_container");
+        // console.log(div_btn, "es un:", typeof div_evento)
+        for (let i = 0; i < div_btn.length; i++) {
+            let div2 = document.createElement("div")
+            div2.className = eventos[i].btnclass;
+            div_btn[i].appendChild(div2)
+            btn = document.getElementsByClassName("img_text")
+            btn[i].innerHTML = '<button data-modal-target="' + eventos[i].name + '">+INFO</button>';
+
+        }
+
+
+    } else {
+         // console.log(div_max_eventos)
+         for (let i = 0; i < 8; i++) {
+            let div0 = document.createElement("div")
+            div0.className = "img_container";
+            div_max_eventos.appendChild(div0)
+        }
+        divSeparador = document.createElement("div")
+        divSeparador.classList.add("separador")
+        divSeparador.setAttribute("style", "display:none;")
+        div_max_eventos.appendChild(divSeparador)
+        console.log("asdds")
+
+        for (let i = 0; i < eventos.length-8; i++) {
+            let div0 = document.createElement("div")
+            div0.classList.add("img_container", "oculto", "visible") 
+            div_max_eventos.appendChild(div0)
+        }
+        const div_evento = document.getElementsByClassName("img_container");
+        // console.log(div_evento, "es un:", typeof div_evento)
+
+        for (let i = 0; i < eventos.length; i++) {
+            let imagen = document.createElement("img")
+            imagen.src = eventos[i].carpeta;
+            imagen.className = eventos[i].imgclass;
+            div_evento[i].appendChild(imagen)
+            let div1 = document.createElement("div")
+            div1.className = eventos[i].divclass;
+            div_evento[i].appendChild(div1)
+        }
+        const div_btn = document.getElementsByClassName("img_text_container");
+        // console.log(div_btn, "es un:", typeof div_evento)
+        for (let i = 0; i < eventos.length; i++) {
+            let div2 = document.createElement("div")
+            div2.className = eventos[i].btnclass;
+            div_btn[i].appendChild(div2)
+            btn = document.getElementsByClassName("img_text")
+            btn[i].innerHTML = '<button data-modal-target="' + eventos[i].name + '">+INFO</button>';
+
+        }
+
+    }
+
+}
+mostrarEventos()
+
+//creando clase de modales de eventos
+class modalesDeEventosProximos {
+    constructor(id, titulo, descripcion) {
+        this.id = id
+        this.titulo = titulo
+        this.descripcion = descripcion
+    }
+}
+
+var modalEvento1 = new modalesDeEventosProximos("elovate", "12/11 Michael Bibi Presents ELOVATE (+18)", "Sábado 12 de Noviembre 2022 - 23:55 hrs.<br><br><strong>Madero Boardwalk</strong><br>Cecilia Grierson 400 - Puerto Madero")
+var modalEvento2 = new modalesDeEventosProximos("kalua", "Kalúa (+18)", "Sábado 05 de Noviembre 2022 - 00:00 hrs.<br><br><strong>Club La Octava</strong><br>Niceto Vega 5702")
+var modalEvento3 = new modalesDeEventosProximos("fod", "FOD", "Sábado 20 de Noviembre 2022 - 00:00 hrs.<br><br><strong>Groove</strong><br>Santa Fe 5000")
+var modalEvento4 = new modalesDeEventosProximos("aconcagua", "FESTIVAL ACONCAGUA", "Sábado 01 de Octubre 2022 - 00:00 hrs.<br><br><strong>Hipódromo de Palermo</strong><br>Av. Libertador 4500")
+var modalEvento5 = new modalesDeEventosProximos("arch", "ARCH ENEMY", "Sábado 21 de Noviembre 2022 - 00:00 hrs.<br><br><strong>Teatro Flores</strong><br>Corrientes 4500")
+var modalEvento6 = new modalesDeEventosProximos("remened", "REMENED XL", "Sábado 01 de Octubre 2022 - 00:00 hrs.<br><br><strong>Teatro Flores</strong><br>Corrientes 4500")
+var modalEvento7 = new modalesDeEventosProximos("harlem", "HARLEM", "29 y 30 de Octubre de 2022 - 18:00 hrs.<br><br><strong>Estación Belgrano</strong><br>Ciudad de Santa Fé")
+var modalEvento8 = new modalesDeEventosProximos("holofonicos", "Parlantes Holofónicos", "Todos los Jueves de Noviembre a la media noche<br><br><strong>Hipódromo de Palermo</strong><br>Av. Libertador 4500")
+
+//arreglo de modales de eventos
+var modalesDeEventos = [modalEvento1, modalEvento2, modalEvento3, modalEvento4, modalEvento5, modalEvento6, modalEvento7, modalEvento8, modalEvento2, modalEvento3, modalEvento1, modalEvento4]
+
+function crearModalesDeEventos() {
+    const articleModales = document.querySelector(".modales");
+    if (articleModales != null) {
+        // console.log(div_max_eventos)
+        for (let i = 0; i < modalesDeEventos.length; i++) {
+            let div0 = document.createElement("div")
+            div0.classList.add("modal")
+            div0.id = modalesDeEventos[i].id
+            articleModales.appendChild(div0)
+        }
+        const claseModal = document.querySelectorAll(".modales >.modal");
+        /* console.log(claseModal) */
+        for (let i = 0; i < modalesDeEventos.length; i++) {
+            let modalHeader = document.createElement("div")
+            let modalBody = document.createElement("div")
+            modalHeader.classList.add("modal-header")
+            modalBody.classList.add("modal-body")
+            claseModal[i].appendChild(modalHeader)
+            claseModal[i].appendChild(modalBody)
+        }
+
+        const claseHeader = document.querySelectorAll(".modales >.modal >.modal-header");
+        const claseBody = document.querySelectorAll(".modales >.modal >.modal-body")
+        /* console.log(claseHeader.length) */
+        for (let i = 0; i < modalesDeEventos.length; i++) {
+            /* console.log(modalesDeEventos.length) */
+
+            let divTitle = document.createElement("div")
+            let closeBtn = document.createElement("button")
+            divTitle.classList.add("title")
+            divTitle.textContent = modalesDeEventos[i].titulo
+            closeBtn.setAttribute("data-close-button", "")
+            closeBtn.classList.add("close-button")
+            closeBtn.innerHTML = "&times"
+            claseHeader[i].appendChild(divTitle)
+            claseHeader[i].appendChild(closeBtn)
+            let bodyP = document.createElement("p")
+            let bodyDivImg = document.createElement("div")
+            bodyP.innerHTML = modalesDeEventos[i].descripcion
+            bodyDivImg.classList.add("img_text")
+            claseBody[i].appendChild(bodyP)
+            claseBody[i].appendChild(bodyDivImg)
+
+
+        }
+        const claseImgText = document.querySelectorAll(".modales >.modal >.modal-body >.img_text")
+        claseImgText.forEach(div => {
+            div.innerHTML = '<button data-modal-target="#comprado"><strong>Comprar</strong></button>'
+        })
+    }
+}
+crearModalesDeEventos();
+
+//BOTON VER MAS
+ function verMasEventos() {
+    if (eventos.length > 8) {
+        const article = document.querySelector("article")
+        article.appendChild(document.createElement("br"))
+        const h4VerMasBtn = document.createElement("h4")
+        const verMasBtn = document.createElement("button")
+        h4VerMasBtn.classList.add("img_text", "selector")
+        verMasBtn.textContent = "VER MAS"
+        article.appendChild(h4VerMasBtn)
+        h4VerMasBtn.appendChild(verMasBtn)
+        const divsOcultos = document.querySelectorAll(".oculto")
+        console.log(divsOcultos)
+        verMasBtn.addEventListener("click", () => {
+            if (verMasBtn.textContent === "VER MAS") {
+                verMasBtn.textContent = "VER MENOS"
+            } else {
+                verMasBtn.textContent = "VER MAS"
+            }
+            divsOcultos.forEach(div => {
+                div.classList.toggle("oculto")
+            })
+        })
+    }
+} 
+verMasEventos()
+
 //LOADER
 const body = document.querySelector("body");
 const loader = document.querySelector(".loader-container");
@@ -35,235 +245,6 @@ function showSlides() {
 }
 
 
-
-//Las funciones crear y borrar cuadros, se encargan de crear un DIV para mostrar los modales de las ventanas emergentes. Al cerrar se borra.
-function crearCuadrosModales(id_evento) {
-    // borrarCuadrosModales() //Se borra el cuadro si existe alguno.
-    //Este findIndex busca el indice del arreglo de objetos
-    let indice = array_msje.findIndex((array_msje) => array_msje.name == id_evento);
-    let id = id_evento.slice(1)
-    console.log("El evento es: ", id, "Numero id:", indice)
-    if (indice < eventos.length || id == "micuenta" || id == "salir") {
-        const modal_eventos = document.querySelector(".modales");
-        let mod_div = document.createElement("div")
-        mod_div.className = "modal";
-        mod_div.id = id;
-        console.log(modal_eventos)
-        modal_eventos.appendChild(mod_div)
-        asd = document.getElementsByClassName("modal")
-
-        //Acá aprovecho el indice para saber si es un evento
-        if (indice >= 0 && indice < eventos.length && id != "micuenta" && id != "salir") {//Es un evento, enviamos el mensaje de evento cuando se hace click en +INFO
-
-
-            asd[0].innerHTML =
-                `
-    <div class="modal-header">
-                        <div class="title"></div>
-                        <button data-close-button class="close-button">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <p> 
-                           
-                        </p>
-                        <div class="img_text"><button data-modal-target="#comprado"><strong>COMPRAR</strong></button>
-                        </div>
-                    </div>
-    `
-            document.querySelector(".title").innerHTML = array_msje[indice].titulo
-            document.querySelector("p").innerHTML = array_msje[indice].cuando + "<br><br><strong>" + array_msje[indice].donde + "</strong><br><br>" + array_msje[indice].direccion
-        } else if (indice < 0 && id == "micuenta" && id != "salir") {
-            asd[0].innerHTML =
-                `
-            <div class="modal-header">
-            <div class="title">Ingresar a Mi Cuenta</div>
-            <button data-close-button class="close-button">&times;</button>
-        </div>
-        <div class="modal-body">
-            <div class="contenedor-formulario-contacto">
-                <div class="formulario-contacto">
-                    <div class="control-formulario">
-                        <label for="email">Correo Electrónico</label>
-                        <input type="email" id="email_log" name="sender-email"
-                            placeholder="Ingreso tu correo electrónico" class="input-field" required />
-                    </div>
-                    <div class="control-formulario">
-                        <label for="password">password</label>
-                        <input type="password" id="password" name="password" placeholder="password"
-                            class="input-field" required />
-                    </div>
-                    <br>
-                    <button class="submit-btn" type="button" data-modal-target
-                        onclick="getValueInput()">
-                        Ingresar
-                    </button>
-                </div>
-            </div>
-        </div>`
-        } else if (indice < 0 && id != "micuenta" && id == "salir") {
-            asd[0].innerHTML = `
-                    <div class="modal-header">
-                        <div class="title">Salir</div>
-                        <button data-close-button class="close-button">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="contenedor-formulario-contacto">
-                            <div class="formulario-contacto">
-                                <p>Confirmar la salida</p>
-                                <button class="submit-btn" type="button" data-modal-target="#salido"
-                                    onclick="salirLogin()">
-                                    Salir
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `
-        }
-    } else if (id != -1) {
-        console.log(asd)
-        asd[0].innerHTML = `
-        <div class="modal-header">
-                        <div class="title"></div>
-                        <button data-close-button class="close-button">&times;</button>
-                    </div>`
-        console.log(eventos)
-        document.querySelector(".title").innerHTML = array_msje[indice].titulo
-        // document.querySelector("p").innerHTML = array_msje[indice].cuando + "<br><br><strong>" + array_msje[indice].donde + "</strong><br><br>" + array_msje[indice].direccion
-    }
-    callModal()
-
-}
-
-
-function borrarCuadrosModales() {
-    var modal_eventos = document.querySelector(".modales");
-    while (modal_eventos.firstChild) { modal_eventos.removeChild(modal_eventos.firstChild) }
-}
-
-//MENSAJES
-class mensajesEmergentes {
-    constructor(id, name, titulo) {
-        this.id = id;
-        this.name = name;
-        this.titulo = titulo
-
-    }
-}
-var msje_loguearse = new mensajesEmergentes(0, "#loguearse", "Por favor, entre a 'Mi Cuenta' ->> <i class='fa-solid fa-user'></i>")
-var msje_ingresado = new mensajesEmergentes(1, "#ingresado_ok", "Registro Exitoso")
-var msje_salido = new mensajesEmergentes(2, "#salido", "Hasta luego")
-var msje_exitoso = new mensajesEmergentes(3, "#exitoso", "COMPRADO CON ÉXITO")
-var msje_ingr_datos = new mensajesEmergentes(4, "#ingresedatos", "Por favor ingrese los datos")
-var todos_los_mensajes = [msje_loguearse, msje_ingresado, msje_salido, msje_exitoso, msje_ingr_datos]
-var qty_msjes = todos_los_mensajes.length;
-
-//EVENTOS LISTADOS
-class eventoProximo {
-    constructor(id, carpeta, alter, imgclass, divclass, btnclass, name, titulo, cuando, donde, direccion) {
-        this.id = id
-        this.carpeta = carpeta
-        this.alter = alter
-        this.imgclass = imgclass
-        this.divclass = divclass
-        this.btnclass = btnclass
-        this.name = name
-        this.titulo = titulo
-        this.cuando = cuando
-        this.donde = donde
-        this.direccion = direccion
-    }
-
-}
-var evento1 = new eventoProximo(0, "./img/eventos/elovate.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#elovate", "12/11 Michael Bibi Presents ELOVATE (+18)", "Sábado 12 de Noviembre 2022 - 23:55 hrs.", "<strong>Madero Boardwalk</strong>", "Cecilia Grierson 400 - Puerto Madero")
-var evento2 = new eventoProximo(1, "./img/eventos/kalua.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#kalua", "Kalúa (+18)", "Sábado 05 de Noviembre 2022 - 00:00 hrs.", "Club La Octava", "Niceto Vega 5702")
-var evento3 = new eventoProximo(2, "./img/eventos/fdd.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#fod", "FOD", "Sábado 20 de Noviembre 2022 - 00:00 hrs.", "Groove", "Santa Fe 5000")
-var evento4 = new eventoProximo(3, "./img/eventos/aconcagua.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#aconcagua", "FESTIVAL ACONCAGUA", "Sábado 01 de Octubre 2022 - 00:00 hrs.", "Hipódromo de Palermo", "Av. Libertador 4500")
-var evento5 = new eventoProximo(4, "./img/eventos/arch.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#arch", "ARCH ENEMY", "Sábado 21 de Noviembre 2022 - 00:00 hrs.", "Teatro Flores", " Corrientes 4500")
-var evento6 = new eventoProximo(5, "./img/eventos/remeneo-evento.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#remened", "REMENED XL", "Sábado 01 de Octubre 2022 - 00:00 hrs.", "Teatro Flores", "Corrientes 4500")
-var evento7 = new eventoProximo(6, "./img/eventos/harlem-evento.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#harlem", "HARLEM", "29 y 30 de Octubre de 2022 - 18:00 hrs.", "Estación Belgrano", "Ciudad de Santa Fé")
-var evento8 = new eventoProximo(7, "./img/eventos/holofonico.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#holofonicos", "Parlantes Holofónicos", "Todos los Jueves de Noviembre a la media noche", "Hipódromo de Palermo", "Av. Libertador 4500")
-
-//Arreglo de eventos
-var eventos = [evento1, evento2, evento3, evento4, evento5, evento6, evento7, evento8, evento3, evento4, evento5, evento6, evento3, evento4, evento4, evento5, evento6, evento7]
-var array_msje = eventos.concat(todos_los_mensajes);
-var qty_eventos = eventos.length;
-var nro_eventos = qty_eventos;
-verEventos()
-console.log(array_msje)
-// console.log(nro_eventos, "nro y ", qty_eventos, "qty")
-function verMasEventos() {
-
-    nro_eventos = qty_eventos
-    clearEventos()
-    mostrarEventos()
-    callModal()
-    document.querySelector("article").innerHTML =
-        `<h4 class="img_text"><button onClick="verEventos()">VER MENOS</button></h4>`
-    // console.log(nro_eventos, "nro y ", qty_eventos, "qty")
-    // 
-}
-
-function verEventos() {
-    if (qty_eventos > 8) {
-        clearEventos()
-        nro_eventos = 8;
-        mostrarEventos()
-        document.querySelector("article").innerHTML =
-            `<h4 class="img_text"><button onClick="verMasEventos()">VER MAS</button></h4>`
-    } else {
-        clearEventos()
-        mostrarEventos()
-        // console.log("ENTRÓ", nro_eventos)
-        nro_eventos = qty_eventos
-    }
-}
-
-function clearEventos() {
-    var clear_eventos = document.querySelector(".eventoproximo");
-    while (clear_eventos.firstChild) {
-        clear_eventos.removeChild(clear_eventos.firstChild);
-    }
-    callModal()
-}
-
-
-function mostrarEventos() {
-    const div_max_eventos = document.querySelector(".eventoproximo");
-    if (div_max_eventos != null) {
-        // console.log(div_max_eventos)
-        for (let i = 0; i < nro_eventos; i++) {
-            let div0 = document.createElement("div")
-            div0.className = "img_container";
-            div_max_eventos.appendChild(div0)
-        }
-        const div_evento = document.getElementsByClassName("img_container");
-        // console.log(div_evento, "es un:", typeof div_evento)
-
-        for (let i = 0; i < nro_eventos; i++) {
-            let imagen = document.createElement("img")
-            imagen.src = eventos[i].carpeta;
-            imagen.className = eventos[i].imgclass;
-            div_evento[i].appendChild(imagen)
-            let div1 = document.createElement("div")
-            div1.className = eventos[i].divclass;
-            div_evento[i].appendChild(div1)
-        }
-        const div_btn = document.getElementsByClassName("img_text_container");
-        // console.log(div_btn, "es un:", typeof div_evento)
-        for (let i = 0; i < div_btn.length; i++) {
-            let div2 = document.createElement("div")
-            div2.className = eventos[i].btnclass;
-            div_btn[i].appendChild(div2)
-            btn = document.getElementsByClassName("img_text")
-            btn[i].innerHTML = '<button data-modal-target="' + eventos[i].name + '">+INFO</button>';
-
-        }
-    }
-    callModal()
-}
-
-
-
 //STICKY NAV
 
 window.onscroll = function () { myFunction() };
@@ -282,8 +263,6 @@ function myFunction() {
 
     /* console.log(window.pageYOffset); */
 }
-
-
 user_login = () => {
     let miuser = document.getElementsByClassName("menu2")
 
@@ -303,6 +282,7 @@ user_login()
 
 //MICUENTA
 const getValueInput = () => {
+
     // console.log(typeof micuenta)
     let inputValue = document.getElementById("email_log").value;
     if (inputValue == "") {
@@ -311,11 +291,10 @@ const getValueInput = () => {
         openModal(modal);
     } else {
         micuenta = false;
-        const modal2 = document.querySelector("#ingresado_ok");
-        openModal(modal2);
+        const modal = document.querySelector("#ingresado_ok");
+        openModal(modal);
 
     }
-    // console.log(micuenta)
 
 
     user_login()
@@ -329,52 +308,50 @@ const salirLogin = () => {
 }
 
 
-//----------------------------------------MODAL------------------------------------------------------------------
-function callModal() {
-    const openModalButtons = document.querySelectorAll("[data-modal-target]");
-    const closeModalButtons = document.querySelectorAll("[data-close-button]");
-    const overlay = document.getElementById("overlay")
+//MODAL
+
+const openModalButtons = document.querySelectorAll("[data-modal-target]");
+const closeModalButtons = document.querySelectorAll("[data-close-button]");
+const overlay = document.getElementById("overlay")
 
 
-    openModalButtons.forEach(button => {
+openModalButtons.forEach(button => {
 
-        button.addEventListener("click", () => {
-            console.log("Click cualquieraaaaa")
-            if (button.dataset.modalTarget == "#comprado") {
-                console.log("Comprando y micuenta es:", micuenta)
-
-
-                if (micuenta) {
-                    crearCuadrosModales("#loguearse"); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
-                    const modal = document.querySelector("#loguearse");
-                    console.log("micuenta true")
-                    openModal(modal);
-
-                } else {
-                    crearCuadrosModales("#exitoso"); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
-                    const modal = document.querySelector("#exitoso");
-                    openModal(modal);
-                    console.log("micuenta false")
-
-                }
-
-            } else if (button.dataset.modalTarget != "#") {
-                crearCuadrosModales(button.dataset.modalTarget); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
-                const modal = document.querySelector(button.dataset.modalTarget);
+    button.addEventListener("click", () => {
+        /* console.log(button.dataset.modalTarget) */
+        if (button.dataset.modalTarget == "#comprado") {
+            if (micuenta) {
+                const modal = document.querySelector("#loguearse");
+                /* console.log(modal) */
                 openModal(modal);
-                console.log("Click en no comprado")
+            } else {
+                const modal = document.querySelector("#exitoso");
+                openModal(modal);
             }
-        });
-    });
 
-    closeModalButtons.forEach(button => {
-        button.addEventListener("click", () => {
+        } else {
+            const modal = document.querySelector(button.dataset.modalTarget);
+            openModal(modal);
+        }
+    });
+});
+const modalesActivos = document.querySelectorAll(".modal.active");
+
+
+closeModalButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+        const modalesActivos = document.querySelectorAll(".modal.active");
+        //Si hay mas de un modal activo, los cierra a todos
+        if (modalesActivos.length > 1) {
+            const modales = document.querySelectorAll(".modal.active");
+            closeModales(modales);
+        } else {
             const modal = button.closest(".modal");
             closeModal(modal);
-
-        });
+        }
     });
-}
+});
 
 function openModal(modal) {
     if (modal == null) return
@@ -386,8 +363,16 @@ function closeModal(modal) {
     if (modal == null) return
     modal.classList.remove("active");
     overlay.classList.remove("active");
-    borrarCuadrosModales(); //Se agrega para que se elimine el div creado y se pueda crear otro
 
+
+}
+
+function closeModales(modales) {
+    if (modales == null) return
+    modales.forEach(modal => {
+        modal.classList.remove("active");
+        overlay.classList.remove("active");
+    })
 }
 
 overlay.addEventListener("click", () => {
@@ -397,3 +382,31 @@ overlay.addEventListener("click", () => {
     })
 });
 
+//MENU HAMBURGUESA
+
+const bars = document.querySelector(".toggle");
+
+bars.addEventListener("click", () => {
+    nav.classList.toggle("navegacion-mobile");
+    overlay.classList.toggle("active");
+});
+
+const lis = document.querySelectorAll("li");
+lis.forEach((li) => {
+    li.addEventListener("click", () => {
+        nav.classList.remove("navegacion-mobile");
+        overlay.classList.remove("active");
+    });
+});
+
+overlay.addEventListener("click", () => {
+    nav.classList.remove("navegacion-mobile");
+    overlay.classList.remove("active");
+});
+/*     var divs = document.querySelectorAll(".content > div:not(.toggle)");
+    console.log(divs)
+    divs.forEach(div => {
+        div.addEventListener("click", () => {
+            nav.classList.remove("navegacion-mobile");
+        })
+    }) */
