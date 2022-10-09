@@ -184,7 +184,7 @@ crearModalesDeEventos();
 //BOTON VER MAS
  function verMasEventos() {
     if (eventos.length > 8) {
-        const article = document.querySelector("article")
+        const article = document.querySelector("#eventos >article")
         article.appendChild(document.createElement("br"))
         const h4VerMasBtn = document.createElement("h4")
         const verMasBtn = document.createElement("button")

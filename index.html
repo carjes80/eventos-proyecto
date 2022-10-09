@@ -38,8 +38,9 @@
             </div>
             <ul class="menu">
                 <li><a href="#eventos">Eventos</a></li>
-                <li><a href="#">Streaming</a></li>
-                <li><a href="#contactanos">Vendé</a></li>
+                <li><a href="#streaming">Streaming</a></li>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="#contactanos">Contactanos</a></li>
             </ul>
             <div class="menu2">
                 <button data-modal-target="#micuenta"><a><i class="fa-solid fa-user"></i></a></button>
@@ -83,93 +84,25 @@
                 <span class="dot" onclick="currentSlide(2)"></span>
             </div>
         </header>
+        <!-- EVENTOS PRÓXIMOS -->
         <section id="eventos">
             <h1>Eventos Proximos</h1>
             <div class="eventoproximo">
             </div>
-            <!-- MODAL -->
-            <article class="modales">
-             <article>
-                <div class="modal" id="micuenta">
-                    <div class="modal-header">
-                        <div class="title">Ingresar a Mi Cuenta</div>
-                        <button data-close-button class="close-button">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="contenedor-formulario-contacto">
-                            <div class="formulario-contacto">
-                                <div class="control-formulario">
-                                    <label for="email">Correo Electrónico</label>
-                                    <input type="email" id="email_log" name="sender-email"
-                                        placeholder="Ingreso tu correo electrónico" class="input-field" required />
-                                </div>
-                                <div class="control-formulario">
-                                    <label for="password">password</label>
-                                    <input type="password" id="password" name="password" placeholder="password"
-                                        class="input-field" required />
-                                </div>
-                                <br>
-                                <button class="submit-btn" type="button" data-modal-target="#ingresado"
-                                    onclick="getValueInput()">
-                                    Ingresar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal" id="salir">
-                    <div class="modal-header">
-                        <div class="title">Salir</div>
-                        <button data-close-button class="close-button">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="contenedor-formulario-contacto">
-                            <div class="formulario-contacto">
-                                <p>Confirmar la salida</p>
-                                <button class="submit-btn" type="button" data-modal-target="#salido"
-                                    onclick="salirLogin()">
-                                    Salir
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <article id="vermas">
+
             </article>
-            <article>
-                <div class="modal" id="ingresado_ok">
-                    <div class="modal-header">
-                        <div class="title">Registro Exitoso</div>
-                        <button data-close-button class="close-button">&times;</button>
-                    </div>
-                </div>
-                <div class="modal" id="salido">
-                    <div class="modal-header">
-                        <div class="title">Hasta luego</div>
-                        <button data-close-button class="close-button">&times;</button>
-                    </div>
-                </div>
-                <div class="modal" id="exitoso">
-                    <div class="modal-header">
-                        <div class="title">COMPRADO CON ÉXITO</div>
-                        <button data-close-button class="close-button">&times;</button>
-                    </div>
-                </div>
-                <div class="modal" id="ingresedatos">
-                    <div class="modal-header">
-                        <div class="title">Por favor ingrese los datos</div>
-                        <button data-close-button class="close-button">&times;</button>
-                    </div>
-                </div>
-                <div class="modal" id="loguearse">
-                    <div class="modal-header">
-                        <div class="title">Por favor, entre a "Mi Cuenta" ->> <i class="fa-solid fa-user"></i></div>
-                        <button data-close-button class="close-button">&times;</button>
-                    </div>
-                </div>
-            </article> 
-
         </section>
-
+        <!-- STREAMINGS -->
+        <section id="streaming">
+            <h1>Streamings</h1>
+            <article class="video_principal">
+                
+            </article>
+            <div class="streaming">
+            </div>
+        </section>
+        <!-- CONTACTANOS "VENDÉ" -->
         <section id="contactanos">
             <h2>Contáctanos</h2>
             <div class="contenedor-formulario-contacto">
@@ -196,8 +129,91 @@
             </div>
         </section>
         <br><br><br><br><br>
+        <!-- MODALES -->
+        <section>
+            <article class="modales">
+                <article>
+                    <div class="modal" id="micuenta">
+                        <div class="modal-header">
+                            <div class="title">Ingresar a Mi Cuenta</div>
+                            <button data-close-button class="close-button">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="contenedor-formulario-contacto">
+                                <div class="formulario-contacto">
+                                    <div class="control-formulario">
+                                        <label for="email">Correo Electrónico</label>
+                                        <input type="email" id="email_log" name="sender-email"
+                                            placeholder="Ingreso tu correo electrónico" class="input-field" required />
+                                    </div>
+                                    <div class="control-formulario">
+                                        <label for="password">password</label>
+                                        <input type="password" id="password" name="password" placeholder="password"
+                                            class="input-field" required />
+                                    </div>
+                                    <br>
+                                    <button class="submit-btn" type="button" data-modal-target="#ingresado"
+                                        onclick="getValueInput()">
+                                        Ingresar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal" id="salir">
+                        <div class="modal-header">
+                            <div class="title">Salir</div>
+                            <button data-close-button class="close-button">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="contenedor-formulario-contacto">
+                                <div class="formulario-contacto">
+                                    <p>Confirmar la salida</p>
+                                    <button class="submit-btn" type="button" data-modal-target="#salido"
+                                        onclick="salirLogin()">
+                                        Salir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="modal" id="ingresado_ok">
+                        <div class="modal-header">
+                            <div class="title">Registro Exitoso</div>
+                            <button data-close-button class="close-button">&times;</button>
+                        </div>
+                    </div>
+                    <div class="modal" id="salido">
+                        <div class="modal-header">
+                            <div class="title">Hasta luego</div>
+                            <button data-close-button class="close-button">&times;</button>
+                        </div>
+                    </div>
+                    <div class="modal" id="exitoso">
+                        <div class="modal-header">
+                            <div class="title">COMPRADO CON ÉXITO</div>
+                            <button data-close-button class="close-button">&times;</button>
+                        </div>
+                    </div>
+                    <div class="modal" id="ingresedatos">
+                        <div class="modal-header">
+                            <div class="title">Por favor ingrese los datos</div>
+                            <button data-close-button class="close-button">&times;</button>
+                        </div>
+                    </div>
+                    <div class="modal" id="loguearse">
+                        <div class="modal-header">
+                            <div class="title">Por favor, entre a "Mi Cuenta" ->> <i class="fa-solid fa-user"></i></div>
+                            <button data-close-button class="close-button">&times;</button>
+                        </div>
+                    </div>
+                </article>
+            </article>
+            <div id="overlay"></div>
 
-        <div id="overlay"></div>
+        </section>
     </div>
     <script src="./js/script.js" defer></script>
     <footer>
