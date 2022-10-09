@@ -62,8 +62,8 @@ function mostrarEventos() {
 
 
     } else {
-         // console.log(div_max_eventos)
-         for (let i = 0; i < 8; i++) {
+        // console.log(div_max_eventos)
+        for (let i = 0; i < 8; i++) {
             let div0 = document.createElement("div")
             div0.className = "img_container";
             div_max_eventos.appendChild(div0)
@@ -74,9 +74,9 @@ function mostrarEventos() {
         div_max_eventos.appendChild(divSeparador)
         console.log("asdds")
 
-        for (let i = 0; i < eventos.length-8; i++) {
+        for (let i = 0; i < eventos.length - 8; i++) {
             let div0 = document.createElement("div")
-            div0.classList.add("img_container", "oculto", "visible") 
+            div0.classList.add("img_container", "oculto", "visible")
             div_max_eventos.appendChild(div0)
         }
         const div_evento = document.getElementsByClassName("img_container");
@@ -182,30 +182,30 @@ function crearModalesDeEventos() {
 crearModalesDeEventos();
 
 //BOTON VER MAS
- function verMasEventos() {
+function verMasEventos() {
     if (eventos.length > 8) {
         const article = document.querySelector("#eventos >article")
         article.appendChild(document.createElement("br"))
         const h4VerMasBtn = document.createElement("h4")
         const verMasBtn = document.createElement("button")
         h4VerMasBtn.classList.add("img_text", "selector")
-        verMasBtn.textContent = "VER MAS"
+        verMasBtn.textContent = "VER TODOS"
         article.appendChild(h4VerMasBtn)
         h4VerMasBtn.appendChild(verMasBtn)
         const divsOcultos = document.querySelectorAll(".oculto")
         console.log(divsOcultos)
         verMasBtn.addEventListener("click", () => {
-            if (verMasBtn.textContent === "VER MAS") {
+            if (verMasBtn.textContent === "VER TODOS") {
                 verMasBtn.textContent = "VER MENOS"
             } else {
-                verMasBtn.textContent = "VER MAS"
+                verMasBtn.textContent = "VER TODOS"
             }
             divsOcultos.forEach(div => {
                 div.classList.toggle("oculto")
             })
         })
     }
-} 
+}
 verMasEventos()
 
 //LOADER
@@ -216,6 +216,154 @@ window.addEventListener("load", () => {
     loader.style.display = "none";
     body.setAttribute("style", "animation: fadeInAnimation ease 3s; animation-iteration-count: 1; animation-fill-mode: forwards;");
 });
+
+//STREAMING
+
+var streaming1 = new eventoProximo(0, "./img/eventos/elovate.jpg", "a", "img-eventoproximo", "img_text_container_st", "img_text_st", "#elovate", "12/11 Michael Bibi Presents ELOVATE (+18)", "Sábado 12 de Noviembre 2022 - 23:55 hrs.", "<strong>Madero Boardwalk</strong>", "Cecilia Grierson 400 - Puerto Madero")
+var streaming2 = new eventoProximo(1, "./img/eventos/kalua.jpg", "a", "img-eventoproximo", "img_text_container_st", "img_text_st", "#kalua", "Kalúa (+18)", "Sábado 05 de Noviembre 2022 - 00:00 hrs.", "Club La Octava", "Niceto Vega 5702")
+var streaming3 = new eventoProximo(2, "./img/eventos/fdd.jpg", "a", "img-eventoproximo", "img_text_container_st", "img_text_st", "#fod", "FOD", "Sábado 20 de Noviembre 2022 - 00:00 hrs.", "Groove", "Santa Fe 5000")
+var streaming4 = new eventoProximo(3, "./img/eventos/aconcagua.jpg", "a", "img-eventoproximo", "img_text_container_st", "img_text_st", "#aconcagua", "FESTIVAL ACONCAGUA", "Sábado 01 de Octubre 2022 - 00:00 hrs.", "Hipódromo de Palermo", "Av. Libertador 4500")
+var streaming5 = new eventoProximo(4, "./img/eventos/arch.jpg", "a", "img-eventoproximo", "img_text_container_st", "img_text_st", "#arch", "ARCH ENEMY", "Sábado 21 de Noviembre 2022 - 00:00 hrs.", "Teatro Flores", " Corrientes 4500")
+var streaming6 = new eventoProximo(5, "./img/eventos/remeneo-evento.jpg", "a", "img-eventoproximo", "img_text_container_st", "img_text_st", "#remened", "REMENED XL", "Sábado 01 de Octubre 2022 - 00:00 hrs.", "Teatro Flores", "Corrientes 4500")
+var streaming7 = new eventoProximo(6, "./img/eventos/harlem-evento.jpg", "a", "img-eventoproximo", "img_text_container_st", "img_text_st", "#harlem", "HARLEM", "29 y 30 de Octubre de 2022 - 18:00 hrs.", "Estación Belgrano", "Ciudad de Santa Fé")
+var streaming8 = new eventoProximo(7, "./img/eventos/holofonico.jpg", "a", "img-eventoproximo", "img_text_container_st", "img_text_st", "#holofonicos", "Parlantes Holofónicos", "Todos los Jueves de Noviembre a la media noche", "Hipódromo de Palermo", "Av. Libertador 4500")
+
+//arreglo de streamings
+var streamings = [streaming1, streaming2, streaming5, streaming6, streaming7, streaming5, streaming6, streaming7, streaming4, streaming1, streaming2, streaming5, streaming1, streaming2, streaming5, streaming6, streaming1, streaming2, streaming5, streaming6, streaming7, streaming5, streaming6, streaming7, streaming5, streaming6, streaming6, streaming7, streaming8, streaming2, streaming7, streaming2, streaming5, streaming6, streaming7, streaming4, streaming3]
+
+//mostrando eventos
+console.log(streamings.length)
+
+function mostrarStreamings() {
+    const div_max_streaming = document.querySelector(".streaming");
+    if (streamings.length <= 32) {
+        for (let i = 0; i < streamings.length; i++) {
+            let div00 = document.createElement("div")
+            div00.className = "img_container_st";
+            div_max_streaming.appendChild(div00)
+        }
+        const div_streaming = document.getElementsByClassName("img_container_st");
+
+        for (let i = 0; i < streamings.length; i++) {
+            let imagen00 = document.createElement("img")
+            imagen00.src = streamings[i].carpeta;
+            imagen00.className = streamings[i].imgclass;
+            div_streaming[i].appendChild(imagen00)
+            let div00 = document.createElement("div")
+            div00.className = "img_text_container_live";
+            div_streaming[i].appendChild(div00)
+            let div10 = document.createElement("div")
+            div10.className = streamings[i].divclass;
+            div_streaming[i].appendChild(div10)
+        }
+        const div_btn01 = document.getElementsByClassName("img_text_container_live");
+        for (let i = 0; i < div_btn01.length; i++) {
+            let div21 = document.createElement("div")
+            div21.className = "img_text_live";
+            div_btn01[i].appendChild(div21)
+            btn01 = document.getElementsByClassName("img_text_live")
+            btn01[i].innerHTML = 'DIRECTO';
+
+        }
+        const div_btn00 = document.getElementsByClassName("img_text_container_st");
+        for (let i = 0; i < div_btn00.length; i++) {
+            let div20 = document.createElement("div")
+            div20.className = streamings[i].btnclass;
+            div_btn00[i].appendChild(div20)
+            btn00 = document.getElementsByClassName("img_text_st")
+            btn00[i].innerHTML = '<button data-modal-target="' + streamings[i].name + '">VER</button>';
+
+        }
+
+
+    } else {
+        // console.log(div_max_eventos)
+        for (let i = 0; i < 30; i++) {
+            let div00 = document.createElement("div")
+            div00.className = "img_container_st";
+            div_max_streaming.appendChild(div00)
+        }
+        divSeparador = document.createElement("div")
+        divSeparador.classList.add("separador")
+        divSeparador.setAttribute("style", "display:none;")
+        div_max_streaming.appendChild(divSeparador)
+        console.log("asdds st")
+
+        for (let i = 0; i < streamings.length - 30; i++) {
+            let div00 = document.createElement("div")
+            div00.classList.add("img_container_st", "oculto", "visible")
+            div_max_streaming.appendChild(div00)
+        }
+        const div_streaming = document.getElementsByClassName("img_container_st");
+        // console.log(div_evento, "es un:", typeof div_evento)
+        console.log(div_streaming)
+
+        for (let i = 0; i < streamings.length; i++) {
+            let imagen = document.createElement("img")
+            imagen.src = streamings[i].carpeta;
+            imagen.className = streamings[i].imgclass;
+            div_streaming[i].appendChild(imagen)
+            let div00 = document.createElement("div")
+            div00.className = "img_text_container_live";
+            div_streaming[i].appendChild(div00)
+            let div1 = document.createElement("div")
+            div1.className = streamings[i].divclass;
+            div_streaming[i].appendChild(div1)
+        }
+        const div_btn01 = document.getElementsByClassName("img_text_container_live");
+        for (let i = 0; i < div_btn01.length; i++) {
+            let div21 = document.createElement("div")
+            div21.className = "img_text_live";
+            div_btn01[i].appendChild(div21)
+            btn01 = document.getElementsByClassName("img_text_live")
+            btn01[i].innerHTML = 'DIRECTO';
+
+        }
+        const div_btn = document.getElementsByClassName("img_text_container_st");
+        // console.log(div_btn, "es un:", typeof div_evento)
+        for (let i = 0; i < streamings.length; i++) {
+            let div2 = document.createElement("div")
+            div2.className = streamings[i].btnclass;
+            div_btn[i].appendChild(div2)
+            btn = document.getElementsByClassName("img_text_st")
+            btn[i].innerHTML = '<button data-modal-target="' + streamings[i].name + '">VER</button>';
+
+        }
+
+    }
+
+}
+mostrarStreamings()
+//BOTON VER MAS STREAMINGS
+function verMasStreamings() {
+    if (streamings.length > 30) {
+        const article = document.querySelector("#streaming >article")
+        article.appendChild(document.createElement("br"))
+        const h4VerMasBtn = document.createElement("h4")
+        const verMasBtn = document.createElement("button")
+        h4VerMasBtn.classList.add("img_text", "selector")
+        verMasBtn.textContent = "VER TODOS"
+        article.appendChild(h4VerMasBtn)
+        h4VerMasBtn.appendChild(verMasBtn)
+        const divsOcultos = document.querySelectorAll(".oculto")
+        console.log(divsOcultos)
+        verMasBtn.addEventListener("click", () => {
+            if (verMasBtn.textContent === "VER TODOS") {
+                verMasBtn.textContent = "VER MENOS"
+            } else {
+                verMasBtn.textContent = "VER TODOS"
+            }
+            divsOcultos.forEach(div => {
+                div.classList.toggle("oculto")
+            })
+        })
+    }
+}
+verMasStreamings()
+
+
+
+
 
 //CARRUSEL
 let slideIndex = 0;

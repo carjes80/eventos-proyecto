@@ -297,6 +297,128 @@ ul {
     transition: all 0.5s ease-in-out;
 }
 
+/* STREAMING */
+.streaming {
+    max-width: var(--max-width-grande);
+    margin: 0 5vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.img-streaming {
+    display: flex;
+    /* filter: grayscale(100%); */
+    width: 100%;
+    box-shadow: 0 3px 10px rgb(0, 0, 0);
+    border-radius: 11px;
+    transition: transform .2s;
+    cursor: pointer;
+    vertical-align: bottom;
+}
+
+.streaming_if {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.streaming_if iframe {
+    width: 60vw;
+    height: 33.75vw;
+}
+
+.img_container_st:hover {
+    box-shadow: 0 3px 10px var(--color-shadow);
+    filter: none;
+    transform: scale(1.1);
+    transition: transform 0.5s;
+}
+
+.img_container_st {
+    position: relative;
+    width: 8vw;
+    margin: 0.4rem;
+    padding: 0.4rem;
+    border-radius: 11px;
+}
+
+.img_text_container_st {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    opacity: 0;
+    transition: opacity 0.25s;
+    border-radius: 11px;
+    backdrop-filter: blur(1.5px);
+}
+
+
+.img_text_container_st:hover {
+    opacity: 1;
+}
+
+.img_text_container_st>* {
+    transform: translateY(40px);
+    transition: transform 0.40s;
+}
+
+.img_text_container_st:hover>* {
+    transform: translateY(-20px);
+}
+.img_text_container_live{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(0, 0, 0, 0.6); */
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    align-items:flex-start;
+    justify-content: right;
+    border-radius: 11px;
+}
+.img_text_live{
+    color:white;
+    font-weight: bold;
+    font-size:0.8rem;
+    background-color: red;
+    margin: 0.6rem;
+    padding:0.3rem;
+    border-radius: 7px;
+}
+
+.img_text_st button {
+    background-color: var(--color-fuente-secundaria);
+    color: black;
+    border-radius: 11px;
+    font-size: var(--size-menu-nav);
+    cursor: pointer;
+    font-family: var(--font-family1);
+}
+
+.img_text_st button:hover {
+    background-color: black;
+    color: var(--color-fuente-secundaria);
+    border-radius: 11px;
+    font-weight: bold;
+    font-size: var(--size-menu-nav);
+    /* padding: 5px; */
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+}
 /* MODAL */
 
 .modal {
@@ -529,6 +651,13 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
         padding: 0.4rem;
         border-radius: 11px;
     }
+    .img_container_st {
+        position: relative;
+        width: 12vw;
+        margin: 0.4rem;
+        padding: 0.4rem;
+        border-radius: 11px;
+    }
 
     .img-size1 {
         display: block
@@ -552,6 +681,13 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
         padding: 0.4rem;
         border-radius: 11px;
     }
+    .img_container_st {
+        position: relative;
+        width: 18vw;
+        margin: 0.4rem;
+        padding: 0.4rem;
+        border-radius: 11px;
+    }
 
     .img-size1 {
         display: block
@@ -567,12 +703,23 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
     :root {
         font-size: 14px
     }
+    .streaming_if iframe {
+        width: 80vw;
+        height: 45vw;
+    }
 
     .img_container {
         position: relative;
         width: 40vw;
         margin: 0.2rem;
         padding: 0.2rem;
+        border-radius: 11px;
+    }
+    .img_container_st {
+        position: relative;
+        width: 30vw;
+        margin: 0.4rem;
+        padding: 0.4rem;
         border-radius: 11px;
     }
 
@@ -641,6 +788,17 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
 @media only screen and (max-width: 300px) {
     :root {
         font-size: 11px
+    }
+    .streaming_if iframe {
+        width: 80vw;
+        height: 45vw;
+    }
+    .img_container_st {
+        position: relative;
+        width: 50vw;
+        margin: 0.4rem;
+        padding: 0.4rem;
+        border-radius: 11px;
     }
 
     .img_container {
