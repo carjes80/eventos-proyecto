@@ -1,4 +1,5 @@
 //creando clase de eventos
+
 class eventoProximo {
     constructor(id, carpeta, alter, imgclass, divclass, btnclass, name, titulo, cuando, donde, direccion) {
         this.id = id
@@ -23,7 +24,6 @@ var evento5 = new eventoProximo(4, "./img/eventos/arch.jpg", "a", "img-eventopro
 var evento6 = new eventoProximo(5, "./img/eventos/remeneo-evento.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#remened", "REMENED XL", "Sábado 01 de Octubre 2022 - 00:00 hrs.", "Teatro Flores", "Corrientes 4500")
 var evento7 = new eventoProximo(6, "./img/eventos/harlem-evento.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#harlem", "HARLEM", "29 y 30 de Octubre de 2022 - 18:00 hrs.", "Estación Belgrano", "Ciudad de Santa Fé")
 var evento8 = new eventoProximo(7, "./img/eventos/holofonico.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#holofonicos", "Parlantes Holofónicos", "Todos los Jueves de Noviembre a la media noche", "Hipódromo de Palermo", "Av. Libertador 4500")
-
 
 //arreglo de eventos
 var eventos = [evento1, evento2, evento3, evento4, evento5, evento6, evento7, evento8, evento2, evento3, evento1, evento4]
@@ -59,6 +59,7 @@ function mostrarEventos() {
             btn[i].innerHTML = '<button data-modal-target="' + eventos[i].name + '">+INFO</button>';
 
         }
+
 
 
     } else {
@@ -435,12 +436,16 @@ const getValueInput = () => {
     let inputValue = document.getElementById("email_log").value;
     if (inputValue == "") {
         micuenta = true;
-        const modal = document.querySelector("#ingresedatos");
+        crearCuadrosModales("#ingresedatos"); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
+
+        var modal = document.querySelector("#ingresedatos");
         openModal(modal);
+
     } else {
         micuenta = false;
         const modal = document.querySelector("#ingresado_ok");
         openModal(modal);
+
 
     }
 
@@ -453,7 +458,12 @@ const salirLogin = () => {
     micuenta = true;
     inputValue = "";
     user_login();
+    crearCuadrosModales("#salido"); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
+    var modal2 = document.querySelector("#salido");
+    openModal(modal2);
 }
+
+var clicks = 0
 
 
 //MODAL
@@ -481,6 +491,7 @@ openModalButtons.forEach(button => {
             const modal = document.querySelector(button.dataset.modalTarget);
             openModal(modal);
         }
+
     });
 });
 const modalesActivos = document.querySelectorAll(".modal.active");
@@ -499,7 +510,9 @@ closeModalButtons.forEach(button => {
             closeModal(modal);
         }
     });
+
 });
+
 
 function openModal(modal) {
     if (modal == null) return
@@ -536,13 +549,16 @@ const bars = document.querySelector(".toggle");
 
 bars.addEventListener("click", () => {
     nav.classList.toggle("navegacion-mobile");
+
     overlay.classList.toggle("active");
+
 });
 
 const lis = document.querySelectorAll("li");
 lis.forEach((li) => {
     li.addEventListener("click", () => {
         nav.classList.remove("navegacion-mobile");
+
         overlay.classList.remove("active");
     });
 });
@@ -558,3 +574,4 @@ overlay.addEventListener("click", () => {
             nav.classList.remove("navegacion-mobile");
         })
     }) */
+
