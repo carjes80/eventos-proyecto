@@ -111,7 +111,7 @@ function crearCuadrosModales(id_evento) {
                         <div class="contenedor-formulario-contacto">
                             <div class="formulario-contacto">
                                 <p>Confirmar la salida</p>
-                                <button class="submit-btn" type="button" data-modal-target="#salido"
+                                <button class="submit-btn" type="button" data-modal-target="#"
                                     onclick="salirLogin()">
                                     Salir
                                 </button>
@@ -330,6 +330,9 @@ const salirLogin = () => {
     micuenta = true;
     inputValue = "";
     user_login();
+    crearCuadrosModales("#salido"); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
+    var modal2 = document.querySelector("#salido");
+    openModal(modal2);
 }
 
 var clicks = 0
@@ -376,7 +379,7 @@ function callModal() {
                 clicks = clicks + 1;
                 console.log(clicks)
             }
-            
+
         });
     });
 
