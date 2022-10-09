@@ -414,3 +414,18 @@ overlay.addEventListener("click", () => {
     })
 });
 
+//MENU HAMBURGUESA
+
+const bars = document.querySelector(".toggle");
+
+bars.addEventListener("click", () => {
+    nav.classList.toggle("navegacion-mobile");
+});
+
+const lis = document.querySelectorAll("li");
+lis.forEach((li) => {
+    li.addEventListener("click", () => {
+        nav.classList.remove("navegacion-mobile");
+    });
+});
+
