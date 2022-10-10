@@ -1,3 +1,7 @@
+// Variables globales
+var cantidad_eventos =8;
+var cantidad_streamings = 12;
+
 //creando clase de eventos
 
 class eventoProximo {
@@ -30,7 +34,7 @@ var eventos = [evento1, evento2, evento3, evento4, evento5, evento6, evento7, ev
 //mostrando eventos
 function mostrarEventos() {
     const div_max_eventos = document.querySelector(".eventoproximo");
-    if (eventos.length <= 8) {
+    if (eventos.length <= cantidad_eventos) {
         // console.log(div_max_eventos)
         for (let i = 0; i < eventos.length; i++) {
             let div0 = document.createElement("div")
@@ -64,7 +68,7 @@ function mostrarEventos() {
 
     } else {
         // console.log(div_max_eventos)
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < cantidad_eventos; i++) {
             let div0 = document.createElement("div")
             div0.className = "img_container";
             div_max_eventos.appendChild(div0)
@@ -75,7 +79,7 @@ function mostrarEventos() {
         div_max_eventos.appendChild(divSeparador)
         console.log("asdds")
 
-        for (let i = 0; i < eventos.length - 8; i++) {
+        for (let i = 0; i < eventos.length - cantidad_eventos; i++) {
             let div0 = document.createElement("div")
             div0.classList.add("img_container", "oculto", "visible")
             div_max_eventos.appendChild(div0)
@@ -184,7 +188,7 @@ crearModalesDeEventos();
 
 //BOTON VER MAS
 function verMasEventos() {
-    if (eventos.length > 8) {
+    if (eventos.length > cantidad_eventos) {
         const article = document.querySelector("#eventos >article")
         article.appendChild(document.createElement("br"))
         const h4VerMasBtn = document.createElement("h4")
@@ -237,7 +241,7 @@ console.log(streamings.length)
 
 function mostrarStreamings() {
     const div_max_streaming = document.querySelector(".streaming");
-    if (streamings.length <= 32) {
+    if (streamings.length <= cantidad_streamings) {
         for (let i = 0; i < streamings.length; i++) {
             let div00 = document.createElement("div")
             div00.className = "img_container_st";
@@ -279,7 +283,7 @@ function mostrarStreamings() {
 
     } else {
         // console.log(div_max_eventos)
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < cantidad_streamings; i++) {
             let div00 = document.createElement("div")
             div00.className = "img_container_st";
             div_max_streaming.appendChild(div00)
@@ -290,7 +294,7 @@ function mostrarStreamings() {
         div_max_streaming.appendChild(divSeparador)
         console.log("asdds st")
 
-        for (let i = 0; i < streamings.length - 30; i++) {
+        for (let i = 0; i < streamings.length - cantidad_streamings; i++) {
             let div00 = document.createElement("div")
             div00.classList.add("img_container_st", "oculto", "visible")
             div_max_streaming.appendChild(div00)
@@ -337,7 +341,7 @@ function mostrarStreamings() {
 mostrarStreamings()
 //BOTON VER MAS STREAMINGS
 function verMasStreamings() {
-    if (streamings.length > 30) {
+    if (streamings.length > cantidad_streamings) {
         const article = document.querySelector("#streaming >article")
         article.appendChild(document.createElement("br"))
         const h4VerMasBtn = document.createElement("h4")
