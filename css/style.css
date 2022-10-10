@@ -56,7 +56,8 @@ nav {
     position: fixed;
 }
 
-.fa-bars:before, .fa-navicon:before {
+.fa-bars:before,
+.fa-navicon:before {
     font-size: 1.5em;
 }
 
@@ -95,11 +96,12 @@ nav {
 .logo {
     margin-left: var(--margin-nav);
 }
+
 .logo:hover {
     transform: scale(1.5);
     transition: all 0.5s ease-in-out;
 
-    
+
 }
 
 .logo-container-mobile {
@@ -137,7 +139,8 @@ nav {
 .fa-solid {
     font-size: var(--size-menu-nav);
 }
-.fa-solid:hover{
+
+.fa-solid:hover {
     transform: scale(1.3);
     transition: all 0.5s ease-in-out;
 }
@@ -152,9 +155,11 @@ p {
 }
 
 /*poner imagenes*/
-.img-size1,.img-size2 {
+.img-size1,
+.img-size2 {
     width: 100%;
 }
+
 .carrusel {
     display: flex;
     align-items: center;
@@ -281,6 +286,139 @@ ul {
     font-family: var(--font-family1);
 }
 
+.img_text button:hover {
+    background-color: black;
+    color: var(--color-fuente-secundaria);
+    border-radius: 11px;
+    font-weight: bold;
+    font-size: var(--size-menu-nav);
+    /* padding: 5px; */
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+}
+
+/* STREAMING */
+.streaming {
+    max-width: var(--max-width-grande);
+    margin: 0 5vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.img-streaming {
+    display: flex;
+    /* filter: grayscale(100%); */
+    width: 100%;
+    box-shadow: 0 3px 10px rgb(0, 0, 0);
+    border-radius: 11px;
+    transition: transform .2s;
+    cursor: pointer;
+    vertical-align: bottom;
+}
+
+.streaming_if {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.streaming_if iframe {
+    width: 60vw;
+    height: 33.75vw;
+}
+
+.img_container_st:hover {
+    box-shadow: 0 3px 10px var(--color-shadow);
+    filter: none;
+    transform: scale(1.1);
+    transition: transform 0.5s;
+}
+
+.img_container_st {
+    position: relative;
+    width: 8vw;
+    margin: 0.4rem;
+    padding: 0.4rem;
+    border-radius: 11px;
+}
+
+.img_text_container_st {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    opacity: 0;
+    transition: opacity 0.25s;
+    border-radius: 11px;
+    backdrop-filter: blur(1.5px);
+}
+
+
+.img_text_container_st:hover {
+    opacity: 1;
+}
+
+.img_text_container_st>* {
+    transform: translateY(40px);
+    transition: transform 0.40s;
+}
+
+.img_text_container_st:hover>* {
+    transform: translateY(-20px);
+}
+.img_text_container_live{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(0, 0, 0, 0.6); */
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    align-items:flex-start;
+    justify-content: right;
+    border-radius: 11px;
+}
+.img_text_live{
+    color:white;
+    font-weight: bold;
+    font-size:0.8rem;
+    background-color: red;
+    margin: 0.6rem;
+    padding:0.3rem;
+    border-radius: 7px;
+}
+
+.img_text_st button {
+    background-color: var(--color-fuente-secundaria);
+    color: black;
+    border-radius: 11px;
+    font-size: var(--size-menu-nav);
+    cursor: pointer;
+    font-family: var(--font-family1);
+}
+
+.img_text_st button:hover {
+    background-color: black;
+    color: var(--color-fuente-secundaria);
+    border-radius: 11px;
+    font-weight: bold;
+    font-size: var(--size-menu-nav);
+    /* padding: 5px; */
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+}
 /* MODAL */
 
 .modal {
@@ -324,8 +462,9 @@ ul {
     font-weight: bold;
     color: var(--color-fuente-pincipal);
 }
-.close-button{
-    display:block;
+
+.close-button {
+    display: block;
     justify-content: right;
 }
 
@@ -443,10 +582,27 @@ ul {
     cursor: pointer;
     color: var(--color-fuente-secundaria);
 }
-.footer{
-    display:flex;
+
+.footer {
+    display: flex;
     width: 100%;
     justify-content: center;
+}
+
+#loguearse,
+#exitoso {
+    z-index: 100;
+}
+
+.oculto {
+    display: none;
+    top: 0;
+}
+
+.visible {
+    top: 100%;
+    transition: top 0.5s;
+    
 }
 
 @keyframes fadeInAnimation {
@@ -487,6 +643,7 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
     :root {
         font-size: 16px
     }
+
     .img_container {
         position: relative;
         width: 18vw;
@@ -494,15 +651,29 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
         padding: 0.4rem;
         border-radius: 11px;
     }
-    .img-size1{display:block}
-    .img-size2{display:none}
-   
+    .img_container_st {
+        position: relative;
+        width: 12vw;
+        margin: 0.4rem;
+        padding: 0.4rem;
+        border-radius: 11px;
+    }
+
+    .img-size1 {
+        display: block
+    }
+
+    .img-size2 {
+        display: none
+    }
+
 }
 
 @media only screen and (max-width: 1024px) {
     :root {
         font-size: 16px
     }
+
     .img_container {
         position: relative;
         width: 25vw;
@@ -510,14 +681,33 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
         padding: 0.4rem;
         border-radius: 11px;
     }
-    .img-size1{display:block}
-    .img-size2{display:none}
-   
+    .img_container_st {
+        position: relative;
+        width: 18vw;
+        margin: 0.4rem;
+        padding: 0.4rem;
+        border-radius: 11px;
+    }
+
+    .img-size1 {
+        display: block
+    }
+
+    .img-size2 {
+        display: none
+    }
+
 }
+
 @media only screen and (max-width: 768px) {
     :root {
         font-size: 14px
     }
+    .streaming_if iframe {
+        width: 80vw;
+        height: 45vw;
+    }
+
     .img_container {
         position: relative;
         width: 40vw;
@@ -525,18 +715,33 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
         padding: 0.2rem;
         border-radius: 11px;
     }
-    .menu, .menu2{
-        display:none;
+    .img_container_st {
+        position: relative;
+        width: 30vw;
+        margin: 0.4rem;
+        padding: 0.4rem;
+        border-radius: 11px;
     }
-    .img-size1{display:none}
-    .img-size2{display:block}
 
-     .toggle {
+    .menu,
+    .menu2 {
+        display: none;
+    }
+
+    .img-size1 {
+        display: none
+    }
+
+    .img-size2 {
+        display: block
+    }
+
+    .toggle {
         display: inline-block;
         z-index: 20;
     }
-    
-    
+
+
     .navegacion {
         background-color: var(--bg-color-nav);
         left: 100%;
@@ -559,19 +764,19 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
         align-items: center;
         background-color: #000000;
         height: 31vh;
-        
+
     }
 
     .menu li {
         display: flex;
-    } 
+    }
 
     .logo-container {
         display: none;
     }
 
     .menu2 {
-        display: flex; 
+        display: flex;
     }
 
     .logo-container-mobile {
@@ -579,10 +784,23 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
 
     }
 }
+
 @media only screen and (max-width: 300px) {
     :root {
         font-size: 11px
     }
+    .streaming_if iframe {
+        width: 80vw;
+        height: 45vw;
+    }
+    .img_container_st {
+        position: relative;
+        width: 50vw;
+        margin: 0.4rem;
+        padding: 0.4rem;
+        border-radius: 11px;
+    }
+
     .img_container {
         position: relative;
         width: 80vw;
@@ -590,19 +808,30 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
         padding: 0.1rem;
         border-radius: 11px;
     }
-    .menu, .menu2{
-        display:none;
+
+    .menu,
+    .menu2 {
+        display: none;
     }
-    .img-size1{display:none}
-    .img-size2{display:none}
-    .dot {display:none}
+
+    .img-size1 {
+        display: none
+    }
+
+    .img-size2 {
+        display: none
+    }
+
+    .dot {
+        display: none
+    }
 
     .toggle {
         display: inline-block;
         z-index: 20;
     }
-    
-    
+
+
     .navegacion {
         background-color: var(--bg-color-nav);
         left: 100%;
@@ -624,19 +853,19 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
         align-items: center;
         background-color: #000000;
         height: 31vh;
-        
+
     }
 
     .menu li {
         display: flex;
-    } 
+    }
 
     .logo-container {
         display: none;
     }
 
     .menu2 {
-        display: flex; 
+        display: flex;
     }
 
     .logo-container-mobile {
