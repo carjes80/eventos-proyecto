@@ -774,7 +774,9 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
     .logo-container {
         display: none;
     }
-
+    .menu a{
+        padding:15px;
+    }
     .menu2 {
         display: flex;
     }
@@ -855,11 +857,15 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
         height: 31vh;
 
     }
-
-    .menu li {
+    .menu ul{
         display: flex;
+        align-content:space-between;
+        padding: 10px;
     }
 
+    .menu a{
+        padding:15px;
+    }
     .logo-container {
         display: none;
     }
