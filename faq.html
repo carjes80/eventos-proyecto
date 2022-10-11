@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/f9f4d18e61.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/vnd.microsoft.icon" href="./img/logo/solo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Raleway&display=swap"
+        rel="stylesheet">
+    <script src="./js/faq.js" defer></script>
+    <title>Preguntas Frecuentes</title>
+</head>
+
+<body>
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+    <div class="content">
+        <button class="toggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="logo-container-mobile">
+            <a href="./index.html" class="enlace-de-proyecto" id="arriba">
+                <img class="logo" src="./img/logo/solo.png" width="50rem" alt="">
+            </a>
+        </div>
+        <nav class="navegacion">
+
+            <div class="logo-container">
+                <a href="./index.html" class="enlace-de-proyecto" id="arriba">
+                    <img class="logo" src="./img/logo/solo.png" width="50rem" alt="">
+                </a>
+            </div>
+            <ul class="menu">
+                <li><a href="./index.html#eventos">Eventos</a></li>
+                <li><a href="./index.html#streaming">Streaming</a></li>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="./index.html#contactanos">Contáctanos</a></li>
+            </ul>
+            <div class="menu2">
+                <button data-modal-target="#micuenta"><a><i class="fa-solid fa-user"></i></a></button>
+
+            </div>
+            <div class="menu2">
+                <button data-modal-target="#salir"><a><i class="fa-solid fa-right-from-bracket"></i></a></button>
+
+            </div>
+
+    </div>
+    </nav>
+
+    <article class="modales">
+        <div class="modal" id="micuenta">
+            <div class="modal-header">
+                <div class="title">Ingresar a Mi Cuenta</div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="contenedor-formulario-contacto">
+                    <div class="formulario-contacto">
+                        <div class="control-formulario">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email_log" name="sender-email"
+                                placeholder="Ingreso tu correo electrónico" class="input-field" required />
+                        </div>
+                        <div class="control-formulario">
+                            <label for="password">password</label>
+                            <input type="password" id="password" name="password" placeholder="password"
+                                class="input-field" required />
+                        </div>
+                        <br>
+                        <button class="submit-btn" type="button" data-modal-target="#ingresado"
+                            onclick="getValueInput()">
+                            Ingresar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="salir">
+            <div class="modal-header">
+                <div class="title">Salir</div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="contenedor-formulario-contacto">
+                    <div class="formulario-contacto">
+                        <p>Confirmar la salida</p>
+                        <button class="submit-btn" type="button" data-modal-target="#salido" onclick="salirLogin()">
+                            Salir
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <article>
+        <div class="modal" id="ingresado_ok">
+            <div class="modal-header">
+                <div class="title">Registro Exitoso</div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+        </div>
+        <div class="modal" id="salido">
+            <div class="modal-header">
+                <div class="title">Hasta luego</div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+        </div>
+        <div class="modal" id="exitoso">
+            <div class="modal-header">
+                <div class="title">COMPRADO CON ÉXITO</div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+        </div>
+        <div class="modal" id="ingresedatos">
+            <div class="modal-header">
+                <div class="title">Por favor ingrese los datos</div>
+                <button data-close-button class="close-button">&times;</button>
+            </div>
+        </div>
+    </article>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="faq-wrapper">
+        <div class="faq-container">
+
+            <button class="faq">¿DEBO REGISTRARME PARA PODER COMPRAR?<i class="fa-solid fa-plus plus"></i></button>
+            <div class="respuesta">
+                <p>Si, ingresando en “Mi Cuenta” deberá crear un usuario ingresando un email válido con
+                    todos sus datos personales. Sugerimos no prestar su usuario a terceras personas.</p>
+            </div>
+            <button class="faq">NO ME LLEGÓ EL MAIL DE CONFIRMACION DE COMPRA, ¿QUÉ DEBO HACER?<i
+                    class="fa-solid fa-plus plus"></i></button>
+            <div class="respuesta">
+                <p>Le sugerimos consultar la bandeja de SPAM, es posible que se encuentre ahí. En caso de no ubicarlo podrá iniciar sesión ingresando en “Mi Cuenta”, donde podrá consultar el historial de compra. Para solicitar un reenvío debe contactarse desde la misma cuenta de email con la que realizó la compra.</p>
+            </div>
+            <button class="faq">¿INGRESO AL EVENTO A TRAVÉS DE TICKET ELECTRÓNICO O TICKET FÍSICO?<i
+                    class="fa-solid fa-plus plus"></i></button>
+            <div class="respuesta">
+                <p>Dependiendo el método de entrega al momento de la compra, el ingreso será mediante ticket electrónico o bien el titular que figura en el frente de la tarjeta utilizada para la compra deberá retirar las entradas físicas en boletería o puntos de venta habilitados.</p>
+            </div>
+            <button class="faq">¿COMO DESCARGO MI TICKET ELECTRÓNICO?<i class="fa-solid fa-plus plus"></i></button>
+            <div class="respuesta">
+                <p>En el mail de confirmacion de compra debe hacer click en “DESCARGA TU Eticket AQUÍ”, será derivado a nuestra web donde deberá loguearse con el mismo email y contraseña utilizados para la compra de entradas. </p>
+            </div>
+            <button class="faq">PARA INGRESAR AL EVENTO, ¿DEBO SER EL TITULAR DE LA CUENTA?<i
+                    class="fa-solid fa-plus plus"></i></button>
+            <div class="respuesta">
+                <p>El titular de la compra deberá presentarse a retirar en los casos que la opción de retiro sea boletería del estadio o sucursales OCA. Deberá presentar DNI y tarjeta utilizada. Para los casos de ticket electrónicos no será necesario ya que la descarga es a través de la web.</p>
+            </div>
+        </div>
+        <footer>
+            <div>
+                Copyright &copy; 2022-2023
+            </div>
+        </footer>
+    </section>
+    <div id="overlay"></div>
+
+</body>
+
+</html>

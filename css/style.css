@@ -605,6 +605,77 @@ ul {
     
 }
 
+/*FAQ*/
+
+.faq-wrapper {
+    /*Para que el footer siempre esté abajo*/
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.faq-container {
+    padding-top: 74px;
+    width: 100%;
+    /* align-items: flex-start; */
+}
+
+.faq {
+    background-color: #222a31;
+    box-sizing: border-box;
+    border: 1px solid black;
+    font-size: 1.3em;
+    padding: 2em;
+    width: 100%;
+    color: white;
+    text-align: left;
+}
+
+.activado, .faq:hover {
+    background-color: #181e23;
+  }
+
+
+.faq:hover {
+    cursor: pointer;
+}
+
+.plus {
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    align-self: center;
+    transition: transform 0.8s;
+}
+
+.plus:hover {
+    transform: none;
+    transition: none;
+}
+
+.rotate {
+    transform: rotate(45deg); 
+    transition: transform 0.5s;
+}
+
+.rotate:hover {
+    transform: rotate(45deg); 
+    transition: none;
+}
+
+.respuesta {
+    box-sizing: border-box;
+    padding: 0 20px;
+    width: 100%;
+    text-align: left;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+    font-size: 1.2em;
+}
+
+
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
