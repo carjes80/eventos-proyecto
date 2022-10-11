@@ -35,14 +35,12 @@ var eventos = [evento1, evento2, evento3, evento4, evento5, evento6, evento7, ev
 function mostrarEventos() {
     const div_max_eventos = document.querySelector(".eventoproximo");
     if (eventos.length <= cantidad_eventos) {
-        // console.log(div_max_eventos)
         for (let i = 0; i < eventos.length; i++) {
             let div0 = document.createElement("div")
             div0.className = "img_container";
             div_max_eventos.appendChild(div0)
         }
         const div_evento = document.getElementsByClassName("img_container");
-        // console.log(div_evento, "es un:", typeof div_evento)
 
         for (let i = 0; i < eventos.length; i++) {
             let imagen = document.createElement("img")
@@ -54,7 +52,6 @@ function mostrarEventos() {
             div_evento[i].appendChild(div1)
         }
         const div_btn = document.getElementsByClassName("img_text_container");
-        // console.log(div_btn, "es un:", typeof div_evento)
         for (let i = 0; i < div_btn.length; i++) {
             let div2 = document.createElement("div")
             div2.className = eventos[i].btnclass;
@@ -67,7 +64,6 @@ function mostrarEventos() {
 
 
     } else {
-        // console.log(div_max_eventos)
         for (let i = 0; i < cantidad_eventos; i++) {
             let div0 = document.createElement("div")
             div0.className = "img_container";
@@ -77,7 +73,6 @@ function mostrarEventos() {
         divSeparador.classList.add("separador")
         divSeparador.setAttribute("style", "display:none;")
         div_max_eventos.appendChild(divSeparador)
-        console.log("asdds")
 
         for (let i = 0; i < eventos.length - cantidad_eventos; i++) {
             let div0 = document.createElement("div")
@@ -85,7 +80,6 @@ function mostrarEventos() {
             div_max_eventos.appendChild(div0)
         }
         const div_evento = document.getElementsByClassName("img_container");
-        // console.log(div_evento, "es un:", typeof div_evento)
 
         for (let i = 0; i < eventos.length; i++) {
             let imagen = document.createElement("img")
@@ -97,7 +91,6 @@ function mostrarEventos() {
             div_evento[i].appendChild(div1)
         }
         const div_btn = document.getElementsByClassName("img_text_container");
-        // console.log(div_btn, "es un:", typeof div_evento)
         for (let i = 0; i < eventos.length; i++) {
             let div2 = document.createElement("div")
             div2.className = eventos[i].btnclass;
@@ -136,7 +129,6 @@ var modalesDeEventos = [modalEvento1, modalEvento2, modalEvento3, modalEvento4, 
 function crearModalesDeEventos() {
     const articleModales = document.querySelector(".modales");
     if (articleModales != null) {
-        // console.log(div_max_eventos)
         for (let i = 0; i < modalesDeEventos.length; i++) {
             let div0 = document.createElement("div")
             div0.classList.add("modal")
@@ -144,7 +136,6 @@ function crearModalesDeEventos() {
             articleModales.appendChild(div0)
         }
         const claseModal = document.querySelectorAll(".modales >.modal");
-        /* console.log(claseModal) */
         for (let i = 0; i < modalesDeEventos.length; i++) {
             let modalHeader = document.createElement("div")
             let modalBody = document.createElement("div")
@@ -156,9 +147,7 @@ function crearModalesDeEventos() {
 
         const claseHeader = document.querySelectorAll(".modales >.modal >.modal-header");
         const claseBody = document.querySelectorAll(".modales >.modal >.modal-body")
-        /* console.log(claseHeader.length) */
         for (let i = 0; i < modalesDeEventos.length; i++) {
-            /* console.log(modalesDeEventos.length) */
 
             let divTitle = document.createElement("div")
             let closeBtn = document.createElement("button")
@@ -198,7 +187,6 @@ function verMasEventos() {
         article.appendChild(h4VerMasBtn)
         h4VerMasBtn.appendChild(verMasBtn)
         const divsOcultos = document.querySelectorAll(".oculto")
-        console.log(divsOcultos)
         verMasBtn.addEventListener("click", () => {
             if (verMasBtn.textContent === "VER TODOS") {
                 verMasBtn.textContent = "VER MENOS"
@@ -237,7 +225,6 @@ var streaming8 = new eventoProximo(7, "./img/eventos/holofonico.jpg", "a", "img-
 var streamings = [streaming1, streaming2, streaming5, streaming6, streaming7, streaming5, streaming6, streaming7, streaming4, streaming1, streaming2, streaming5, streaming1, streaming2, streaming5, streaming6, streaming1, streaming2, streaming5, streaming6, streaming7, streaming5, streaming6, streaming7, streaming5, streaming6, streaming6, streaming7, streaming8, streaming2, streaming7, streaming2, streaming5, streaming6, streaming7, streaming4, streaming3]
 
 //mostrando eventos
-console.log(streamings.length)
 
 function mostrarStreamings() {
     const div_max_streaming = document.querySelector(".streaming");
@@ -282,7 +269,6 @@ function mostrarStreamings() {
 
 
     } else {
-        // console.log(div_max_eventos)
         for (let i = 0; i < cantidad_streamings; i++) {
             let div00 = document.createElement("div")
             div00.className = "img_container_st";
@@ -292,7 +278,6 @@ function mostrarStreamings() {
         divSeparador.classList.add("separador")
         divSeparador.setAttribute("style", "display:none;")
         div_max_streaming.appendChild(divSeparador)
-        console.log("asdds st")
 
         for (let i = 0; i < streamings.length - cantidad_streamings; i++) {
             let div00 = document.createElement("div")
@@ -300,8 +285,6 @@ function mostrarStreamings() {
             div_max_streaming.appendChild(div00)
         }
         const div_streaming = document.getElementsByClassName("img_container_st");
-        // console.log(div_evento, "es un:", typeof div_evento)
-        console.log(div_streaming)
 
         for (let i = 0; i < streamings.length; i++) {
             let imagen = document.createElement("img")
@@ -325,7 +308,6 @@ function mostrarStreamings() {
 
         }
         const div_btn = document.getElementsByClassName("img_text_container_st");
-        // console.log(div_btn, "es un:", typeof div_evento)
         for (let i = 0; i < streamings.length; i++) {
             let div2 = document.createElement("div")
             div2.className = streamings[i].btnclass;
@@ -351,7 +333,6 @@ function verMasStreamings() {
         article.appendChild(h4VerMasBtn)
         h4VerMasBtn.appendChild(verMasBtn)
         const divsOcultos = document.querySelectorAll(".oculto")
-        console.log(divsOcultos)
         verMasBtn.addEventListener("click", () => {
             if (verMasBtn.textContent === "VER TODOS") {
                 verMasBtn.textContent = "VER MENOS"
@@ -405,7 +386,6 @@ window.onscroll = function () { myFunction() };
 let nav = document.querySelector("nav");
 
 let sticky = nav.offsetTop;
-/* console.log(sticky); */
 // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function myFunction() {
     if (window.pageYOffset > sticky) {
@@ -414,7 +394,6 @@ function myFunction() {
         nav.classList.remove("sticky");
     }
 
-    /* console.log(window.pageYOffset); */
 }
 user_login = () => {
     let miuser = document.getElementsByClassName("menu2")
@@ -436,11 +415,9 @@ user_login()
 //MICUENTA
 const getValueInput = () => {
 
-    // console.log(typeof micuenta)
     let inputValue = document.getElementById("email_log").value;
     if (inputValue == "") {
         micuenta = true;
-        crearCuadrosModales("#ingresedatos"); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
 
         var modal = document.querySelector("#ingresedatos");
         openModal(modal);
@@ -462,7 +439,6 @@ const salirLogin = () => {
     micuenta = true;
     inputValue = "";
     user_login();
-    crearCuadrosModales("#salido"); //Acá se manda a crear los cuadros modales y se envía el modaltarget para que tenga luego procesar el id
     var modal2 = document.querySelector("#salido");
     openModal(modal2);
 }
@@ -480,11 +456,9 @@ const overlay = document.getElementById("overlay")
 openModalButtons.forEach(button => {
 
     button.addEventListener("click", () => {
-        /* console.log(button.dataset.modalTarget) */
         if (button.dataset.modalTarget == "#comprado") {
             if (micuenta) {
                 const modal = document.querySelector("#loguearse");
-                /* console.log(modal) */
                 openModal(modal);
             } else {
                 const modal = document.querySelector("#exitoso");
@@ -571,11 +545,5 @@ overlay.addEventListener("click", () => {
     nav.classList.remove("navegacion-mobile");
     overlay.classList.remove("active");
 });
-/*     var divs = document.querySelectorAll(".content > div:not(.toggle)");
-    console.log(divs)
-    divs.forEach(div => {
-        div.addEventListener("click", () => {
-            nav.classList.remove("navegacion-mobile");
-        })
-    }) */
+
 
