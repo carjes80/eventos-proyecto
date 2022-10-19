@@ -548,3 +548,45 @@ overlay.addEventListener("click", () => {
 });
 
 
+// API REST de FUTBOL
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'fb42b684c6msh266375bbf88f853p1e3f64jsnaeeb36666192',
+		'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+	}
+};
+
+fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?league=128&season=2022&next=4', options)
+	.then(response => response.json())
+    .then(data => mostrarData(data))
+
+	.catch(err => console.error(err));
+
+    const mostrarData = (data) => {
+
+        const div_max_club = document.querySelector(".futbol");
+        for(let i=0;i<4;i++){
+            let div00 = document.createElement("div");
+            div00.className = "clubes_container";
+            div_max_club.appendChild(div00)
+        }
+        const div_clubes = document.getElementsByClassName("clubes_container");
+        for(let i = 0;i<4;i++){
+            let imagen00 = document.createElement("img")
+            imagen00.src=data.response[i].teams.home.logo;
+            imagen00.className = "club_img";
+            div_clubes[i].appendChild(imagen00)
+            let span00 = document.createElement("span")
+            span00.textContent="vs";
+            span00.className = "vs";
+            div_clubes[i].appendChild(span00)
+            let imagen01 = document.createElement("img")
+            imagen01.src=data.response[i].teams.away.logo;
+            imagen01.className = "club_img";
+            div_clubes[i].appendChild(imagen01)
+
+
+        }
+       
+    }
