@@ -1,3 +1,4 @@
+/* Acá van las variables que se usarán en la mayoría de los estílos. Se crean para facilitar los cambios */
 :root {
     --color-fuente-pincipal: white;
     --color-fuente-secundaria: rgba(245, 202, 0, 255);
@@ -19,7 +20,7 @@
     --size-menu-nav: 1.2rem;
 
 }
-
+/* Etiquetas principales */
 html {
     scroll-behavior: smooth;
 }
@@ -48,7 +49,7 @@ nav {
 #faq_h2{
     text-align: center;
 }
-
+/* Navegación */
 .toggle {
     display: none;
     font-size: 2em;

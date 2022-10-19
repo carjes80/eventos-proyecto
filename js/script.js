@@ -1,6 +1,6 @@
 // Variables globales
-var cantidad_eventos =8;
-var cantidad_streamings = 12;
+var cantidad_eventos =8; //Cantidad de eventos a mostrar en la ventana principal
+var cantidad_streamings = 12; //Cantidad de streaming a mostrar en la ventana principal
 
 //creando clase de eventos
 
@@ -29,7 +29,7 @@ var evento6 = new eventoProximo(5, "./img/eventos/remeneo-evento.jpg", "a", "img
 var evento7 = new eventoProximo(6, "./img/eventos/harlem-evento.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#harlem", "HARLEM", "29 y 30 de Octubre de 2022 - 18:00 hrs.", "Estación Belgrano", "Ciudad de Santa Fé")
 var evento8 = new eventoProximo(7, "./img/eventos/holofonico.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#holofonicos", "Parlantes Holofónicos", "Todos los Jueves de Noviembre a la media noche", "Hipódromo de Palermo", "Av. Libertador 4500")
 
-//arreglo de eventos
+//arreglo de eventos - Son creados al azar para representar el total de eventos de la página.
 var eventos = [evento1, evento2, evento3, evento4, evento5, evento6, evento7, evento8, evento2, evento3, evento1, evento4]
 //mostrando eventos
 function mostrarEventos() {
@@ -416,7 +416,8 @@ user_login()
 const getValueInput = () => {
 
     let inputValue = document.getElementById("email_log").value;
-    if (inputValue == "") {
+    let inputValue2 = document.getElementById("password").value;
+    if (inputValue == "" || inputValue2 == "") {
         micuenta = true;
 
         var modal = document.querySelector("#ingresedatos");
