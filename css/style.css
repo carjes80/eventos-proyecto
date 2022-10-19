@@ -705,6 +705,8 @@ ul {
     transform: scale(1.1);
     transition: transform 0.5s;
     box-shadow: 0 3px 10px var(--color-shadow);
+    background-color: lightgrey;
+    color:black;
 }
 .club_img{
     max-height: 80%;
