@@ -557,7 +557,7 @@ const options = {
     }
 };
 
-fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?league=128&season=2022&last=4', options)
+fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?league=128&last=4', options)
     .then(response => response.json())
     .then(data => mostrarData(data))
 
