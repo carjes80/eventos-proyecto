@@ -1,5 +1,5 @@
 // Variables globales
-var cantidad_eventos =8; //Cantidad de eventos a mostrar en la ventana principal
+var cantidad_eventos = 8; //Cantidad de eventos a mostrar en la ventana principal
 var cantidad_streamings = 12; //Cantidad de streaming a mostrar en la ventana principal
 
 //creando clase de eventos
@@ -550,43 +550,57 @@ overlay.addEventListener("click", () => {
 
 // API REST de FUTBOL
 const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'fb42b684c6msh266375bbf88f853p1e3f64jsnaeeb36666192',
-		'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
-	}
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': 'fb42b684c6msh266375bbf88f853p1e3f64jsnaeeb36666192',
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+    }
 };
 
-fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?league=128&season=2022&next=4', options)
-	.then(response => response.json())
+fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?league=128&season=2022&last=4', options)
+    .then(response => response.json())
     .then(data => mostrarData(data))
 
-	.catch(err => console.error(err));
+    .catch(err => console.error(err));
 
-    const mostrarData = (data) => {
+const mostrarData = (data) => {
 
-        const div_max_club = document.querySelector(".futbol");
-        for(let i=0;i<4;i++){
+    const div_max_club = document.querySelector(".futbol");
+    if (data.response.length > 0) {
+        for (let i = 0; i < data.response.length; i++) {
             let div00 = document.createElement("div");
             div00.className = "clubes_container";
             div_max_club.appendChild(div00)
         }
         const div_clubes = document.getElementsByClassName("clubes_container");
-        for(let i = 0;i<4;i++){
+        for (let i = 0; i < data.response.length; i++) {
             let imagen00 = document.createElement("img")
-            imagen00.src=data.response[i].teams.home.logo;
+            imagen00.src = data.response[i].teams.home.logo;
             imagen00.className = "club_img";
             div_clubes[i].appendChild(imagen00)
             let span00 = document.createElement("span")
-            span00.textContent="vs";
-            span00.className = "vs";
+            span00.textContent = data.response[i].goals.home;
+            span00.className = "resultado";
             div_clubes[i].appendChild(span00)
+            let span01 = document.createElement("span")
+            span01.textContent = "-";
+            span01.className = "vs";
+            div_clubes[i].appendChild(span01)
+            let span02 = document.createElement("span")
+            span02.textContent = data.response[i].goals.home;
+            span02.className = "resultado";
+            div_clubes[i].appendChild(span02)
             let imagen01 = document.createElement("img")
-            imagen01.src=data.response[i].teams.away.logo;
+            imagen01.src = data.response[i].teams.away.logo;
             imagen01.className = "club_img";
             div_clubes[i].appendChild(imagen01)
-
-
         }
-       
+    } else {
+        let div00 = document.createElement("div");
+        div00.className = "clubes_container";
+        div00.textContent = "Temporada finalizada"
+        div_max_club.appendChild(div00)
+
     }
+
+}

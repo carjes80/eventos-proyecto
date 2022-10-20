@@ -692,7 +692,7 @@ ul {
 
 .clubes_container{
     position: relative;
-    width: 12vw;
+    width: 15vw;
     height: 5vw;
     margin: 0.8rem;
     padding: 0.4rem;
@@ -712,7 +712,9 @@ ul {
     max-height: 80%;
     width: fit-content;
 }
-
+.vs,.resultado{
+    font-size: 2vw;
+}
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
@@ -745,8 +747,7 @@ ul {
     }
 }
 
-/* On smaller screens, decrease text size 
-revisar para qué se usa y modificar cuando ajustemos la página completa*/
+/* On smaller screens, decrease text size */
 @media only screen and (min-width: 1025px) {
     :root {
         font-size: 16px
@@ -766,6 +767,7 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
         padding: 0.4rem;
         border-radius: 11px;
     }
+
 
     .img-size1 {
         display: block
@@ -804,6 +806,9 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
         padding: 0.4rem;
 
     }
+    .vs,.resultado{
+        font-size: 2.7vw;
+    }
 
     .img-size1 {
         display: block
@@ -838,6 +843,9 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
         margin: 0.5rem;
         padding: 0.4rem;
 
+    }
+    .vs,.resultado{
+        font-size: 3vw;
     }
 
     .img_container_st {
@@ -942,6 +950,9 @@ revisar para qué se usa y modificar cuando ajustemos la página completa*/
         margin: 0.5rem;
         padding: 0.4rem;
 
+    }
+    .vs,.resultado{
+        font-size: 4vw;
     }
 
     .menu,
