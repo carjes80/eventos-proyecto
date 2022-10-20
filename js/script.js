@@ -587,7 +587,7 @@ const mostrarData = (data) => {
             span01.className = "vs";
             div_clubes[i].appendChild(span01)
             let span02 = document.createElement("span")
-            span02.textContent = data.response[i].goals.home;
+            span02.textContent = data.response[i].goals.away;
             span02.className = "resultado";
             div_clubes[i].appendChild(span02)
             let imagen01 = document.createElement("img")
