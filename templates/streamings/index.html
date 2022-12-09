@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Administración de Eventos
+    </title>
+</head>
+
+<body style="max-width: 85%; text-align: center; margin: 5%;">
+    <h1>Tabla de streamings</h1>
+    <!-- la tabla se generó con bootstrap con b-table-header -->
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Foto</th>
+                <th>Título</th>
+                <th>Cuando</th>
+                <th>Donde</th>
+                <th>Dirección</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Con el Jinja2 se podrá usar el jfor, que te genera directamente un for in endfor que se usará a continuación -->
+            <!-- En la variable empleados habiamos guardado la tupla asi que para cada empleado, recorremos todos sus campos-->
+            {% for streaming in streamings %}
+
+            <tr>
+                <td>0000{{streaming[0]}}</td>
+                <td>{{streaming[1]}}</td>
+                <td>{{streaming[2]}}</td>
+                <td>{{streaming[3]}}</td>
+                <td>{{streaming[4]}}</td>
+                <td>{{streaming[5]}}</td>
+                <td>{{streaming[6]}}</td>
+                <td>
+                    <a href="/edit/{{streaming[0]}}">Editar</a> |
+                    <a href="/destroy/{{streaming[0]}}">Borrar</a>
+                </td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+    <br></br>
+
+    <div class="btn-group" role="group" aria-label="Button group">
+        <button><a href="/create"> CREAR </a></button>
+
+    </div>
+</body>
+
+</html>
