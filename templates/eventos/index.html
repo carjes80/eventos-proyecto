@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Se incluye la etiqueta de abajo con el jinja, y se comparte el header y el footer -->
+    {% include 'header.html' %} 
+    <h2>Eventos</h2>
+           <a class="btn btn-success" href="{{url_for('create')}}">Cargar nuevo evento</a><br><br>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <title>CRUD 22516
-    </title>
-</head>
-
-<body style="max-width: 85%; text-align: center; margin: 5%;">
-    <h1>Tabla de eventos</h1>
     <!-- la tabla se generó con bootstrap con b-table-header -->
     <table class="table table-light">
         <thead class="thead-light">
@@ -27,20 +19,21 @@
         </thead>
         <tbody>
             <!-- Con el Jinja2 se podrá usar el jfor, que te genera directamente un for in endfor que se usará a continuación -->
-            <!-- En la variable empleados habiamos guardado la tupla asi que para cada empleado, recorremos todos sus campos-->
+            <!-- En la variable eventos habiamos guardado la tupla asi que para cada evento, recorremos todos sus campos-->
             {% for evento in eventos %}
 
             <tr>
                 <td>0000{{evento[6]}}</td>
                 <td>{{evento[0]}}</td>
-                <td>{{evento[1]}}</td>
+                <!-- Acá se ponen un img apuntando a la carpeta donde están las fotos y nombre de la foto -->
+                <td><img class="img-thumbnail" width="100" src="/img/eventos/{{evento[1]}}" alt=""></td> 
                 <td>{{evento[2]}}</td>
                 <td>{{evento[3]}}</td>
                 <td>{{evento[4]}}</td>
                 <td>{{evento[5]}}</td>
                 <td>
-                    <a href="/edit/{{evento[6]}}">Editar</a> |
-                    <a href="/destroy/{{evento[6]}}">Borrar</a>
+                    <a class="btn btn-warning"href="/edit/{{evento[6]}}">Editar</a> |
+                    <a class="btn btn-danger" href="/destroy/{{evento[6]}}" onclick="return confirm('¿Está seguro que quiere borrar al evento {{evento[0]}}?')">Borrar</a>
                 </td>
             </tr>
 
@@ -49,10 +42,4 @@
     </table>
     <br></br>
 
-    <div class="btn-group" role="group" aria-label="Button group">
-        <button><a href="/create"> CREAR </a></button>
-
-    </div>
-</body>
-
-</html>
+    {% include 'footer.html' %}

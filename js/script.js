@@ -2,8 +2,10 @@
 var cantidad_eventos = 8; //Cantidad de eventos a mostrar en la ventana principal
 var cantidad_streamings = 12; //Cantidad de streaming a mostrar en la ventana principal
 
-//creando clase de eventos
 
+
+
+//creando clase de eventos
 class eventoProximo {
     constructor(id, carpeta, alter, imgclass, divclass, btnclass, name, titulo, cuando, donde, direccion) {
         this.id = id
@@ -20,7 +22,7 @@ class eventoProximo {
     }
 
 }
-var evento1 = new eventoProximo(0, "./img/eventos/elovate.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#elovate", "12/11 Michael Bibi Presents ELOVATE (+18)", "Sábado 12 de Noviembre 2022 - 23:55 hrs.", "<strong>Madero Boardwalk</strong>", "Cecilia Grierson 400 - Puerto Madero")
+var evento1 = new eventoProximo(0, "./img/eventos/arch.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#elovate", "12/11 Michael Bibi Presents ELOVATE (+18)", "Sábado 12 de Noviembre 2022 - 23:55 hrs.", "<strong>Madero Boardwalk</strong>", "Cecilia Grierson 400 - Puerto Madero")
 var evento2 = new eventoProximo(1, "./img/eventos/kalua.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#kalua", "Kalúa (+18)", "Sábado 05 de Noviembre 2022 - 00:00 hrs.", "Club La Octava", "Niceto Vega 5702")
 var evento3 = new eventoProximo(2, "./img/eventos/fdd.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#fod", "FOD", "Sábado 20 de Noviembre 2022 - 00:00 hrs.", "Groove", "Santa Fe 5000")
 var evento4 = new eventoProximo(3, "./img/eventos/aconcagua.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#aconcagua", "FESTIVAL ACONCAGUA", "Sábado 01 de Octubre 2022 - 00:00 hrs.", "Hipódromo de Palermo", "Av. Libertador 4500")
@@ -30,34 +32,45 @@ var evento7 = new eventoProximo(6, "./img/eventos/harlem-evento.jpg", "a", "img-
 var evento8 = new eventoProximo(7, "./img/eventos/holofonico.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#holofonicos", "Parlantes Holofónicos", "Todos los Jueves de Noviembre a la media noche", "Hipódromo de Palermo", "Av. Libertador 4500")
 
 //arreglo de eventos - Son creados al azar para representar el total de eventos de la página.
-var eventos = [evento1, evento2, evento3, evento4, evento5, evento6, evento7, evento8, evento2, evento3, evento1, evento4]
+var eventos = []
+fetch('http://127.0.0.1:5000/api/eventos', {
+    method: 'GET',
+    // mode: 'no-cors', // <---
+})
+    .then(datos => datos.json())
+    .then(eventos => mostrarEventos(eventos))
+    .catch(de => console.error(de));
+
 //mostrando eventos
-function mostrarEventos() {
+var mostrarEventos = (eventos) => {
+    var cant_eventos = Object.keys(eventos.eventos)
     const div_max_eventos = document.querySelector(".eventoproximo");
-    if (eventos.length <= cantidad_eventos) {
-        for (let i = 0; i < eventos.length; i++) {
+    console.log(cant_eventos.length)
+    if (cant_eventos.length <= cantidad_eventos) {
+        for (let i = 0; i < cant_eventos.length; i++) {
             let div0 = document.createElement("div")
             div0.className = "img_container";
             div_max_eventos.appendChild(div0)
         }
         const div_evento = document.getElementsByClassName("img_container");
-
-        for (let i = 0; i < eventos.length; i++) {
+        console.log(div_evento)
+        for (let i = 0; i < cant_eventos.length; i++) {
             let imagen = document.createElement("img")
-            imagen.src = eventos[i].carpeta;
-            imagen.className = eventos[i].imgclass;
+            // console.log("./img/eventos"+eventos[i].carpeta)
+            imagen.src = "./img/eventos/"+eventos.eventos[i].carpeta;
+            imagen.className = "img-eventoproximo";
             div_evento[i].appendChild(imagen)
             let div1 = document.createElement("div")
-            div1.className = eventos[i].divclass;
+            div1.className = "img_text_container";
             div_evento[i].appendChild(div1)
         }
         const div_btn = document.getElementsByClassName("img_text_container");
         for (let i = 0; i < div_btn.length; i++) {
             let div2 = document.createElement("div")
-            div2.className = eventos[i].btnclass;
+            div2.className = "img_text";
             div_btn[i].appendChild(div2)
             btn = document.getElementsByClassName("img_text")
-            btn[i].innerHTML = '<button data-modal-target="' + eventos[i].name + '">+INFO</button>';
+            btn[i].innerHTML = '<button data-modal-target="' + eventos.eventos[i].name + '">+INFO</button>';
 
         }
 
@@ -74,36 +87,38 @@ function mostrarEventos() {
         divSeparador.setAttribute("style", "display:none;")
         div_max_eventos.appendChild(divSeparador)
 
-        for (let i = 0; i < eventos.length - cantidad_eventos; i++) {
+        for (let i = 0; i < cant_eventos.length - cantidad_eventos; i++) {
             let div0 = document.createElement("div")
             div0.classList.add("img_container", "oculto", "visible")
             div_max_eventos.appendChild(div0)
         }
         const div_evento = document.getElementsByClassName("img_container");
+        console.log(div_evento,eventos)
 
-        for (let i = 0; i < eventos.length; i++) {
+        for (let i = 0; i < cant_eventos.length; i++) {
             let imagen = document.createElement("img")
-            imagen.src = eventos[i].carpeta;
-            imagen.className = eventos[i].imgclass;
+            // console.log("./img/eventos"+eventos[i].carpeta)
+            imagen.src = "./img/eventos/" + eventos.eventos[i].carpeta;
+            imagen.className = "img-eventoproximo";
             div_evento[i].appendChild(imagen)
             let div1 = document.createElement("div")
-            div1.className = eventos[i].divclass;
+            div1.className = "img_text_container";
             div_evento[i].appendChild(div1)
         }
         const div_btn = document.getElementsByClassName("img_text_container");
-        for (let i = 0; i < eventos.length; i++) {
+        for (let i = 0; i < cant_eventos.length; i++) {
             let div2 = document.createElement("div")
-            div2.className = eventos[i].btnclass;
+            div2.className = "img_text";
             div_btn[i].appendChild(div2)
             btn = document.getElementsByClassName("img_text")
-            btn[i].innerHTML = '<button data-modal-target="' + eventos[i].name + '">+INFO</button>';
+            btn[i].innerHTML = '<button data-modal-target="' + eventos.eventos[i].name + '">+INFO</button>';
 
         }
 
     }
-
+    verMasEventos(cant_eventos.length)
 }
-mostrarEventos()
+// mostrarEventos()
 
 //creando clase de modales de eventos
 class modalesDeEventosProximos {
@@ -176,8 +191,9 @@ function crearModalesDeEventos() {
 crearModalesDeEventos();
 
 //BOTON VER MAS
-function verMasEventos() {
-    if (eventos.length > cantidad_eventos) {
+function verMasEventos(eventos) {
+    var cant_eventos = Object.keys(eventos.eventos)
+    if (cant_eventos.length > cantidad_eventos) {
         const article = document.querySelector("#eventos >article")
         article.appendChild(document.createElement("br"))
         const h4VerMasBtn = document.createElement("h4")
@@ -199,7 +215,7 @@ function verMasEventos() {
         })
     }
 }
-verMasEventos()
+// verMasEventos()
 
 //LOADER
 const body = document.querySelector("body");
@@ -212,7 +228,7 @@ window.addEventListener("load", () => {
 
 //STREAMING
 
-var streaming1 = new eventoProximo(0, "./img/eventos/elovate.jpg", "a", "img-eventoproximo", "img_text_container_st", "img_text_st", "#elovate", "12/11 Michael Bibi Presents ELOVATE (+18)", "Sábado 12 de Noviembre 2022 - 23:55 hrs.", "<strong>Madero Boardwalk</strong>", "Cecilia Grierson 400 - Puerto Madero")
+var streaming1 = new eventoProximo(0, "./img/eventos/kalua.jpg", "a", "img-eventoproximo", "img_text_container_st", "img_text_st", "#elovate", "12/11 Michael Bibi Presents ELOVATE (+18)", "Sábado 12 de Noviembre 2022 - 23:55 hrs.", "<strong>Madero Boardwalk</strong>", "Cecilia Grierson 400 - Puerto Madero")
 var streaming2 = new eventoProximo(1, "./img/eventos/kalua.jpg", "a", "img-eventoproximo", "img_text_container_st", "img_text_st", "#kalua", "Kalúa (+18)", "Sábado 05 de Noviembre 2022 - 00:00 hrs.", "Club La Octava", "Niceto Vega 5702")
 var streaming3 = new eventoProximo(2, "./img/eventos/fdd.jpg", "a", "img-eventoproximo", "img_text_container_st", "img_text_st", "#fod", "FOD", "Sábado 20 de Noviembre 2022 - 00:00 hrs.", "Groove", "Santa Fe 5000")
 var streaming4 = new eventoProximo(3, "./img/eventos/aconcagua.jpg", "a", "img-eventoproximo", "img_text_container_st", "img_text_st", "#aconcagua", "FESTIVAL ACONCAGUA", "Sábado 01 de Octubre 2022 - 00:00 hrs.", "Hipódromo de Palermo", "Av. Libertador 4500")
@@ -548,59 +564,65 @@ overlay.addEventListener("click", () => {
 });
 
 
-// API REST de FUTBOL
-const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': 'fb42b684c6msh266375bbf88f853p1e3f64jsnaeeb36666192',
-        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
-    }
-};
+// // API REST de FUTBOL
+// const options = {
+//     method: 'GET',
+//     headers: {
+//         'X-RapidAPI-Key': 'fb42b684c6msh266375bbf88f853p1e3f64jsnaeeb36666192',
+//         'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+//     }
+// };
 
-fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?league=128&last=4', options)
-    .then(response => response.json())
-    .then(data => mostrarData(data))
+// fetch('https://api-football-v1.p.rapidapi.com/v3/fixtures?league=128&last=4', options)
+//     .then(response => response.json())
+//     .then(data => mostrarData(data))
 
-    .catch(err => console.error(err));
+//     .catch(err => console.error(err));
 
-const mostrarData = (data) => {
+// const mostrarData = (data) => {
 
-    const div_max_club = document.querySelector(".futbol");
-    if (data.response.length > 0) {
-        for (let i = 0; i < data.response.length; i++) {
-            let div00 = document.createElement("div");
-            div00.className = "clubes_container";
-            div_max_club.appendChild(div00)
-        }
-        const div_clubes = document.getElementsByClassName("clubes_container");
-        for (let i = 0; i < data.response.length; i++) {
-            let imagen00 = document.createElement("img")
-            imagen00.src = data.response[i].teams.home.logo;
-            imagen00.className = "club_img";
-            div_clubes[i].appendChild(imagen00)
-            let span00 = document.createElement("span")
-            span00.textContent = data.response[i].goals.home;
-            span00.className = "resultado";
-            div_clubes[i].appendChild(span00)
-            let span01 = document.createElement("span")
-            span01.textContent = "-";
-            span01.className = "vs";
-            div_clubes[i].appendChild(span01)
-            let span02 = document.createElement("span")
-            span02.textContent = data.response[i].goals.away;
-            span02.className = "resultado";
-            div_clubes[i].appendChild(span02)
-            let imagen01 = document.createElement("img")
-            imagen01.src = data.response[i].teams.away.logo;
-            imagen01.className = "club_img";
-            div_clubes[i].appendChild(imagen01)
-        }
-    } else {
-        let div00 = document.createElement("div");
-        div00.className = "clubes_container";
-        div00.textContent = "Temporada finalizada"
-        div_max_club.appendChild(div00)
+//     const div_max_club = document.querySelector(".futbol");
+//     if (data.response.length > 0) {
+//         for (let i = 0; i < data.response.length; i++) {
+//             let div00 = document.createElement("div");
+//             div00.className = "clubes_container";
+//             div_max_club.appendChild(div00)
+//         }
+//         const div_clubes = document.getElementsByClassName("clubes_container");
+//         for (let i = 0; i < data.response.length; i++) {
+//             let imagen00 = document.createElement("img")
+//             imagen00.src = data.response[i].teams.home.logo;
+//             imagen00.className = "club_img";
+//             div_clubes[i].appendChild(imagen00)
+//             let span00 = document.createElement("span")
+//             span00.textContent = data.response[i].goals.home;
+//             span00.className = "resultado";
+//             div_clubes[i].appendChild(span00)
+//             let span01 = document.createElement("span")
+//             span01.textContent = "-";
+//             span01.className = "vs";
+//             div_clubes[i].appendChild(span01)
+//             let span02 = document.createElement("span")
+//             span02.textContent = data.response[i].goals.away;
+//             span02.className = "resultado";
+//             div_clubes[i].appendChild(span02)
+//             let imagen01 = document.createElement("img")
+//             imagen01.src = data.response[i].teams.away.logo;
+//             imagen01.className = "club_img";
+//             div_clubes[i].appendChild(imagen01)
+//         }
+//     } else {
+//         let div00 = document.createElement("div");
+//         div00.className = "clubes_container";
+//         div00.textContent = "Temporada finalizada"
+//         div_max_club.appendChild(div00)
 
-    }
+//     }
 
-}
+// }
+
+
+
+
+
+
