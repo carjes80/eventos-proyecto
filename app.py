@@ -23,9 +23,9 @@ app.secret_key = 'clavesecretanecesaria'
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 # Para configurar la conexión, creamos un objeto MySQL
 mysql = MySQL()
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'  # La dirección de la base
-app.config['MYSQL_DATABASE_USER'] = 'root'  # usuario por defecto
-app.config['MYSQL_DATABASE_PASSWORD'] = ''  # la clave
+app.config['MYSQL_DATABASE_HOST'] = 'eventos.ck25opae5r3t.sa-east-1.rds.amazonaws.com'  # La dirección de la base
+app.config['MYSQL_DATABASE_USER'] = 'admin'  # usuario por defecto
+app.config['MYSQL_DATABASE_PASSWORD'] = 'eventoscodoacodo'  # la clave
 app.config['MYSQL_DATABASE_PORT'] = 3306  # Por defecto es el 3306
 app.config['MYSQL_DATABASE_BD'] = 'eventos'  # Es la base de datos
 # Aqui le estamos pasando toda la configuración de app al objeto MySQL creado para iniciar la conexión
