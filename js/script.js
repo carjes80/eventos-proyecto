@@ -22,18 +22,9 @@ class eventoProximo {
     }
 
 }
-var evento1 = new eventoProximo(0, "./img/eventos/arch.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#elovate", "12/11 Michael Bibi Presents ELOVATE (+18)", "Sábado 12 de Noviembre 2022 - 23:55 hrs.", "<strong>Madero Boardwalk</strong>", "Cecilia Grierson 400 - Puerto Madero")
-var evento2 = new eventoProximo(1, "./img/eventos/kalua.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#kalua", "Kalúa (+18)", "Sábado 05 de Noviembre 2022 - 00:00 hrs.", "Club La Octava", "Niceto Vega 5702")
-var evento3 = new eventoProximo(2, "./img/eventos/fdd.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#fod", "FOD", "Sábado 20 de Noviembre 2022 - 00:00 hrs.", "Groove", "Santa Fe 5000")
-var evento4 = new eventoProximo(3, "./img/eventos/aconcagua.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#aconcagua", "FESTIVAL ACONCAGUA", "Sábado 01 de Octubre 2022 - 00:00 hrs.", "Hipódromo de Palermo", "Av. Libertador 4500")
-var evento5 = new eventoProximo(4, "./img/eventos/arch.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#arch", "ARCH ENEMY", "Sábado 21 de Noviembre 2022 - 00:00 hrs.", "Teatro Flores", " Corrientes 4500")
-var evento6 = new eventoProximo(5, "./img/eventos/remeneo-evento.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#remened", "REMENED XL", "Sábado 01 de Octubre 2022 - 00:00 hrs.", "Teatro Flores", "Corrientes 4500")
-var evento7 = new eventoProximo(6, "./img/eventos/harlem-evento.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#harlem", "HARLEM", "29 y 30 de Octubre de 2022 - 18:00 hrs.", "Estación Belgrano", "Ciudad de Santa Fé")
-var evento8 = new eventoProximo(7, "./img/eventos/holofonico.jpg", "a", "img-eventoproximo", "img_text_container", "img_text", "#holofonicos", "Parlantes Holofónicos", "Todos los Jueves de Noviembre a la media noche", "Hipódromo de Palermo", "Av. Libertador 4500")
 
-//arreglo de eventos - Son creados al azar para representar el total de eventos de la página.
 var eventos = []
-fetch('http://127.0.0.1:5000/api/eventos', {
+fetch('https://carjes80.pythonanywhere.com/api/eventos', {
     method: 'GET',
     // mode: 'no-cors', // <---
 })
